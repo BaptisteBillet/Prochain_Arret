@@ -1,0 +1,162 @@
+fileFormatVersion: 2
+guid: 60a8ae12b1d496043802d5086ba64e61
+timeCreated: 1435847900
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Antenna_Sphere
+    100002: Antenna_Wire
+    100004: Body
+    100006: Bubble
+    100008: Emblem_Deformed
+    100010: Head
+    100012: LeftArm
+    100014: LeftArm_Sleeve
+    100016: LeftEye
+    100018: LeftLeg
+    100020: LeftLeg_Sleeve
+    100022: LeftTooth
+    100024: //RootNode
+    100026: RightArm
+    100028: RightArm_Sleeve
+    100030: RightEye
+    100032: RightLeg
+    100034: RightLeg_Sleeve
+    100036: RightTooth
+    400000: Antenna_Sphere
+    400002: Antenna_Wire
+    400004: Body
+    400006: Bubble
+    400008: Emblem_Deformed
+    400010: Head
+    400012: LeftArm
+    400014: LeftArm_Sleeve
+    400016: LeftEye
+    400018: LeftLeg
+    400020: LeftLeg_Sleeve
+    400022: LeftTooth
+    400024: //RootNode
+    400026: RightArm
+    400028: RightArm_Sleeve
+    400030: RightEye
+    400032: RightLeg
+    400034: RightLeg_Sleeve
+    400036: RightTooth
+    2300000: Antenna_Sphere
+    2300002: Antenna_Wire
+    2300004: Body
+    2300006: Bubble
+    2300008: Emblem_Deformed
+    2300010: Head
+    2300012: LeftArm
+    2300014: LeftArm_Sleeve
+    2300016: LeftEye
+    2300018: LeftLeg
+    2300020: LeftLeg_Sleeve
+    2300022: LeftTooth
+    2300024: RightArm
+    2300026: RightArm_Sleeve
+    2300028: RightEye
+    2300030: RightLeg
+    2300032: RightLeg_Sleeve
+    2300034: RightTooth
+    3300000: Antenna_Sphere
+    3300002: Antenna_Wire
+    3300004: Body
+    3300006: Bubble
+    3300008: Emblem_Deformed
+    3300010: Head
+    3300012: LeftArm
+    3300014: LeftArm_Sleeve
+    3300016: LeftEye
+    3300018: LeftLeg
+    3300020: LeftLeg_Sleeve
+    3300022: LeftTooth
+    3300024: RightArm
+    3300026: RightArm_Sleeve
+    3300028: RightEye
+    3300030: RightLeg
+    3300032: RightLeg_Sleeve
+    3300034: RightTooth
+    4300000: Head
+    4300002: Antenna_Sphere
+    4300004: Antenna_Wire
+    4300006: Bubble
+    4300008: Body
+    4300010: Emblem_Deformed
+    4300012: LeftArm_Sleeve
+    4300014: LeftLeg_Sleeve
+    4300016: LeftLeg
+    4300018: LeftEye
+    4300020: RightTooth
+    4300022: LeftTooth
+    4300024: LeftArm
+    4300026: RightEye
+    4300028: RightLeg_Sleeve
+    4300030: RightLeg
+    4300032: RightArm_Sleeve
+    4300034: RightArm
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

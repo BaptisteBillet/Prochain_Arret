@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 1b0c3cab61b3d974dae7fb8047665195
+timeCreated: 1435850516
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Head_MISH_GEO
+    100002: MISH_GEO_Antenna_Sphere
+    100004: MISH_GEO_Antenna_Wire
+    100006: MISH_GEO_Body
+    100008: MISH_GEO_Bubble
+    100010: MISH_GEO_Emblem_Deformed
+    100012: MISH_GEO_LeftArm
+    100014: MISH_GEO_LeftArm_Sleeve
+    100016: MISH_GEO_LeftEye
+    100018: MISH_GEO_LeftLeg
+    100020: MISH_GEO_LeftLeg_Sleeve
+    100022: MISH_GEO_LeftTooth
+    100024: MISH_GEO_RightArm
+    100026: MISH_GEO_RightArm_Sleeve
+    100028: MISH_GEO_RightEye
+    100030: MISH_GEO_RightLeg
+    100032: MISH_GEO_RightLeg_Sleeve
+    100034: MISH_GEO_RightTooth
+    100036: MISH_GEO_Tong
+    100038: //RootNode
+    400000: Head_MISH_GEO
+    400002: MISH_GEO_Antenna_Sphere
+    400004: MISH_GEO_Antenna_Wire
+    400006: MISH_GEO_Body
+    400008: MISH_GEO_Bubble
+    400010: MISH_GEO_Emblem_Deformed
+    400012: MISH_GEO_LeftArm
+    400014: MISH_GEO_LeftArm_Sleeve
+    400016: MISH_GEO_LeftEye
+    400018: MISH_GEO_LeftLeg
+    400020: MISH_GEO_LeftLeg_Sleeve
+    400022: MISH_GEO_LeftTooth
+    400024: MISH_GEO_RightArm
+    400026: MISH_GEO_RightArm_Sleeve
+    400028: MISH_GEO_RightEye
+    400030: MISH_GEO_RightLeg
+    400032: MISH_GEO_RightLeg_Sleeve
+    400034: MISH_GEO_RightTooth
+    400036: MISH_GEO_Tong
+    400038: //RootNode
+    2300000: Head_MISH_GEO
+    2300002: MISH_GEO_Antenna_Sphere
+    2300004: MISH_GEO_Antenna_Wire
+    2300006: MISH_GEO_Body
+    2300008: MISH_GEO_Bubble
+    2300010: MISH_GEO_Emblem_Deformed
+    2300012: MISH_GEO_LeftArm
+    2300014: MISH_GEO_LeftArm_Sleeve
+    2300016: MISH_GEO_LeftEye
+    2300018: MISH_GEO_LeftLeg
+    2300020: MISH_GEO_LeftLeg_Sleeve
+    2300022: MISH_GEO_LeftTooth
+    2300024: MISH_GEO_RightArm
+    2300026: MISH_GEO_RightArm_Sleeve
+    2300028: MISH_GEO_RightEye
+    2300030: MISH_GEO_RightLeg
+    2300032: MISH_GEO_RightLeg_Sleeve
+    2300034: MISH_GEO_RightTooth
+    2300036: MISH_GEO_Tong
+    3300000: Head_MISH_GEO
+    3300002: MISH_GEO_Antenna_Sphere
+    3300004: MISH_GEO_Antenna_Wire
+    3300006: MISH_GEO_Body
+    3300008: MISH_GEO_Bubble
+    3300010: MISH_GEO_Emblem_Deformed
+    3300012: MISH_GEO_LeftArm
+    3300014: MISH_GEO_LeftArm_Sleeve
+    3300016: MISH_GEO_LeftEye
+    3300018: MISH_GEO_LeftLeg
+    3300020: MISH_GEO_LeftLeg_Sleeve
+    3300022: MISH_GEO_LeftTooth
+    3300024: MISH_GEO_RightArm
+    3300026: MISH_GEO_RightArm_Sleeve
+    3300028: MISH_GEO_RightEye
+    3300030: MISH_GEO_RightLeg
+    3300032: MISH_GEO_RightLeg_Sleeve
+    3300034: MISH_GEO_RightTooth
+    3300036: MISH_GEO_Tong
+    4300000: Head_MISH_GEO
+    4300002: MISH_GEO_Antenna_Sphere
+    4300004: MISH_GEO_Antenna_Wire
+    4300006: MISH_GEO_Body
+    4300008: MISH_GEO_Bubble
+    4300010: MISH_GEO_Emblem_Deformed
+    4300012: MISH_GEO_LeftArm
+    4300014: MISH_GEO_LeftArm_Sleeve
+    4300016: MISH_GEO_LeftEye
+    4300018: MISH_GEO_LeftLeg
+    4300020: MISH_GEO_LeftLeg_Sleeve
+    4300022: MISH_GEO_LeftTooth
+    4300024: MISH_GEO_RightArm
+    4300026: MISH_GEO_RightArm_Sleeve
+    4300028: MISH_GEO_RightEye
+    4300030: MISH_GEO_RightLeg
+    4300032: MISH_GEO_RightLeg_Sleeve
+    4300034: MISH_GEO_RightTooth
+    4300036: MISH_GEO_Tong
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
