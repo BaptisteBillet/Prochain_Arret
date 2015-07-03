@@ -4,7 +4,7 @@ using System.Collections;
 public class Navigationscript : MonoBehaviour {
 
 
-	public bool gamestart = false;
+	static public bool gamestart = false;
 
 	// Use this for initialization
 	void Start () 
@@ -17,7 +17,7 @@ public class Navigationscript : MonoBehaviour {
 	{
 		if (gamestart) 
 		{
-			Application.LoadLevel("ecrancartespostales");
+			Application.LoadLevel("PostalCardsScreen");
 		}
 	
 	}
