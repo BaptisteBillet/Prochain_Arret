@@ -4,81 +4,37 @@ using System.Collections;
 public class Navigationscript : MonoBehaviour {
 
 
-	static public bool gamestart = false;
+	public GameObject paneloption;
 
-	static public bool gamepause = false;
-	
+	public GameObject paneltitre; 
 
-	static public int gamecount; 
-
-	public int lastgamecount;
-
-	// Use this for initialization
-	void Start () 
-	{
-
-	}
-
-	
-	// Update is called once per frame
-	void Update () 
-	{
-
-
-		if (gamestart == true)
-		{
-			lastgamecount=gamecount;
-			Application.LoadLevel("PostalCardsScreen");
-			gamecount=2;
-
-		}
+	public GameObject panelpostcards;
 
 
 
-
-		if (gamepause==true)
-		{
-			lastgamecount=gamecount;
-			Application.LoadLevel("OptionsScreen");
-			gamecount = 0; 
-		}
-
-
-
-
-
-
-		if (gamecount == 0) 
-		{
-
-			if (gamestart) 
-			{
-				if (lastgamecount == 2) 
-				{
-					Application.LoadLevel ("PostalCardsScreen");
-				}
-
-				if (lastgamecount == 1) 
-				{
-					Application.LoadLevel ("TitleScreen");
-				}
-			}
-
-		}
-
-		
-
-	
-	}
 
 	public void Startgame() 
 	{
-		gamestart = true;
+			paneltitre.SetActive (false);
+			panelpostcards.SetActive (true);
+
 	}
 
 	public void Pausegame()
 	{
-		gamepause = true;
+		paneltitre.SetActive (false);
+		paneloption.SetActive (true);
 
+	}
+
+	public void UnpauseGame()
+	{
+		paneloption.SetActive (false);
+		paneltitre.SetActive (true);
+	}
+
+	public void Metzgame()
+	{
+		Application.LoadLevel("PostalCardsScreen");
 	}
 }
