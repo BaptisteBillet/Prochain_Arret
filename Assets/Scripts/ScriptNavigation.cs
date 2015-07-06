@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Navigationscript : MonoBehaviour {
+public class ScriptNavigation : MonoBehaviour {
 
 
 	public GameObject paneloption;
