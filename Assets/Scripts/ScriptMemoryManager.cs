@@ -22,33 +22,34 @@ public class ScriptMemoryManager : MonoBehaviour
 			s_Instance = this;
 		//DontDestroyOnLoad(this);
 	}
-
-
-// Plus haut, Sert à créer un singleton. Une instance unique d'une chose
-
-	static public bool m_CanPlay;
+	
+	
+	// Plus haut, Sert à créer un singleton. Une instance unique d'une chose
+	
+	public bool m_CanPlay;
 	//[HideInInspector]
 	public int m_NComparisonCard1;
+	GameObject m_Card;
 	public bool m_FirstCard;
 	public int m_Score; 
 	public int m_ScoreMax;
-// Variables utilitaires pour le script 
-
+	// Variables utilitaires pour le script 
+	
 	public Vector3 m_LocationFirstElement = new Vector3 (-5f,3f,0f);
-
+	
 	public float m_LocationGapX;
 	public float m_LocationGapY;
-
-// Variables de placement de la première carte, le placement des autres peut etre géré par une boucle
-
+	
+	// Variables de placement de la première carte, le placement des autres peut etre géré par une boucle
+	
 	public int m_ArrayX;
 	public int m_ArrayY;
-
-
+	
+	
 	public GameObject[,] m_MemoryArray;
 	
 	public GameObject [] m_ArrayOfCard = new GameObject[8];
-
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -56,8 +57,8 @@ public class ScriptMemoryManager : MonoBehaviour
 		m_MemoryArray= new GameObject[m_ArrayX,m_ArrayY];
 		GridBuilding ();
 	}
-
-
+	
+	
 	void GridBuilding()
 	{
 		for (int x=0;x<m_ArrayX;x++)
@@ -70,19 +71,40 @@ public class ScriptMemoryManager : MonoBehaviour
 			}
 		}
 	}
-		/*
-		for (GameObject go in m_MemoryArray) 
+	
+	public void Compare (GameObject LastClickedCard)
+	{
+		if (m_FirstCard == true) {
+			m_Card = LastClickedCard;
+			m_FirstCard = false;
+		} 
+		else 
 		{
-			go=ArrayOfCard[0];
+			
+			if (m_Card.GetComponent<ScriptCard>().m_CardNumber==LastClickedCard.GetComponent<ScriptCard>().m_CardNumber)
+			{
+				m_Score++;
+				if (m_Score==m_ScoreMax)
+				{
+					Debug.Log ("Victoire");
+				}
+				
+			}
+			
+			else 
+			{
+				m_Card.GetComponent<ScriptCard>().FlipBack();
+				LastClickedCard.GetComponent<ScriptCard>().FlipBack();
+				
+			}
+			
 		}
-		*/
-		//Debug.Log (m_MemoryArray.Length);
-
-
-		/*for 
-
-		m_MemoryArray [0, 0].transform.position = m_LocationFirstElement;
-		*/
-
+		
+		
+		
+		
+	}
+	
+	
 	
 }
