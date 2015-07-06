@@ -22,6 +22,8 @@ public class ScriptCard : MonoBehaviour
 			m_Animator.SetTrigger("Flip1");
 			ScriptMemoryManager.instance.Compare(this.gameObject); 
 
+
+			Debug.Log(m_CardNumber);
 		}
 	}
 
