@@ -44,7 +44,10 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	public int m_ArrayX;
 	public int m_ArrayY;
+
+	public int m_ArrayOfCardstatus;
 	
+
 	
 	public GameObject[,] m_MemoryArray;
 	
@@ -53,8 +56,9 @@ public class ScriptMemoryManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		m_CanPlay = false; 
+		m_CanPlay = true ; 
 		m_MemoryArray= new GameObject[m_ArrayX,m_ArrayY];
+		m_ArrayOfCardstatus = 0;
 		GridBuilding ();
 	}
 	
@@ -65,9 +69,14 @@ public class ScriptMemoryManager : MonoBehaviour
 		{
 			for(int y=0; y<m_ArrayY; y++)
 			{
-				m_MemoryArray[x,y]=m_ArrayOfCard[0];
+				m_MemoryArray[x,y]=m_ArrayOfCard[m_ArrayOfCardstatus];
 				m_MemoryArray[x,y].transform.position = new Vector3 (m_LocationFirstElement.x +(x*2), m_LocationFirstElement.y + (y*2));
 				Instantiate(m_MemoryArray[x,y]);
+				m_ArrayOfCardstatus ++;
+				if (m_ArrayOfCardstatus>7)
+				{
+					m_ArrayOfCardstatus=0;
+				}
 			}
 		}
 	}
