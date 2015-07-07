@@ -59,14 +59,16 @@ public class ScriptMemoryManager : MonoBehaviour
 	//public float m_NCardListIndexMax = 15f;
 
 
-	// Varialbles pour l'attribution de valeurs aux cartes. 
+	// Variables pour l'attribution de valeurs aux cartes. 
 
-	
+
 
 	
 	public GameObject[,] m_MemoryArray;
 	
 	public GameObject [] m_ArrayOfCard = new GameObject[8];
+
+
 	
 	// Use this for initialization
 	void Start () 
@@ -105,21 +107,7 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	void GridBuilding()
 	{
-		/*for (int x=0;x<m_ArrayX;x++)
-		{
-			for(int y=0; y<m_ArrayY; y++)
-			{
-				m_MemoryArray[x,y]=m_ArrayOfCard[m_ArrayOfCardstatus];
-				m_MemoryArray[x,y].transform.position = new Vector3 (m_LocationFirstElement.x +(x*2), m_LocationFirstElement.y + (y*2));
-				Instantiate(m_MemoryArray[x,y]);
-				m_ArrayOfCardstatus ++;
-				if (m_ArrayOfCardstatus>7)
-				{
-					m_ArrayOfCardstatus=0;
-				}
-			}
-		}
-		*/
+
 		for (int x=0;x<m_ArrayX;x++)
 		{
 			for(int y=0; y<m_ArrayY; y++)
@@ -152,7 +140,8 @@ public class ScriptMemoryManager : MonoBehaviour
 	public IEnumerator Compare (GameObject LastClickedCard)
 	{
 
-		if (m_FirstCard == true) {
+		if (m_FirstCard == true) 
+		{
 			m_Card = LastClickedCard;
 			m_FirstCard = false;
 		} 
@@ -162,7 +151,11 @@ public class ScriptMemoryManager : MonoBehaviour
 
 			if (m_Card.GetComponent<ScriptCard>().m_CardNumber==LastClickedCard.GetComponent<ScriptCard>().m_CardNumber)
 			{
+
 				m_Score++;
+
+
+
 				if (m_Score==m_ScoreMax)
 				{
 					Debug.Log ("Victoire");
@@ -186,6 +179,9 @@ public class ScriptMemoryManager : MonoBehaviour
 		}
 		yield return null;
 	}
+
+
+
 
 	
 }
