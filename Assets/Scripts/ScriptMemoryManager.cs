@@ -75,6 +75,8 @@ public class ScriptMemoryManager : MonoBehaviour
 		m_MemoryArray= new GameObject[m_ArrayX,m_ArrayY];
 		m_ArrayOfCardstatus = 0;
 
+		m_ScoreMax = 8;
+
 
 		//Remplit la card list 
 		m_NCardList.Add (7);
