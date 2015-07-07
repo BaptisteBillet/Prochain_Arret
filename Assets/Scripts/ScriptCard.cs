@@ -20,7 +20,7 @@ public class ScriptCard : MonoBehaviour
 		{
 			m_CanBeClick=false;
 			m_Animator.SetTrigger("Flip1");
-			ScriptMemoryManager.instance.Compare(this.gameObject); 
+			ScriptMemoryManager.instance.StartCompare(this.gameObject); 
 
 
 			Debug.Log(m_CardNumber);

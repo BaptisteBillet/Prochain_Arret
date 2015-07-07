@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ScriptMemoryManager : MonoBehaviour 
 {
@@ -40,12 +41,26 @@ public class ScriptMemoryManager : MonoBehaviour
 	public float m_LocationGapX;
 	public float m_LocationGapY;
 	
-	// Variables de placement de la première carte, le placement des autres peut etre géré par une boucle
+	// Variables de placement des cartes
 	
 	public int m_ArrayX;
 	public int m_ArrayY;
 
 	public int m_ArrayOfCardstatus;
+
+	// Variables de constitution de la grille. 
+
+
+
+	public List<int> m_NCardList = new List <int>();
+
+	public int m_NCardListIndex;
+
+	//public float m_NCardListIndexMax = 15f;
+
+
+	// Varialbles pour l'attribution de valeurs aux cartes. 
+
 	
 
 	
@@ -56,16 +71,39 @@ public class ScriptMemoryManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		m_CanPlay = true ; 
+		m_CanPlay = false ; 
 		m_MemoryArray= new GameObject[m_ArrayX,m_ArrayY];
 		m_ArrayOfCardstatus = 0;
-		GridBuilding ();
+
+
+		//Remplit la card list 
+		m_NCardList.Add (7);
+		m_NCardList.Add (6);	
+		m_NCardList.Add (5);	
+		m_NCardList.Add (4);
+		m_NCardList.Add (3);	
+		m_NCardList.Add (2);	
+		m_NCardList.Add (1);
+		m_NCardList.Add (0);
+
+		m_NCardList.Add (7);
+		m_NCardList.Add (6);	
+		m_NCardList.Add (5);	
+		m_NCardList.Add (4);
+		m_NCardList.Add (3);	
+		m_NCardList.Add (2);	
+		m_NCardList.Add (1);
+		m_NCardList.Add (0);
+
+		GridBuilding ();//lance la création de la grille
+
+
 	}
 	
 	
 	void GridBuilding()
 	{
-		for (int x=0;x<m_ArrayX;x++)
+		/*for (int x=0;x<m_ArrayX;x++)
 		{
 			for(int y=0; y<m_ArrayY; y++)
 			{
@@ -79,17 +117,47 @@ public class ScriptMemoryManager : MonoBehaviour
 				}
 			}
 		}
+		*/
+		for (int x=0;x<m_ArrayX;x++)
+		{
+			for(int y=0; y<m_ArrayY; y++)
+			{
+				m_NCardListIndex = (int)(Random.Range (0f,m_NCardList.Count));
+
+				m_MemoryArray[x,y]=m_ArrayOfCard[m_NCardList[m_NCardListIndex]];
+
+				m_MemoryArray[x,y].transform.position = new Vector3 (m_LocationFirstElement.x +(x*2), m_LocationFirstElement.y + (y*2));
+				Instantiate(m_MemoryArray[x,y]);
+				m_NCardList.RemoveAt(m_NCardListIndex);
+				//m_NCardListIndexMax--;
+				if (m_ArrayOfCardstatus>7)
+				{
+					m_ArrayOfCardstatus=0;
+				}
+
+			}
+		}
+		m_CanPlay = true;
+
+
 	}
-	
-	public void Compare (GameObject LastClickedCard)
+
+	public void StartCompare(GameObject LastClickedCard)
 	{
+		StartCoroutine(Compare (LastClickedCard));
+	}
+
+	public IEnumerator Compare (GameObject LastClickedCard)
+	{
+
 		if (m_FirstCard == true) {
 			m_Card = LastClickedCard;
 			m_FirstCard = false;
 		} 
 		else 
 		{
-			
+
+
 			if (m_Card.GetComponent<ScriptCard>().m_CardNumber==LastClickedCard.GetComponent<ScriptCard>().m_CardNumber)
 			{
 				m_Score++;
@@ -102,18 +170,20 @@ public class ScriptMemoryManager : MonoBehaviour
 			
 			else 
 			{
+				m_CanPlay = false ; 
+				yield return new WaitForSeconds (1f);
+
 				m_Card.GetComponent<ScriptCard>().FlipBack();
 				LastClickedCard.GetComponent<ScriptCard>().FlipBack();
 				
 			}
+			m_Card = null;
+			m_FirstCard=true;
+			m_CanPlay = true;
 			
 		}
-		
-		
-		
-		
+		yield return null;
 	}
-	
-	
+
 	
 }
