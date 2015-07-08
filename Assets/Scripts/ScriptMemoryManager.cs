@@ -75,7 +75,7 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	// Use this for initialization
 	void Start () 
-	{
+	{	StartCoroutine (WaitForBienvenue ());
 		m_CanPlay = false ; 
 		m_MemoryArray= new GameObject[m_ArrayX,m_ArrayY];
 		m_ArrayOfCardstatus = 0;
@@ -108,7 +108,13 @@ public class ScriptMemoryManager : MonoBehaviour
 
 
 	}
-	
+
+	IEnumerator WaitForBienvenue ()
+	{
+		yield return new WaitForSeconds(1.5f);
+		m_PanelAnimScript.Bienvenue ();
+
+	}
 	
 	void GridBuilding()
 	{
@@ -142,6 +148,8 @@ public class ScriptMemoryManager : MonoBehaviour
 		StartCoroutine(Compare (LastClickedCard));
 	}
 
+
+
 	public IEnumerator Compare (GameObject LastClickedCard)
 	{
 
@@ -159,24 +167,11 @@ public class ScriptMemoryManager : MonoBehaviour
 
 				m_Score++;
 
-				if (m_Card.GetComponent<ScriptCard>().m_CardNumber == 0)
-				{
-					m_PanelAnimScript.Mutte();
-				}
-
-				if (m_Card.GetComponent<ScriptCard>().m_CardNumber == 1)
-				{
-					m_PanelAnimScript.Chagall();
-				}
-
-				if (m_Card.GetComponent<ScriptCard>().m_CardNumber== 2)
-				{
-					m_PanelAnimScript.Graoully();
-				}
+				m_PanelAnimScript.DisplayInformation(m_Card.GetComponent<ScriptCard>().m_CardNumber);
 
 				if (m_Score==m_ScoreMax)
 				{
-					Debug.Log ("Victoire");
+					//m_PanelAnimScript.Victoire();
 				}
 				
 			}

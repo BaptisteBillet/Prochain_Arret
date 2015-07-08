@@ -3,63 +3,43 @@ using System.Collections;
 
 public class ScriptPanelAnim : MonoBehaviour {
 
-	private Animator m_Animator;
-
+	public Animator m_Animator;
+	public float m_ResetTime;
+	public float m_ResetTimeBienvenue;
 
 	// Use this for initialization
 	void Start () 
 	{
-		m_Animator = GetComponent<Animator> ();
+	
 	}
 	
 	public void Bienvenue()
 	{
-		m_Animator.SetInteger ("SentenceSelect", 8);
+		m_Animator.SetTrigger ("Bienvenue");
+		//StartCoroutine (Reset (m_ResetTimeBienvenue));
 	}
 
-	public void Mutte() 
+	public void DisplayInformation(int bubble) 
 	{
-		m_Animator.SetInteger ("SentenceSelect", 0);
+		Debug.Log (bubble);
+		m_Animator.SetTrigger ("Reset");	
+		m_Animator.SetTrigger ("NewInformation");
+		m_Animator.SetInteger ("SentenceSelect", bubble);
+		//StartCoroutine (Reset(m_ResetTime));
+
 	}
 
-	public void Chagall ()
+
+	public IEnumerator Reset (float time)
 	{
-		m_Animator.SetInteger ("SentenceSelect", 1);
+			yield return new WaitForSeconds (time);
+		m_Animator.SetTrigger ("Reset");	
 	}
 
-	public void Graoully ()
+	public void Victoire()
 	{
-		m_Animator.SetInteger ("SentenceSelect", 2);
+		m_Animator.SetTrigger ("Victoire");
+		//StartCoroutine (Reset (m_ResetTimeBienvenue));
 	}
 
-	public void Temple ()
-	{
-		m_Animator.SetInteger ("SentenceSelect", 3);
-	}
-
-	public void Vitraux ()
-	{
-		m_Animator.SetInteger ("SentenceSelect", 4);
-	}
-
-	public void Cathedrale ()
-	{
-		m_Animator.SetInteger ("SentenceSelect", 5);
-	}
-
-	public void Gare ()
-	{
-		m_Animator.SetInteger ("SentenceSelect", 6);
-	}
-
-	public void Placedarmes ()
-	{
-		m_Animator.SetInteger ("SentenceSelect", 7);
-	}
-
-	public void Victoire ()
-	{
-		m_Animator.SetInteger ("SentenceSelect", 9);
-	}
-	
 }

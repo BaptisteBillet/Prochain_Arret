@@ -23,7 +23,6 @@ public class ScriptCard : MonoBehaviour
 			ScriptMemoryManager.instance.StartCompare(this.gameObject); 
 
 
-			Debug.Log(m_CardNumber);
 		}
 	}
 
