@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ScriptMemoryManager : MonoBehaviour 
 {
@@ -59,12 +60,17 @@ public class ScriptMemoryManager : MonoBehaviour
 	//public float m_NCardListIndexMax = 15f;
 
 
-	// Variables pour l'attribution de valeurs aux cartes. 
+	public Text m_TimerText;
+	public int m_TimerSeconds;
+	public int m_TimerMinutes;
 
+	string m_Difficulty;
+
+// Variables pour le Timer
 
 	public GameObject m_PanelAnimPapish;
 	private ScriptPanelAnim m_PanelAnimScript;
-
+// Variables pour les animations.
 
 	
 	public GameObject[,] m_MemoryArray;
@@ -75,12 +81,33 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	// Use this for initialization
 	void Start () 
-	{	StartCoroutine (WaitForBienvenue ());
+	{	
+		StartCoroutine (WaitForDifficulty ());
+
 		m_CanPlay = false ; 
 		m_MemoryArray= new GameObject[m_ArrayX,m_ArrayY];
 		m_ArrayOfCardstatus = 0;
 
 		m_ScoreMax = 8;
+	
+		if (m_Difficulty == "Easy") 
+		{
+			m_TimerMinutes = 5;
+			m_TimerSeconds = 0;
+		}
+
+		if (m_Difficulty == "Medium") 
+		{
+			m_TimerMinutes = 3;
+			m_TimerSeconds = 30;
+		}
+
+		if (m_Difficulty == "Hard") 
+		{
+			m_TimerMinutes = 2;
+			m_TimerSeconds = 0;
+		}
+
 
 
 		//Remplit la card list 
@@ -104,10 +131,42 @@ public class ScriptMemoryManager : MonoBehaviour
 
 		m_PanelAnimScript = m_PanelAnimPapish.GetComponent<ScriptPanelAnim> ();
 
-		GridBuilding ();//lance la création de la grille
 
+		m_TimerText.text = "" + m_TimerMinutes + m_TimerSeconds;
 
 	}
+
+	IEnumerator WaitForDifficulty()
+	{
+		m_Difficulty = "";
+		switch (Application.platform)
+		{
+		case RuntimePlatform.Android:
+			
+			break;
+			
+		case RuntimePlatform.WindowsPlayer:
+			while(PlayerPrefs.GetString("Difficulty")=="NULL")
+			{
+				yield return new WaitForSeconds(0.5f);
+			}
+			m_Difficulty = PlayerPrefs.GetString("Difficulty");
+			break;
+			
+		case RuntimePlatform.WindowsEditor:
+			while (PlayerPrefs.GetString("Difficulty") == "NULL")
+			{
+				yield return new WaitForSeconds(0.5f);
+			}
+			m_Difficulty = PlayerPrefs.GetString("Difficulty");
+			break;
+			
+		}
+		//ICI lance l'activité
+		StartCoroutine (WaitForBienvenue ());
+		GridBuilding ();//lance la création de la grille
+	}
+
 
 	IEnumerator WaitForBienvenue ()
 	{
@@ -141,6 +200,7 @@ public class ScriptMemoryManager : MonoBehaviour
 		m_CanPlay = true;
 
 
+
 	}
 
 	public void StartCompare(GameObject LastClickedCard)
@@ -157,6 +217,7 @@ public class ScriptMemoryManager : MonoBehaviour
 		{
 			m_Card = LastClickedCard;
 			m_FirstCard = false;
+
 		} 
 		else 
 		{
@@ -195,6 +256,29 @@ public class ScriptMemoryManager : MonoBehaviour
 
 
 
+
+
+	public IEnumerator TimerCoroutine()
+	{
+		yield return new WaitForSeconds (1f);
+		m_TimerSeconds --;
+		m_TimerText.text = "" + m_TimerMinutes + m_TimerSeconds;
+		if (m_TimerSeconds < -1) 
+		{
+			m_TimerMinutes --;
+
+			if (m_TimerMinutes < 0) 
+			{
+				yield return null;
+			}
+			else 
+			{
+			m_TimerSeconds = 59;
+			}
+		}
+
+
+	}
 
 	
 }
