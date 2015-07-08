@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ScriptQuizzManager : MonoBehaviour {
 
@@ -30,8 +31,12 @@ public class ScriptQuizzManager : MonoBehaviour {
 	public GameObject m_Papish;
 	//Access to the Bubble
 	public GameObject m_Bubble;
-	//Access to the Bublle Animator
+	//Access to the Bubble Animator
 	public Animator m_BubbleAnimator;
+	//Access to the TextAnimator;
+	public Animator m_TextAnimator;
+	//Access to the Text Component
+	public Text m_BubbleText;
 	//Access to the QuestionBoard
 	public GameObject m_QuestionsBoard;
 
@@ -59,6 +64,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 	//The score
 	private int m_Score;
 	//The Objectif
+	private string m_Difficulty;
 	private int m_Goal;
 	public int m_GoalEasy;
 	public int m_GoalMedium;
@@ -76,12 +82,15 @@ public class ScriptQuizzManager : MonoBehaviour {
 		m_Papish.SetActive(false);
 		m_QuestionsBoard.SetActive(false);
 		m_ButtonPanel.SetActive(false);
+		m_Goal = -1;
+		m_Difficulty = "";
+		m_BubbleText.text = "Bienvenue!";
 		#endregion
 
 		StartCoroutine(WaitForDifficulty());
 	}
 
-	IEnumerator WaitForDifficulty()
+	IEnumerator WaitForDifficulty(int a =0)
 	{
 		switch (Application.platform)
 		{
@@ -94,6 +103,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 				{
 					yield return new WaitForSeconds(0.5f);
 				}
+				m_Difficulty = PlayerPrefs.GetString("Difficulty");
 				break;
 
 			case RuntimePlatform.WindowsEditor:
@@ -101,8 +111,23 @@ public class ScriptQuizzManager : MonoBehaviour {
 				{
 					yield return new WaitForSeconds(0.5f);
 				}
+
+				m_Difficulty = PlayerPrefs.GetString("Difficulty");
 				break;
 
+		}
+
+		if(m_Difficulty=="Easy")
+		{
+			m_Goal = m_GoalEasy;
+		}
+		if(m_Difficulty=="Medium")
+		{
+			m_Goal = m_GoalMedium;
+		}
+		if (m_Difficulty == "Hard")
+		{
+			m_Goal = m_GoalHard;
 		}
 		StartCoroutine(LaunchPapish());
 
@@ -120,6 +145,8 @@ public class ScriptQuizzManager : MonoBehaviour {
 		m_Bubble.SetActive(true);
 		yield return new WaitForSeconds(2f);
 		m_BubbleAnimator.SetTrigger("Reset");
+	
+		m_TextAnimator.SetTrigger("Reset");
 		StartQuiz();
 
 	}
@@ -139,8 +166,32 @@ public class ScriptQuizzManager : MonoBehaviour {
 				m_QuestionsBoard.SetActive(true);
 			}
 
-			m_BubbleAnimator.SetInteger("QuestionNumber", m_QuestionNumberFromList + 1);
-			m_BubbleAnimator.SetTrigger("NewQuestion");
+			switch(m_QuestionNumberFromList)
+			{
+				case 1:
+					m_BubbleText.text = "Question1";
+					break;
+
+				case 2:
+					m_BubbleText.text = "Question2";
+					break;
+
+				case 3:
+					m_BubbleText.text = "Question3";
+					break;
+
+				case 4:
+					m_BubbleText.text = "Question4";
+					break;
+
+				case 5:
+					m_BubbleText.text = "Question5";
+					break;
+
+			}
+
+			m_TextAnimator.SetTrigger("Reset");
+			m_BubbleAnimator.SetTrigger("Reset");
 
 
 			if (m_AnswerBoard.activeInHierarchy == false)
@@ -158,12 +209,14 @@ public class ScriptQuizzManager : MonoBehaviour {
 		{
 			if (m_Score >= m_Goal)
 			{
-				m_BubbleAnimator.SetTrigger("Win");
+				m_BubbleText.text = "WIN";
 			}
 			else
 			{
 				m_BubbleAnimator.SetTrigger("Loose");
 			}
+			m_TextAnimator.SetTrigger("Reset");
+			m_BubbleAnimator.SetTrigger("Reset");
 		}
 		//Random
 		/*
@@ -183,7 +236,6 @@ public class ScriptQuizzManager : MonoBehaviour {
 
 	public void Answer(int AnswerNumber)
 	{
-
 		StartCoroutine(GoodAnswer(AnswerNumber));
 	}
 
@@ -244,9 +296,10 @@ public class ScriptQuizzManager : MonoBehaviour {
 
 			}
 		}
-
+		
 		yield return new WaitForSeconds(3);
 		m_BubbleAnimator.SetTrigger("Reset");
+		m_TextAnimator.SetTrigger("Reset");
 		yield return new WaitForSeconds(0.1f);
 		StartQuiz();
 	}
