@@ -46,70 +46,51 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	public int m_ArrayX;
 	public int m_ArrayY;
-
+	
 	public int m_ArrayOfCardstatus;
-
+	
 	// Variables de constitution de la grille. 
-
-
-
+	
+	
+	
 	public List<int> m_NCardList = new List <int>();
-
+	
 	public int m_NCardListIndex;
-
+	
 	//public float m_NCardListIndexMax = 15f;
-
-
+	
+	
 	public Text m_TimerText;
 	public int m_TimerSeconds;
 	public int m_TimerMinutes;
-
+	
 	string m_Difficulty;
-
-// Variables pour le Timer
-
+	
+	// Variables pour le Timer
+	
 	public GameObject m_PanelAnimPapish;
 	private ScriptPanelAnim m_PanelAnimScript;
-// Variables pour les animations.
-
+	// Variables pour les animations.
+	
 	
 	public GameObject[,] m_MemoryArray;
 	
 	public GameObject [] m_ArrayOfCard = new GameObject[8];
-
-
+	
+	
 	
 	// Use this for initialization
 	void Start () 
 	{	
 		StartCoroutine (WaitForDifficulty ());
-
+		
 		m_CanPlay = false ; 
 		m_MemoryArray= new GameObject[m_ArrayX,m_ArrayY];
 		m_ArrayOfCardstatus = 0;
-
+		
 		m_ScoreMax = 8;
-	
-		if (m_Difficulty == "Easy") 
-		{
-			m_TimerMinutes = 5;
-			m_TimerSeconds = 0;
-		}
-
-		if (m_Difficulty == "Medium") 
-		{
-			m_TimerMinutes = 3;
-			m_TimerSeconds = 30;
-		}
-
-		if (m_Difficulty == "Hard") 
-		{
-			m_TimerMinutes = 2;
-			m_TimerSeconds = 0;
-		}
-
-
-
+		
+		
 		//Remplit la card list 
 		m_NCardList.Add (7);
 		m_NCardList.Add (6);	
@@ -119,7 +100,7 @@ public class ScriptMemoryManager : MonoBehaviour
 		m_NCardList.Add (2);	
 		m_NCardList.Add (1);
 		m_NCardList.Add (0);
-
+		
 		m_NCardList.Add (7);
 		m_NCardList.Add (6);	
 		m_NCardList.Add (5);	
@@ -128,14 +109,14 @@ public class ScriptMemoryManager : MonoBehaviour
 		m_NCardList.Add (2);	
 		m_NCardList.Add (1);
 		m_NCardList.Add (0);
-
+		
 		m_PanelAnimScript = m_PanelAnimPapish.GetComponent<ScriptPanelAnim> ();
-
-
-		m_TimerText.text = "" + m_TimerMinutes + m_TimerSeconds;
-
+		
+		
+		m_TimerText.text=""+ m_TimerMinutes + m_TimerSeconds;
+		
 	}
-
+	
 	IEnumerator WaitForDifficulty()
 	{
 		m_Difficulty = "";
@@ -163,29 +144,50 @@ public class ScriptMemoryManager : MonoBehaviour
 			
 		}
 		//ICI lance l'activité
+		
+		if (m_Difficulty == "Easy") 
+		{
+			m_TimerMinutes = 5;
+			m_TimerSeconds = 0;
+		}
+		
+		if (m_Difficulty == "Medium") 
+		{
+			m_TimerMinutes = 3;
+			m_TimerSeconds = 30;
+		}
+		
+		if (m_Difficulty == "Hard") 
+		{
+			m_TimerMinutes = 2;
+			m_TimerSeconds = 0;
+		}
+		
+		Debug.Log (m_Difficulty);
+		
 		StartCoroutine (WaitForBienvenue ());
 		GridBuilding ();//lance la création de la grille
 	}
-
-
+	
+	
 	IEnumerator WaitForBienvenue ()
 	{
 		yield return new WaitForSeconds(1.5f);
 		m_PanelAnimScript.Bienvenue ();
-
+		
 	}
 	
 	void GridBuilding()
 	{
-
+		
 		for (int x=0;x<m_ArrayX;x++)
 		{
 			for(int y=0; y<m_ArrayY; y++)
 			{
 				m_NCardListIndex = (int)(Random.Range (0f,m_NCardList.Count));
-
+				
 				m_MemoryArray[x,y]=m_ArrayOfCard[m_NCardList[m_NCardListIndex]];
-
+				
 				m_MemoryArray[x,y].transform.position = new Vector3 (m_LocationFirstElement.x +(x*2), m_LocationFirstElement.y + (y*2));
 				Instantiate(m_MemoryArray[x,y]);
 				m_NCardList.RemoveAt(m_NCardListIndex);
@@ -194,42 +196,42 @@ public class ScriptMemoryManager : MonoBehaviour
 				{
 					m_ArrayOfCardstatus=0;
 				}
-
+				
 			}
 		}
 		m_CanPlay = true;
-
-
-
+		StartCoroutine (TimerCoroutine ());
+		
+		
 	}
-
+	
 	public void StartCompare(GameObject LastClickedCard)
 	{
 		StartCoroutine(Compare (LastClickedCard));
 	}
-
-
-
+	
+	
+	
 	public IEnumerator Compare (GameObject LastClickedCard)
 	{
-
+		
 		if (m_FirstCard == true) 
 		{
 			m_Card = LastClickedCard;
 			m_FirstCard = false;
-
+			
 		} 
 		else 
 		{
-
-
+			
+			
 			if (m_Card.GetComponent<ScriptCard>().m_CardNumber==LastClickedCard.GetComponent<ScriptCard>().m_CardNumber)
 			{
-
+				
 				m_Score++;
-
+				
 				m_PanelAnimScript.DisplayInformation(m_Card.GetComponent<ScriptCard>().m_CardNumber);
-
+				
 				if (m_Score==m_ScoreMax)
 				{
 					//m_PanelAnimScript.Victoire();
@@ -241,7 +243,7 @@ public class ScriptMemoryManager : MonoBehaviour
 			{
 				m_CanPlay = false ; 
 				yield return new WaitForSeconds (1f);
-
+				
 				m_Card.GetComponent<ScriptCard>().FlipBack();
 				LastClickedCard.GetComponent<ScriptCard>().FlipBack();
 				
@@ -253,32 +255,34 @@ public class ScriptMemoryManager : MonoBehaviour
 		}
 		yield return null;
 	}
-
-
-
-
-
+	
+	
+	
+	
+	
 	public IEnumerator TimerCoroutine()
 	{
-		yield return new WaitForSeconds (1f);
-		m_TimerSeconds --;
-		m_TimerText.text = "" + m_TimerMinutes + m_TimerSeconds;
-		if (m_TimerSeconds < -1) 
+		while (m_TimerMinutes>-1) 
 		{
-			m_TimerMinutes --;
+			yield return new WaitForSeconds (1f);
+			m_TimerSeconds --;
+			m_TimerText.text = " " + m_TimerMinutes + m_TimerSeconds;
 
-			if (m_TimerMinutes < 0) 
+			if (m_TimerSeconds < -1) 
 			{
-				yield return null;
+				m_TimerMinutes --;
+				
+				if (m_TimerMinutes < 0) 
+				{
+					yield return null;
+				} else 
+				{
+					m_TimerSeconds = 59;
+				}
 			}
-			else 
-			{
-			m_TimerSeconds = 59;
-			}
+			
 		}
-
-
 	}
-
+	
 	
 }
