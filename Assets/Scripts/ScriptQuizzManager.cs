@@ -78,36 +78,43 @@ public class ScriptQuizzManager : MonoBehaviour {
 		//On le fait parler
 		m_Bubble.SetActive(true);
 		yield return new WaitForSeconds(3f);
-
+		m_BubbleAnimator.SetTrigger("Reset");
 		StartQuiz();
 
 	}
 
 	void StartQuiz()
 	{
-		if (m_ButtonPanel.activeInHierarchy == false)
+		if (m_QuestionNumberFromList< 5)
 		{
-			m_ButtonPanel.SetActive(true);
+			if (m_ButtonPanel.activeInHierarchy == false)
+			{
+				m_ButtonPanel.SetActive(true);
+			}
+			if (m_QuestionsBoard.activeInHierarchy == false)
+			{
+				m_QuestionsBoard.SetActive(true);
+			}
+
+			m_BubbleAnimator.SetInteger("QuestionNumber", m_QuestionNumberFromList + 1);
+			m_BubbleAnimator.SetTrigger("NewQuestion");
+
+
+			if (m_AnswerBoard.activeInHierarchy == false)
+			{
+				m_AnswerBoard.SetActive(true);
+			}
+
+			m_AnswerBoardAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList + 1);
+			m_AnswerBoardAnimator.SetTrigger("NewAnswer");
+
+
+			m_QuestionNumberFromList++;
 		}
-		if(m_QuestionsBoard.activeInHierarchy==false)
+		else
 		{
-			m_QuestionsBoard.SetActive(true);
+			Debug.Log("No More");
 		}
-		
-		m_BubbleAnimator.SetInteger("QuestionNumber", m_QuestionNumberFromList+1);
-		m_BubbleAnimator.SetTrigger("NewQuestion");
-
-
-		if(m_AnswerBoard.activeInHierarchy==false)
-		{
-			m_AnswerBoard.SetActive(true);
-		}
-		
-		m_AnswerBoardAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList + 1);
-		m_AnswerBoardAnimator.SetTrigger("NewAnswer");
-
-
-		m_QuestionNumberFromList++;
 		//Random
 		/*
 		if(m_QuestionList.Count>0)
@@ -126,14 +133,13 @@ public class ScriptQuizzManager : MonoBehaviour {
 
 	public void Answer(int AnswerNumber)
 	{
-		Debug.Log("a");
+
 		StartCoroutine(GoodAnswer(AnswerNumber));
 	}
 
 	public IEnumerator GoodAnswer(int AnswerNumber)
 	{
-		Debug.Log("a");
-		if(AnswerNumber==m_ArrayOfAnswers[m_QuestionNumberFromList])
+		if(AnswerNumber==m_ArrayOfAnswers[m_QuestionNumberFromList-1])
 		{
 			m_BubbleAnimator.SetTrigger("GoodAnswer");
 		}
@@ -143,7 +149,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 		}
 
 		yield return new WaitForSeconds(3);
-		m_BubbleAnimator.SetTrigger("NewQuestion");
+		m_BubbleAnimator.SetTrigger("Reset");
 		StartQuiz();
 	}
 
