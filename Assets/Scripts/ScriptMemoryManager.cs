@@ -62,6 +62,9 @@ public class ScriptMemoryManager : MonoBehaviour
 	// Variables pour l'attribution de valeurs aux cartes. 
 
 
+	public GameObject m_PanelAnimPapish;
+	private ScriptPanelAnim m_PanelAnimScript;
+
 
 	
 	public GameObject[,] m_MemoryArray;
@@ -98,6 +101,8 @@ public class ScriptMemoryManager : MonoBehaviour
 		m_NCardList.Add (2);	
 		m_NCardList.Add (1);
 		m_NCardList.Add (0);
+
+		m_PanelAnimScript = m_PanelAnimPapish.GetComponent<ScriptPanelAnim> ();
 
 		GridBuilding ();//lance la création de la grille
 
@@ -154,7 +159,20 @@ public class ScriptMemoryManager : MonoBehaviour
 
 				m_Score++;
 
+				if (m_Card.GetComponent<ScriptCard>().m_CardNumber == 0)
+				{
+					m_PanelAnimScript.Mutte();
+				}
 
+				if (m_Card.GetComponent<ScriptCard>().m_CardNumber == 1)
+				{
+					m_PanelAnimScript.Chagall();
+				}
+
+				if (m_Card.GetComponent<ScriptCard>().m_CardNumber== 2)
+				{
+					m_PanelAnimScript.Graoully();
+				}
 
 				if (m_Score==m_ScoreMax)
 				{
