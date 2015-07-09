@@ -28,7 +28,7 @@ public class ScriptPanelAnim : MonoBehaviour {
 		//StartCoroutine (Reset(m_ResetTime));
 
 	}
-
+	
 
 	public IEnumerator Reset (float time)
 	{

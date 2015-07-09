@@ -74,7 +74,9 @@ public class ScriptMemoryManager : MonoBehaviour
 	private ScriptPanelAnim m_PanelAnimScript;
 	// Variables pour les animations.
 	
-	
+	public GameObject m_PanelDefeat;
+
+	// Variables fin de niveau, défaites
 	public GameObject[,] m_MemoryArray;
 	
 	public GameObject [] m_ArrayOfCard = new GameObject[8];
@@ -83,9 +85,25 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	// Use this for initialization
 	void Start () 
-	{	
-		StartCoroutine (WaitForDifficulty ());
+	{	//Remplit la card list 
+		m_NCardList.Add (7);
+		m_NCardList.Add (6);	
+		m_NCardList.Add (5);	
+		m_NCardList.Add (4);
+		m_NCardList.Add (3);	
+		m_NCardList.Add (2);	
+		m_NCardList.Add (1);
+		m_NCardList.Add (0);
 		
+		m_NCardList.Add (7);
+		m_NCardList.Add (6);	
+		m_NCardList.Add (5);	
+		m_NCardList.Add (4);
+		m_NCardList.Add (3);	
+		m_NCardList.Add (2);	
+		m_NCardList.Add (1);
+		m_NCardList.Add (0);
+
 		m_CanPlay = false ; 
 		m_MemoryArray= new GameObject[m_ArrayX,m_ArrayY];
 		m_ArrayOfCardstatus = 0;
@@ -93,29 +111,16 @@ public class ScriptMemoryManager : MonoBehaviour
 		m_ScoreMax = 8;
 		
 		
-		//Remplit la card list 
-		m_NCardList.Add (7);
-		m_NCardList.Add (6);	
-		m_NCardList.Add (5);	
-		m_NCardList.Add (4);
-		m_NCardList.Add (3);	
-		m_NCardList.Add (2);	
-		m_NCardList.Add (1);
-		m_NCardList.Add (0);
 		
-		m_NCardList.Add (7);
-		m_NCardList.Add (6);	
-		m_NCardList.Add (5);	
-		m_NCardList.Add (4);
-		m_NCardList.Add (3);	
-		m_NCardList.Add (2);	
-		m_NCardList.Add (1);
-		m_NCardList.Add (0);
 		
 		m_PanelAnimScript = m_PanelAnimPapish.GetComponent<ScriptPanelAnim> ();
 		
 		
 		m_TimerText.text=""+ m_TimerMinutes + m_TimerSeconds;
+
+		StartCoroutine (WaitForDifficulty ());
+		
+
 		
 	}
 	
@@ -187,6 +192,7 @@ public class ScriptMemoryManager : MonoBehaviour
 			for(int y=0; y<m_ArrayY; y++)
 			{
 				m_NCardListIndex = (int)(Random.Range (0f,m_NCardList.Count));
+				Debug.Log (m_NCardListIndex);
 				
 				m_MemoryArray[x,y]=m_ArrayOfCard[m_NCardList[m_NCardListIndex]];
 				
@@ -212,19 +218,7 @@ public class ScriptMemoryManager : MonoBehaviour
 		StartCoroutine(Compare (LastClickedCard));
 	}
 	
-	public void GameLost ()
-	{
 
-	}
-
-	public void RestartLevel()
-	{
-		Application.LoadLevel ("Memory");
-	}
-
-	public void Return()
-	{
-	}
 	
 	public IEnumerator Compare (GameObject LastClickedCard)
 	{
@@ -248,7 +242,7 @@ public class ScriptMemoryManager : MonoBehaviour
 				
 				if (m_Score==m_ScoreMax)
 				{
-					//m_PanelAnimScript.Victoire();
+					m_PanelAnimScript.Victoire();
 				}
 				
 			}
@@ -303,6 +297,22 @@ public class ScriptMemoryManager : MonoBehaviour
 			m_TimerSeconds --;
 			
 		}
+	}
+
+
+	public void GameLost ()
+	{
+			
+	}
+	
+	public void RestartLevel()
+	{
+		Application.LoadLevel ("Memory");
+	}
+	
+	public void Return()
+	{
+
 	}
 	
 	
