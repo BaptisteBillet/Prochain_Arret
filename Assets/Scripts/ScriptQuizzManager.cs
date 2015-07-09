@@ -29,24 +29,34 @@ public class ScriptQuizzManager : MonoBehaviour {
 	#region Members
 	//Access to Papish
 	public GameObject m_Papish;
+
 	//Access to the Bubble
 	public GameObject m_Bubble;
+
 	//Access to the Bubble Animator
 	public Animator m_BubbleAnimator;
+
 	//Access to the TextAnimator;
 	public Animator m_TextAnimator;
+
 	//Access to the Text Component
 	public Text m_BubbleText;
+
 	//Access to the QuestionBoard
 	public GameObject m_QuestionsBoard;
 
 	//Access to the AnswerBoard
 	public GameObject m_AnswerBoard;
+
 	//Access to the AnswerBoard Animator
 	public Animator m_AnswerBoardAnimator;
 
+	//Access to the images of the answers
+	public Animator m_AnswerImageAnimator;
+
 	//Access to the ButtonPanel
 	public GameObject m_ButtonPanel;
+
 	//Access to the Ufo Animator
 	public Animator m_Ufo1Animator;
 	public Animator m_Ufo2Animator;
@@ -54,15 +64,15 @@ public class ScriptQuizzManager : MonoBehaviour {
 	public Animator m_Ufo4Animator;
 	public Animator m_Ufo5Animator;
 
-
-
 	//Creation of a List for random quesions
 	private List<int> m_QuestionList = new List<int>() { 0, 1, 2, 3, 4 };
+
 	//Keep in memory the Random Number from list
 	private int m_QuestionNumberFromList;
 	
 	//The score
 	private int m_Score;
+
 	//The Objectif
 	private string m_Difficulty;
 	private int m_Goal;
@@ -72,6 +82,22 @@ public class ScriptQuizzManager : MonoBehaviour {
 
 	//Array for the anwser
 	public int[] m_ArrayOfAnswers = new int[5];
+
+	//String for the welcome message
+	public string m_WelcomeMessage;
+
+	//Array for the Questions
+	public string[] m_QuestionsMessage;
+
+	//Array for the Answers
+	public string[] m_AnswersMessage;
+
+	//String for the Win message
+	public string m_WinMessage;
+
+	//String for the Loose message
+	public string m_LooseMessage;
+
 	#endregion
 
 	void Start()
@@ -84,7 +110,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 		m_ButtonPanel.SetActive(false);
 		m_Goal = -1;
 		m_Difficulty = "";
-		m_BubbleText.text = "Bienvenue!";
+		m_BubbleText.text = m_WelcomeMessage;
 		#endregion
 
 		StartCoroutine(WaitForDifficulty());
@@ -157,6 +183,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 			//We check if they are questions again
 		if (m_QuestionNumberFromList< 5)
 		{
+			//If this is the first question, we activate what that would be
 			if (m_ButtonPanel.activeInHierarchy == false)
 			{
 				m_ButtonPanel.SetActive(true);
@@ -165,73 +192,39 @@ public class ScriptQuizzManager : MonoBehaviour {
 			{
 				m_QuestionsBoard.SetActive(true);
 			}
-
-			switch(m_QuestionNumberFromList)
-			{
-				case 1:
-					m_BubbleText.text = "Question1";
-					break;
-
-				case 2:
-					m_BubbleText.text = "Question2";
-					break;
-
-				case 3:
-					m_BubbleText.text = "Question3";
-					break;
-
-				case 4:
-					m_BubbleText.text = "Question4";
-					break;
-
-				case 5:
-					m_BubbleText.text = "Question5";
-					break;
-
-			}
-
-			m_TextAnimator.SetTrigger("Reset");
-			m_BubbleAnimator.SetTrigger("Reset");
-
-
 			if (m_AnswerBoard.activeInHierarchy == false)
 			{
 				m_AnswerBoard.SetActive(true);
 			}
 
+			//Write the right question take on the array corresponding whith the question number from list
+		
+			StartCoroutine(ChangeText(m_QuestionsMessage[m_QuestionNumberFromList]));
+			//Reset all animation
+			m_TextAnimator.SetTrigger("Reset");
+			m_BubbleAnimator.SetTrigger("Reset");
+
+			//Write the right answer take on the array corresponding whith the question number from list
 			m_AnswerBoardAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList + 1);
 			m_AnswerBoardAnimator.SetTrigger("NewAnswer");
 
-
+			//Go to the next question
 			m_QuestionNumberFromList++;
 		}
 		else //If not, we check if the player win or loose depend of m_Score and m_Objectif
 		{
 			if (m_Score >= m_Goal)
 			{
-				m_BubbleText.text = "WIN";
+				m_BubbleText.text = m_WinMessage;
 			}
 			else
 			{
-				m_BubbleAnimator.SetTrigger("Loose");
+				m_BubbleText.text = m_LooseMessage;
 			}
 			m_TextAnimator.SetTrigger("Reset");
 			m_BubbleAnimator.SetTrigger("Reset");
 		}
-		//Random
-		/*
-		if(m_QuestionList.Count>0)
-		{
-			m_QuestionNumberFromList = Random.Range(m_QuestionList[0], m_QuestionList.Count);
-			m_BubbleAnimator.SetInteger("QuestionNumber", m_QuestionNumberFromList);
-			m_QuestionList.Remove(m_QuestionNumberFromList);
-			m_BubbleAnimator.SetTrigger("NewQuestion");
-		}
-		else
-		{
-
-		}
-		*/
+		
 	}
 
 	public void Answer(int AnswerNumber)
@@ -241,9 +234,10 @@ public class ScriptQuizzManager : MonoBehaviour {
 
 	public IEnumerator GoodAnswer(int AnswerNumber)
 	{
+
 		if(AnswerNumber==m_ArrayOfAnswers[m_QuestionNumberFromList-1])
 		{
-			m_BubbleAnimator.SetTrigger("GoodAnswer");
+			
 			m_Score++;
 			switch(m_QuestionNumberFromList)
 			{
@@ -268,10 +262,11 @@ public class ScriptQuizzManager : MonoBehaviour {
 					break;
 
 			}
+	
+			
 		}
 		else
 		{
-			m_BubbleAnimator.SetTrigger("BadAnswer");
 			switch (m_QuestionNumberFromList)
 			{
 				case 1:
@@ -296,14 +291,29 @@ public class ScriptQuizzManager : MonoBehaviour {
 
 			}
 		}
-		
-		yield return new WaitForSeconds(3);
+		StartCoroutine(ChangeText(m_AnswersMessage[m_QuestionNumberFromList - 1]));
 		m_BubbleAnimator.SetTrigger("Reset");
 		m_TextAnimator.SetTrigger("Reset");
+		
+		yield return new WaitForSeconds(3);
+		Debug.Log(m_QuestionNumberFromList+1);
+		m_AnswerImageAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList+1);
+		m_AnswerImageAnimator.SetTrigger("Reset");
+		
+		/*
+		m_BubbleAnimator.SetTrigger("Reset");
+		m_TextAnimator.SetTrigger("Reset");*/
 		yield return new WaitForSeconds(0.1f);
+		m_AnswerImageAnimator.SetTrigger("NewAnswer");
 		StartQuiz();
 	}
 
+	IEnumerator ChangeText(string text)
+	{
+		yield return new WaitForSeconds(0.5f);
+		m_BubbleText.text = text;
+
+	}
 	
 
 }
