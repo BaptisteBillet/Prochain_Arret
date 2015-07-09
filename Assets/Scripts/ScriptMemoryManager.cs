@@ -59,7 +59,9 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	//public float m_NCardListIndexMax = 15f;
 	
-	
+
+
+
 	public Text m_TimerText;
 	public int m_TimerSeconds;
 	public int m_TimerMinutes;
@@ -210,7 +212,19 @@ public class ScriptMemoryManager : MonoBehaviour
 		StartCoroutine(Compare (LastClickedCard));
 	}
 	
-	
+	public void GameLost ()
+	{
+
+	}
+
+	public void RestartLevel()
+	{
+		Application.LoadLevel ("Memory");
+	}
+
+	public void Return()
+	{
+	}
 	
 	public IEnumerator Compare (GameObject LastClickedCard)
 	{
@@ -265,21 +279,28 @@ public class ScriptMemoryManager : MonoBehaviour
 		while (m_TimerMinutes>-1) 
 		{
 			yield return new WaitForSeconds (1f);
-			m_TimerSeconds --;
-			m_TimerText.text = " " + m_TimerMinutes + m_TimerSeconds;
 
-			if (m_TimerSeconds < -1) 
+			m_TimerText.text = " " + m_TimerMinutes +":"+ m_TimerSeconds;
+
+			if (m_TimerSeconds == 0) 
 			{
 				m_TimerMinutes --;
 				
 				if (m_TimerMinutes < 0) 
 				{
 					yield return null;
-				} else 
+				} 
+				if (m_TimerMinutes == 0 && m_TimerSeconds == 0)
 				{
-					m_TimerSeconds = 59;
+					GameLost();
+				}
+
+				else 
+				{
+					m_TimerSeconds = 60;
 				}
 			}
+			m_TimerSeconds --;
 			
 		}
 	}
