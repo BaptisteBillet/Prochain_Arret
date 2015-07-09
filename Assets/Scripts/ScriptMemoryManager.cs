@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
+
 
 public class ScriptMemoryManager : MonoBehaviour 
 {
@@ -154,7 +156,7 @@ public class ScriptMemoryManager : MonoBehaviour
 		
 		if (m_Difficulty == "Easy") 
 		{
-			m_TimerMinutes = 5;
+			m_TimerMinutes = 1;
 			m_TimerSeconds = 0;
 		}
 		
@@ -170,7 +172,7 @@ public class ScriptMemoryManager : MonoBehaviour
 			m_TimerSeconds = 0;
 		}
 		
-		Debug.Log (m_Difficulty);
+		//Debug.Log (m_Difficulty);
 		
 		StartCoroutine (WaitForBienvenue ());
 		GridBuilding ();//lance la création de la grille
@@ -191,8 +193,8 @@ public class ScriptMemoryManager : MonoBehaviour
 		{
 			for(int y=0; y<m_ArrayY; y++)
 			{
-				m_NCardListIndex = (int)(Random.Range (0f,m_NCardList.Count));
-				Debug.Log (m_NCardListIndex);
+				m_NCardListIndex = (int)(UnityEngine.Random.Range (0f,m_NCardList.Count));
+				//Debug.Log (m_NCardListIndex);
 				
 				m_MemoryArray[x,y]=m_ArrayOfCard[m_NCardList[m_NCardListIndex]];
 				
@@ -264,12 +266,13 @@ public class ScriptMemoryManager : MonoBehaviour
 		yield return null;
 	}
 	
-	
+
 	
 	
 	
 	public IEnumerator TimerCoroutine()
 	{
+
 		while (m_TimerMinutes>-1) 
 		{
 			yield return new WaitForSeconds (1f);
@@ -278,22 +281,21 @@ public class ScriptMemoryManager : MonoBehaviour
 
 			if (m_TimerSeconds == 0) 
 			{
-				m_TimerMinutes --;
 				
-				if (m_TimerMinutes < 0) 
-				{
-					yield return null;
-				} 
-				if (m_TimerMinutes == 0 && m_TimerSeconds == 0)
+				if (m_TimerMinutes ==0) 
 				{
 					GameLost();
-				}
+					yield break;
+				} 
 
 				else 
 				{
 					m_TimerSeconds = 60;
+					m_TimerMinutes --;
 				}
+
 			}
+
 			m_TimerSeconds --;
 			
 		}
@@ -302,7 +304,9 @@ public class ScriptMemoryManager : MonoBehaviour
 
 	public void GameLost ()
 	{
-			
+		Debug.Log ("Game lost");
+
+
 	}
 	
 	public void RestartLevel()
