@@ -29,74 +29,82 @@ public class ScriptQuizzManager : MonoBehaviour {
 	#region Members
 	//Access to Papish
 	public GameObject m_Papish;
-
+	[Space(10)]
 	//Access to the Bubble
 	public GameObject m_Bubble;
-
+	[Space(10)]
 	//Access to the Bubble Animator
 	public Animator m_BubbleAnimator;
-
+	[Space(10)]
 	//Access to the TextAnimator;
 	public Animator m_TextAnimator;
-
+	[Space(10)]
 	//Access to the Text Component
 	public Text m_BubbleText;
-
+	[Space(10)]
 	//Access to the QuestionBoard
 	public GameObject m_QuestionsBoard;
-
+	[Space(10)]
 	//Access to the AnswerBoard
 	public GameObject m_AnswerBoard;
-
+	[Space(10)]
 	//Access to the AnswerBoard Animator
 	public Animator m_AnswerBoardAnimator;
-
+	[Space(10)]
 	//Access to the images of the answers
 	public Animator m_AnswerImageAnimator;
-
+	[Space(10)]
 	//Access to the ButtonPanel
 	public GameObject m_ButtonPanel;
-
+	[Space(10)]
 	//Access to the Ufo Animator
 	public Animator m_Ufo1Animator;
 	public Animator m_Ufo2Animator;
 	public Animator m_Ufo3Animator;
 	public Animator m_Ufo4Animator;
 	public Animator m_Ufo5Animator;
-
+	[Space(10)]
 	//Creation of a List for random quesions
 	private List<int> m_QuestionList = new List<int>() { 0, 1, 2, 3, 4 };
-
+	[Space(10)]
 	//Keep in memory the Random Number from list
 	private int m_QuestionNumberFromList;
-	
+	[Space(10)]
 	//The score
 	private int m_Score;
-
+	[Space(10)]
 	//The Objectif
 	private string m_Difficulty;
 	private int m_Goal;
 	public int m_GoalEasy;
 	public int m_GoalMedium;
 	public int m_GoalHard;
-
+	[Space(10)]
 	//Array for the anwser
 	public int[] m_ArrayOfAnswers = new int[5];
-
+	[Space(10)]
 	//String for the welcome message
 	public string m_WelcomeMessage;
-
+	[Space(10)]
 	//Array for the Questions
 	public string[] m_QuestionsMessage;
-
+	[Space(10)]
 	//Array for the Answers
 	public string[] m_AnswersMessage;
-
+	[Space(10)]
 	//String for the Win message
 	public string m_WinMessage;
-
+	[Space(10)]
 	//String for the Loose message
 	public string m_LooseMessage;
+	[Space(10)]
+	public Sprite m_Informations1;
+	public Sprite m_Informations2;
+	public Sprite m_Informations3;
+	public Sprite m_Informations4;
+	[Space(10)]
+	public GameObject m_PanelInformations;
+	public Animator m_InformationAnimator;
 
 	#endregion
 
@@ -315,6 +323,10 @@ public class ScriptQuizzManager : MonoBehaviour {
 
 	}
 	
+	public void NextStep()
+	{
+
+	}
 
 }
 
