@@ -88,6 +88,8 @@ public class ScriptMemoryManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{	//Remplit la card list 
+
+
 		m_NCardList.Add (7);
 		m_NCardList.Add (6);	
 		m_NCardList.Add (5);	
@@ -106,10 +108,15 @@ public class ScriptMemoryManager : MonoBehaviour
 		m_NCardList.Add (1);
 		m_NCardList.Add (0);
 
+
+
+
 		m_CanPlay = false ; 
 		m_MemoryArray= new GameObject[m_ArrayX,m_ArrayY];
 		m_ArrayOfCardstatus = 0;
-		
+
+
+
 		m_ScoreMax = 8;
 		
 		
