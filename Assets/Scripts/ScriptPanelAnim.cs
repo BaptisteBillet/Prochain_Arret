@@ -21,7 +21,7 @@ public class ScriptPanelAnim : MonoBehaviour {
 
 	public void DisplayInformation(int bubble) 
 	{
-		Debug.Log (bubble);
+		//Debug.Log (bubble);
 		m_Animator.SetTrigger ("Reset");	
 		m_Animator.SetTrigger ("NewInformation");
 		m_Animator.SetInteger ("SentenceSelect", bubble);
@@ -32,6 +32,10 @@ public class ScriptPanelAnim : MonoBehaviour {
 
 	public IEnumerator Reset (float time)
 	{
+		if (time == -1) 
+		{
+			time = m_ResetTime;
+		}
 			yield return new WaitForSeconds (time);
 		m_Animator.SetTrigger ("Reset");	
 	}
@@ -40,6 +44,11 @@ public class ScriptPanelAnim : MonoBehaviour {
 	{
 		m_Animator.SetTrigger ("Victoire");
 		//StartCoroutine (Reset (m_ResetTimeBienvenue));
+	}
+
+	public void ResetLaunch ()
+	{
+		StartCoroutine (Reset (m_ResetTime));
 	}
 
 }

@@ -239,13 +239,17 @@ public class ScriptMemoryManager : MonoBehaviour
 			{
 				
 				m_Score++;
-				
+				Debug.Log (m_Score);
+
 				m_PanelAnimScript.DisplayInformation(m_Card.GetComponent<ScriptCard>().m_CardNumber);
 				
 				if (m_Score==m_ScoreMax)
 				{
+					
+					m_PanelAnimScript.ResetLaunch();
 					m_PanelAnimScript.Victoire();
 				}
+
 				
 			}
 			
@@ -258,6 +262,8 @@ public class ScriptMemoryManager : MonoBehaviour
 				LastClickedCard.GetComponent<ScriptCard>().FlipBack();
 				
 			}
+
+
 			m_Card = null;
 			m_FirstCard=true;
 			m_CanPlay = true;
@@ -296,6 +302,11 @@ public class ScriptMemoryManager : MonoBehaviour
 
 			}
 
+			if (m_Score==m_ScoreMax)
+			{
+				yield break;
+			}
+
 			m_TimerSeconds --;
 			
 		}
@@ -305,6 +316,7 @@ public class ScriptMemoryManager : MonoBehaviour
 	public void GameLost ()
 	{
 		Debug.Log ("Game lost");
+		m_PanelDefeat.SetActive (true);
 
 
 	}
@@ -316,7 +328,7 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	public void Return()
 	{
-
+		Application.LoadLevel ("TitleScreen");
 	}
 	
 	
