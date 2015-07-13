@@ -10,13 +10,15 @@ public class ScriptNavigation : MonoBehaviour {
 
 	public GameObject panelpostcards;
 
+	public GameObject PanelPublicPlaces;
+
 
 
 
 	public void Startgame() 
 	{
 			paneltitre.SetActive (false);
-			panelpostcards.SetActive (true);
+			PanelPublicPlaces.SetActive (true);
 
 	}
 

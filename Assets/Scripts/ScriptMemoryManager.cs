@@ -77,7 +77,7 @@ public class ScriptMemoryManager : MonoBehaviour
 	// Variables pour les animations.
 	
 	public GameObject m_PanelDefeat;
-
+	private ScriptCard m_ScriptCard;
 	// Variables fin de niveau, défaites
 	public GameObject[,] m_MemoryArray;
 	
@@ -88,7 +88,6 @@ public class ScriptMemoryManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{	//Remplit la card list 
-
 
 		m_NCardList.Add (7);
 		m_NCardList.Add (6);	
@@ -135,6 +134,7 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	IEnumerator WaitForDifficulty()
 	{
+
 		m_Difficulty = "";
 		switch (Application.platform)
 		{
@@ -163,8 +163,8 @@ public class ScriptMemoryManager : MonoBehaviour
 		
 		if (m_Difficulty == "Easy") 
 		{
-			m_TimerMinutes = 1;
-			m_TimerSeconds = 0;
+			m_TimerMinutes = 0;
+			m_TimerSeconds = 10;
 		}
 		
 		if (m_Difficulty == "Medium") 
@@ -180,26 +180,31 @@ public class ScriptMemoryManager : MonoBehaviour
 		}
 		
 		//Debug.Log (m_Difficulty);
-		
+
+
 		StartCoroutine (WaitForBienvenue ());
+	
 		GridBuilding ();//lance la création de la grille
+		yield return null;
 	}
 	
 	
 	IEnumerator WaitForBienvenue ()
 	{
 		yield return new WaitForSeconds(1.5f);
+
 		m_PanelAnimScript.Bienvenue ();
 		
 	}
 	
 	void GridBuilding()
 	{
-		
+		Debug.Log("GridBuilding");
 		for (int x=0;x<m_ArrayX;x++)
 		{
 			for(int y=0; y<m_ArrayY; y++)
 			{
+
 				m_NCardListIndex = (int)(UnityEngine.Random.Range (0f,m_NCardList.Count));
 				//Debug.Log (m_NCardListIndex);
 				
@@ -209,10 +214,12 @@ public class ScriptMemoryManager : MonoBehaviour
 				Instantiate(m_MemoryArray[x,y]);
 				m_NCardList.RemoveAt(m_NCardListIndex);
 				//m_NCardListIndexMax--;
+
 				if (m_ArrayOfCardstatus>7)
 				{
 					m_ArrayOfCardstatus=0;
 				}
+
 				
 			}
 		}
@@ -322,7 +329,17 @@ public class ScriptMemoryManager : MonoBehaviour
 
 	public void GameLost ()
 	{
-		Debug.Log ("Game lost");
+
+
+		for (int x=0; x<m_ArrayX; x++) 
+		{
+			for (int y=0; y<m_ArrayY; y++) 
+			{
+				m_ScriptCard= m_MemoryArray[x,y].GetComponent<ScriptCard>();
+				m_ScriptCard.CardFall();
+			}
+		}
+
 		m_PanelDefeat.SetActive (true);
 
 
@@ -336,7 +353,8 @@ public class ScriptMemoryManager : MonoBehaviour
 	public void Return()
 	{
 		Application.LoadLevel ("PostalCardsScreen");
+
 	}
 	
-	
+
 }

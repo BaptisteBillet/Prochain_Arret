@@ -6,11 +6,12 @@ public class ScriptCard : MonoBehaviour
 	public int m_CardNumber;
 
 	private bool m_CanBeClick=true;
-	private Animator m_Animator;
+	public Animator m_Animator;
 
 	void Start () 
 	{
-		m_Animator = GetComponent<Animator> ();
+		//m_Animator = GetComponent<Animator>();
+
 	}
 
 
@@ -31,6 +32,24 @@ public class ScriptCard : MonoBehaviour
 	{
 		m_Animator.SetTrigger ("Flip2");
 		m_CanBeClick = true;
+
+	}
+
+	public void CardArrival ()
+	{
+		m_Animator.SetTrigger ("Arriving");
+	}
+
+	public void CardFall()
+	{
+
+		m_Animator.SetTrigger ("GameLost");
+	}
+
+	void OnBecameInvisible ()
+
+	{
+		Destroy (this);
 
 	}
 
