@@ -30,18 +30,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 	//Access to Papish
 	public GameObject m_Papish;
 	[Space(10)]
-	//Access to the Bubble
-	public GameObject m_Bubble;
-	[Space(10)]
-	//Access to the Bubble Animator
-	public Animator m_BubbleAnimator;
-	[Space(10)]
-	//Access to the TextAnimator;
-	public Animator m_TextAnimator;
-	[Space(10)]
-	//Access to the Text Component
-	public Text m_BubbleText;
-	[Space(10)]
+	private int m_QuestionNumberFromList;
 	//Access to the QuestionBoard
 	public GameObject m_QuestionsBoard;
 	[Space(10)]
@@ -67,9 +56,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 	//Creation of a List for random quesions
 	private List<int> m_QuestionList = new List<int>() { 0, 1, 2, 3, 4 };
 	[Space(10)]
-	//Keep in memory the Random Number from list
-	private int m_QuestionNumberFromList;
-	[Space(10)]
+	
 	//The score
 	private int m_Score;
 	[Space(10)]
@@ -83,21 +70,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 	//Array for the anwser
 	public int[] m_ArrayOfAnswers = new int[5];
 	[Space(10)]
-	//String for the welcome message
-	public string m_WelcomeMessage;
-	[Space(10)]
-	//Array for the Questions
-	public string[] m_QuestionsMessage;
-	[Space(10)]
-	//Array for the Answers
-	public string[] m_AnswersMessage;
-	[Space(10)]
-	//String for the Win message
-	public string m_WinMessage;
-	[Space(10)]
-	//String for the Loose message
-	public string m_LooseMessage;
-	[Space(10)]
+
 	public Sprite m_Informations1;
 	public Sprite m_Informations2;
 	public Sprite m_Informations3;
@@ -126,7 +99,6 @@ public class ScriptQuizzManager : MonoBehaviour {
 		m_ButtonPanel.SetActive(false);
 		m_Goal = -1;
 		m_Difficulty = "";
-		m_BubbleText.text = m_WelcomeMessage;
 		m_InformationImageSprite = m_InformationImageGO.GetComponent<Image>();
 		m_ClickButtonPass = false;
 		m_InformationButton.SetActive(false);
@@ -188,11 +160,9 @@ public class ScriptQuizzManager : MonoBehaviour {
 		//On attend la fin du mouvement de papish
 		yield return new WaitForSeconds(1f);
 		//On le fait parler
-		m_Bubble.SetActive(true);
+		ScriptTextSystem.instance.Display(0);
 		yield return new WaitForSeconds(2f);
-		m_BubbleAnimator.SetTrigger("Reset");
-	
-		m_TextAnimator.SetTrigger("Reset");
+		
 		m_PanelButtonAnswer.SetActive(true);
 		StartQuiz();
 
@@ -221,15 +191,14 @@ public class ScriptQuizzManager : MonoBehaviour {
 
 			//Write the right question take on the array corresponding whith the question number from list
 		
-			StartCoroutine(ChangeText(m_QuestionsMessage[m_QuestionNumberFromList]));
+		
 			//Reset all animation
-			m_TextAnimator.SetTrigger("Reset");
-			m_BubbleAnimator.SetTrigger("Reset");
+		
 
 			//Write the right answer take on the array corresponding whith the question number from list
 			m_AnswerBoardAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList + 1);
 			m_AnswerBoardAnimator.SetTrigger("NewAnswer");
-
+			ScriptTextSystem.instance.Display(m_QuestionNumberFromList+1);
 			//Go to the next question
 			m_QuestionNumberFromList++;
 		}
@@ -237,14 +206,13 @@ public class ScriptQuizzManager : MonoBehaviour {
 		{
 			if (m_Score >= m_Goal)
 			{
-				m_BubbleText.text = m_WinMessage;
+				ScriptTextSystem.instance.Display(11);
 			}
 			else
 			{
-				m_BubbleText.text = m_LooseMessage;
+				ScriptTextSystem.instance.Display(12);
 			}
-			m_TextAnimator.SetTrigger("Reset");
-			m_BubbleAnimator.SetTrigger("Reset");
+		
 		}
 		
 	}
@@ -322,10 +290,10 @@ public class ScriptQuizzManager : MonoBehaviour {
 					break;
 
 			}
+
 		}
-		StartCoroutine(ChangeText(m_AnswersMessage[m_QuestionNumberFromList - 1]));
-		m_BubbleAnimator.SetTrigger("Reset");
-		m_TextAnimator.SetTrigger("Reset");
+		
+	
 
 		m_PanelButtonAnswer.SetActive(false);
 		//Pour les informations de fin de question
@@ -333,7 +301,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 		//
 
 		m_InformationButton.SetActive(true);
-
+		ScriptTextSystem.instance.Display(m_QuestionNumberFromList + 5);
 		yield return new WaitForSeconds(m_TempsInformation);
 		if(m_InformationButton.activeInHierarchy==true)
 		{
@@ -343,12 +311,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 		yield return null;
 	}
 
-	IEnumerator ChangeText(string text)
-	{
-		yield return new WaitForSeconds(0.5f);
-		m_BubbleText.text = text;
-
-	}
+	
 	
 	public void NextStep()
 	{
