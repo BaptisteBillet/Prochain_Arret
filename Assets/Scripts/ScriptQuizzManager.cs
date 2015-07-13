@@ -102,10 +102,18 @@ public class ScriptQuizzManager : MonoBehaviour {
 	public Sprite m_Informations2;
 	public Sprite m_Informations3;
 	public Sprite m_Informations4;
+	public Sprite m_Informations5;
 	[Space(10)]
 	public GameObject m_PanelInformations;
 	public Animator m_InformationAnimator;
-
+	public GameObject m_InformationImageGO;
+	public Image m_InformationImageSprite;
+	public float m_TempsInformation;
+	[Space(10)]
+	public bool m_ClickButtonPass;
+	public GameObject m_InformationButton;
+	[Space(10)]
+	public GameObject m_PanelButtonAnswer;
 	#endregion
 
 	void Start()
@@ -119,6 +127,10 @@ public class ScriptQuizzManager : MonoBehaviour {
 		m_Goal = -1;
 		m_Difficulty = "";
 		m_BubbleText.text = m_WelcomeMessage;
+		m_InformationImageSprite = m_InformationImageGO.GetComponent<Image>();
+		m_ClickButtonPass = false;
+		m_InformationButton.SetActive(false);
+		m_PanelButtonAnswer.SetActive(false);
 		#endregion
 
 		StartCoroutine(WaitForDifficulty());
@@ -181,12 +193,14 @@ public class ScriptQuizzManager : MonoBehaviour {
 		m_BubbleAnimator.SetTrigger("Reset");
 	
 		m_TextAnimator.SetTrigger("Reset");
+		m_PanelButtonAnswer.SetActive(true);
 		StartQuiz();
 
 	}
 
 	void StartQuiz()
 	{
+		
 		//No Random
 			//We check if they are questions again
 		if (m_QuestionNumberFromList< 5)
@@ -251,22 +265,27 @@ public class ScriptQuizzManager : MonoBehaviour {
 			{
 				case 1:
 					m_Ufo1Animator.SetTrigger("Good");
+					m_InformationImageSprite.sprite = m_Informations1;
 					break;
 
 				case 2:
 					m_Ufo2Animator.SetTrigger("Good");
+					m_InformationImageSprite.sprite = m_Informations2;
 					break;
 
 				case 3:
 					m_Ufo3Animator.SetTrigger("Good");
+					m_InformationImageSprite.sprite = m_Informations3;
 					break;
 
 				case 4:
 					m_Ufo4Animator.SetTrigger("Good");
+					m_InformationImageSprite.sprite = m_Informations4;
 					break;
 
 				case 5:
 					m_Ufo5Animator.SetTrigger("Good");
+					m_InformationImageSprite.sprite = m_Informations5;
 					break;
 
 			}
@@ -279,22 +298,27 @@ public class ScriptQuizzManager : MonoBehaviour {
 			{
 				case 1:
 					m_Ufo1Animator.SetTrigger("Bad");
+					m_InformationImageSprite.sprite = m_Informations1;
 					break;
 
 				case 2:
 					m_Ufo2Animator.SetTrigger("Bad");
+					m_InformationImageSprite.sprite = m_Informations2;
 					break;
 
 				case 3:
 					m_Ufo3Animator.SetTrigger("Bad");
+					m_InformationImageSprite.sprite = m_Informations3;
 					break;
 
 				case 4:
 					m_Ufo4Animator.SetTrigger("Bad");
+					m_InformationImageSprite.sprite = m_Informations4;
 					break;
 
 				case 5:
 					m_Ufo5Animator.SetTrigger("Bad");
+					m_InformationImageSprite.sprite = m_Informations5;
 					break;
 
 			}
@@ -302,18 +326,21 @@ public class ScriptQuizzManager : MonoBehaviour {
 		StartCoroutine(ChangeText(m_AnswersMessage[m_QuestionNumberFromList - 1]));
 		m_BubbleAnimator.SetTrigger("Reset");
 		m_TextAnimator.SetTrigger("Reset");
-		
-		yield return new WaitForSeconds(3);
-		Debug.Log(m_QuestionNumberFromList+1);
-		m_AnswerImageAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList+1);
-		m_AnswerImageAnimator.SetTrigger("Reset");
-		
-		/*
-		m_BubbleAnimator.SetTrigger("Reset");
-		m_TextAnimator.SetTrigger("Reset");*/
-		yield return new WaitForSeconds(0.1f);
-		m_AnswerImageAnimator.SetTrigger("NewAnswer");
-		StartQuiz();
+
+		m_PanelButtonAnswer.SetActive(false);
+		//Pour les informations de fin de question
+		m_InformationAnimator.SetTrigger("NewInformation");
+		//
+
+		m_InformationButton.SetActive(true);
+
+		yield return new WaitForSeconds(m_TempsInformation);
+		if(m_InformationButton.activeInHierarchy==true)
+		{
+			NextStep();
+		}
+
+		yield return null;
 	}
 
 	IEnumerator ChangeText(string text)
@@ -325,7 +352,20 @@ public class ScriptQuizzManager : MonoBehaviour {
 	
 	public void NextStep()
 	{
+		m_InformationButton.SetActive(false);
+		m_AnswerImageAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList + 1);
+		m_AnswerImageAnimator.SetTrigger("Reset");
 
+		m_InformationAnimator.SetTrigger("Reset");
+
+		/*
+		m_BubbleAnimator.SetTrigger("Reset");
+		m_TextAnimator.SetTrigger("Reset");*/
+
+		m_AnswerImageAnimator.SetTrigger("NewAnswer"); 
+		
+		m_PanelButtonAnswer.SetActive(true);
+		StartQuiz();
 	}
 
 }
