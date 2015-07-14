@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class SoundManager : MonoBehaviour {
 	#region Members
-	public AudioClip Damage ;
+	[Header("OGG Files")]
+	public List<AudioClip> Sound= new List<AudioClip>();
 
+	[Header("OGG Files")]
+	public List<AudioClip> Music = new List<AudioClip>();
 
-	public AudioSource camera;
+	[Header("OGG Files")]
+	public List<AudioClip> Voice = new List<AudioClip>();
+
+	[Header("Sound Listeners")]
+	public List<AudioSource> Source = new List<AudioSource>();
 
 
 	#endregion
@@ -36,9 +43,9 @@ public class SoundManager : MonoBehaviour {
 		switch (emt)
 		{
 			case SoundManagerType.SOUND1:
-				camera.Stop();
-				camera.clip = Damage;
-				camera.Play();
+				Source[0].Stop();
+				Source[0].clip = Sound[0];
+				Source[0].Play();
 				break;
 		}
 	}
