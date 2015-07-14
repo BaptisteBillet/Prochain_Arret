@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class ScriptTextSystem : MonoBehaviour {
-	
+
+	//ScriptTextSystem.instance.fonction()
+
 	#region Singleton
 	static private ScriptTextSystem s_Instance;
 	static public ScriptTextSystem instance
