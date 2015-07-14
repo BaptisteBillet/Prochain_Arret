@@ -160,7 +160,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 		//On attend la fin du mouvement de papish
 		yield return new WaitForSeconds(1f);
 		//On le fait parler
-		ScriptTextSystem.instance.Display(0);
+		ScriptTextSystem.instance.Display1(0);
 		yield return new WaitForSeconds(2f);
 		
 		m_PanelButtonAnswer.SetActive(true);
@@ -198,7 +198,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 			//Write the right answer take on the array corresponding whith the question number from list
 			m_AnswerBoardAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList + 1);
 			m_AnswerBoardAnimator.SetTrigger("NewAnswer");
-			ScriptTextSystem.instance.Display(m_QuestionNumberFromList+1);
+			ScriptTextSystem.instance.Display1(m_QuestionNumberFromList+1);
 			//Go to the next question
 			m_QuestionNumberFromList++;
 		}
@@ -206,11 +206,11 @@ public class ScriptQuizzManager : MonoBehaviour {
 		{
 			if (m_Score >= m_Goal)
 			{
-				ScriptTextSystem.instance.Display(11);
+				ScriptTextSystem.instance.Display1(11);
 			}
 			else
 			{
-				ScriptTextSystem.instance.Display(12);
+				ScriptTextSystem.instance.Display1(12);
 			}
 		
 		}
@@ -301,7 +301,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 		//
 
 		m_InformationButton.SetActive(true);
-		ScriptTextSystem.instance.Display(m_QuestionNumberFromList + 5);
+		ScriptTextSystem.instance.Display1(m_QuestionNumberFromList + 5);
 		yield return new WaitForSeconds(m_TempsInformation);
 		if(m_InformationButton.activeInHierarchy==true)
 		{

@@ -23,54 +23,85 @@ public class ScriptTextSystem : MonoBehaviour {
 	}
 	#endregion
 
-	private Animator m_BubbleAnimator;
-	private Animator m_TextAnimator;
-	private Text m_Text;
+	public Animator m_BubbleAnimator1;
+	public Animator m_TextAnimator1;
+	public Text m_Text1;
 
-	public GameObject m_TextGO;
+	
+
+	public Animator m_BubbleAnimator2;
+	public Animator m_TextAnimator2;
+	public Text m_Text2;
+
+
 	
 	[Space(10)]
 	//Array for the anwser
 	public string[] m_ArrayOfText = new string[5];
-
-	void Start()
-	{
-		m_BubbleAnimator = GetComponent<Animator>();
-		m_TextAnimator = m_TextGO.GetComponent<Animator>();
-		m_Text = m_TextGO.GetComponent<Text>();
-	}
-
-
+	public string[] m_ArrayOfText2 = new string[5];
 	
 	//Affichage
-	public void Display(int TextNumber, float Delay=0)
+	public void Display1(int TextNumber, float Delay=0)
 	{
-		StartCoroutine(C_Display(TextNumber, Delay));
+		StartCoroutine(C_Display1(TextNumber, Delay));
 	}
 	
-	IEnumerator C_Display(int TextNumber, float Delay)
+	IEnumerator C_Display1(int TextNumber, float Delay)
 	{
 		yield return new WaitForSeconds(Delay);
-		m_Text.text = "";
-		m_BubbleAnimator.SetTrigger("Reset");
-		m_TextAnimator.SetTrigger("Reset");
+		m_Text1.text = "";
+		m_BubbleAnimator1.SetTrigger("Reset");
+		m_TextAnimator1.SetTrigger("Reset");
 		
 		yield return new WaitForSeconds(0.2f);
-		m_Text.text = m_ArrayOfText[TextNumber];
+		m_Text1.text = m_ArrayOfText[TextNumber];
 
 	}
 
 	//Effacement
-	public void Erase(float Delay=0)
+	public void Erase1(float Delay=0)
 	{
-		StartCoroutine(C_Erase(Delay));
+		StartCoroutine(C_Erase1(Delay));
 	}
 
-	IEnumerator C_Erase(float Delay)
+	IEnumerator C_Erase1(float Delay)
 	{
 		yield return new WaitForSeconds(Delay);
-		m_BubbleAnimator.SetTrigger("Erase");
-		m_TextAnimator.SetTrigger("Reset");
-		m_Text.text = "";
+		m_BubbleAnimator1.SetTrigger("Erase");
+		m_TextAnimator1.SetTrigger("Reset");
+		m_Text1.text = "";
 	}
+
+	//Affichage
+	public void Display2(int TextNumber, float Delay = 0)
+	{
+		StartCoroutine(C_Display2(TextNumber, Delay));
+	}
+
+	IEnumerator C_Display2(int TextNumber, float Delay)
+	{
+		yield return new WaitForSeconds(Delay);
+		m_Text2.text = "";
+		m_BubbleAnimator2.SetTrigger("Reset");
+		m_TextAnimator2.SetTrigger("Reset");
+
+		yield return new WaitForSeconds(0.2f);
+		m_Text2.text = m_ArrayOfText[TextNumber];
+
+	}
+
+	//Effacement
+	public void Erase2(float Delay = 0)
+	{
+		StartCoroutine(C_Erase2(Delay));
+	}
+
+	IEnumerator C_Erase2(float Delay)
+	{
+		yield return new WaitForSeconds(Delay);
+		m_BubbleAnimator2.SetTrigger("Erase");
+		m_TextAnimator2.SetTrigger("Reset");
+		m_Text2.text = "";
+	}
+
 }
