@@ -88,7 +88,7 @@ public class ScriptTextSystem : MonoBehaviour {
 		m_TextAnimator2.SetTrigger("Reset");
 
 		yield return new WaitForSeconds(0.2f);
-		m_Text2.text = m_ArrayOfText[TextNumber];
+		m_Text2.text = m_ArrayOfText2[TextNumber];
 
 	}
 

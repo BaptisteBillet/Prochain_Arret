@@ -5,11 +5,8 @@ public class ScriptVisiteManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		ScriptTextSystem.instance.Display (2, 0);
+		ScriptTextSystem.instance.Display2 (2, 0);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
