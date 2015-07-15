@@ -206,11 +206,13 @@ public class ScriptQuizzManager : MonoBehaviour {
 		{
 			if (m_Score >= m_Goal)
 			{
-				ScriptTextSystem.instance.Display1(11);
+				//Victoire
+				ScriptTextSystem.instance.Display1(6);
 			}
 			else
 			{
-				ScriptTextSystem.instance.Display1(12);
+				//Perdu
+				ScriptTextSystem.instance.Display1(7);
 			}
 		
 		}
@@ -255,9 +257,9 @@ public class ScriptQuizzManager : MonoBehaviour {
 					m_Ufo5Animator.SetTrigger("Good");
 					m_InformationImageSprite.sprite = m_Informations5;
 					break;
-
 			}
-	
+			SoundManagerEvent.emit(SoundManagerType.RANDOMPOSITIVE);
+			ScriptTextSystem.instance.Display1(Random.Range(8, 30));
 			
 		}
 		else
@@ -290,7 +292,8 @@ public class ScriptQuizzManager : MonoBehaviour {
 					break;
 
 			}
-
+			SoundManagerEvent.emit(SoundManagerType.RANDOMNEGATIVE);
+			ScriptTextSystem.instance.Display1(Random.Range(29, 50));
 		}
 		
 	
@@ -301,7 +304,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 		//
 
 		m_InformationButton.SetActive(true);
-		ScriptTextSystem.instance.Display1(m_QuestionNumberFromList + 5);
+		
 		yield return new WaitForSeconds(m_TempsInformation);
 		if(m_InformationButton.activeInHierarchy==true)
 		{

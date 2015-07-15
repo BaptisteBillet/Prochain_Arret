@@ -28,8 +28,23 @@ using System.Collections;
 
 public enum SoundManagerType
 {
-	SOUND1,
-	SOUND2
+	ABSOLUMENT,
+	BIENJOUE,
+	BONBOULOT,
+	BRAVO,
+	EXCELLENT,
+	SUPER,
+	AIEAIEAIE1,
+	AIEAIEAIE2,
+	AIEAIEAIE3,
+	CENESTPASCA,
+	NONNONNON1,
+	NONNONNON2,
+	PERDU,
+	PRESQUE,
+	TUFERASMIEUX,
+	RANDOMPOSITIVE,
+	RANDOMNEGATIVE
 }
 
 public class SoundManagerEvent : MonoBehaviour

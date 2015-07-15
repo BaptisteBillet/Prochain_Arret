@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 public class SoundManager : MonoBehaviour {
 	#region Members
-	[Header("OGG Files")]
-	public List<AudioClip> Sound= new List<AudioClip>();
 
-	[Header("OGG Files")]
+	[Header("MUSICS")]
 	public List<AudioClip> Music = new List<AudioClip>();
 
-	[Header("OGG Files")]
+	[Header("SOUNDS")]
+	public List<AudioClip> Sound= new List<AudioClip>();
+	
+	[Header("VOICES")]
 	public List<AudioClip> Voice = new List<AudioClip>();
 
 	[Header("Sound Listeners")]
@@ -21,16 +22,7 @@ public class SoundManager : MonoBehaviour {
 	// Use this for initialization
 	void Start()
 	{
-		/*
-		SoundManagerEvent.onEvent += Effect;
-		camera.Stop();
-		camera.clip = Oreebleue_A;
-		camera.Play();
-		camera_ui.Stop();
-		camera_ui.clip = Oreebleue_T;
-		camera_ui.Play();
-		*/
-
+		
 	}
 
 	void OnDestroy()
@@ -38,14 +30,94 @@ public class SoundManager : MonoBehaviour {
 		SoundManagerEvent.onEvent -= Play;
 	}
 
-	void Play(SoundManagerType emt)
+	public void Play(SoundManagerType emt)
 	{
 		switch (emt)
 		{
-			case SoundManagerType.SOUND1:
-				Source[0].Stop();
-				Source[0].clip = Sound[0];
-				Source[0].Play();
+			case SoundManagerType.ABSOLUMENT:
+				Source[2].Stop();
+				Source[2].clip = Sound[0];
+				Source[2].Play();
+				break;
+			case SoundManagerType.BIENJOUE:
+				Source[2].Stop();
+				Source[2].clip = Sound[1];
+				Source[2].Play();
+				break;
+			case SoundManagerType.BONBOULOT:
+				Source[2].Stop();
+				Source[2].clip = Sound[2];
+				Source[2].Play();
+				break;
+			case SoundManagerType.BRAVO:
+				Source[2].Stop();
+				Source[2].clip = Sound[3];
+				Source[2].Play();
+				break;
+			case SoundManagerType.EXCELLENT:
+				Source[2].Stop();
+				Source[2].clip = Sound[4];
+				Source[2].Play();
+				break;
+			case SoundManagerType.SUPER:
+				Source[2].Stop();
+				Source[2].clip = Sound[5];
+				Source[2].Play();
+				break;
+			case SoundManagerType.AIEAIEAIE1:
+				Source[2].Stop();
+				Source[2].clip = Sound[6];
+				Source[2].Play();
+				break;
+			case SoundManagerType.AIEAIEAIE2:
+				Source[2].Stop();
+				Source[2].clip = Sound[7];
+				Source[2].Play();
+				break;
+			case SoundManagerType.AIEAIEAIE3:
+				Source[2].Stop();
+				Source[2].clip = Sound[8];
+				Source[2].Play();
+				break;
+			case SoundManagerType.CENESTPASCA:
+				Source[2].Stop();
+				Source[2].clip = Sound[9];
+				Source[2].Play();
+				break;
+			case SoundManagerType.NONNONNON1:
+				Source[2].Stop();
+				Source[2].clip = Sound[10];
+				Source[2].Play();
+				break;
+			case SoundManagerType.NONNONNON2:
+				Source[2].Stop();
+				Source[2].clip = Sound[11];
+				Source[2].Play();
+				break;
+			case SoundManagerType.PERDU:
+				Source[2].Stop();
+				Source[2].clip = Sound[12];
+				Source[2].Play();
+				break;
+			case SoundManagerType.PRESQUE:
+				Source[2].Stop();
+				Source[2].clip = Sound[13];
+				Source[2].Play();
+				break;
+			case SoundManagerType.TUFERASMIEUX:
+				Source[2].Stop();
+				Source[2].clip = Sound[14];
+				Source[2].Play();
+				break;
+			case SoundManagerType.RANDOMPOSITIVE:
+				Source[2].Stop();
+				Source[2].clip = Sound[Random.Range(0,6)];
+				Source[2].Play();
+				break;
+			case SoundManagerType.RANDOMNEGATIVE:
+				Source[2].Stop();
+				Source[2].clip = Sound[Random.Range(6, 14)];
+				Source[2].Play();
 				break;
 		}
 	}
