@@ -74,7 +74,7 @@ public class SoundManagerEvent : MonoBehaviour
 
 	void Start()
 	{
-		SoundManagerEvent.onEvent += (SoundManagerType emt) => { Debug.Log("&"); };
+		SoundManagerEvent.onEvent += (SoundManagerType emt) => { Debug.Log(""); };
 	}
 
 	public static void emit(SoundManagerType emt)	{
