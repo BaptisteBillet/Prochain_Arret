@@ -30,7 +30,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 	//Access to Papish
 	public GameObject m_Papish;
 	[Space(10)]
-	private int m_QuestionNumberFromList;
+	public int m_QuestionNumberFromList;
 	//Access to the QuestionBoard
 	public GameObject m_QuestionsBoard;
 	[Space(10)]
@@ -54,15 +54,21 @@ public class ScriptQuizzManager : MonoBehaviour {
 	public Animator m_Ufo5Animator;
 	[Space(10)]
 	//Creation of a List for random quesions
-	private List<int> m_QuestionList = new List<int>() { 0, 1, 2, 3, 4 };
+	public List<int> m_QuestionList = new List<int>() { 0, 1, 2, 3, 4 };
 	[Space(10)]
-	
+	public List<int> m_QuestionRandom = new List<int>() { 0, 1, 2, 3, 4 };
+	private int m_IndexOfTheQuestionRandom;
+	[Space(10)]
+	public int m_QuestionNumber;
+	[Space(10)]
+
 	//The score
 	private int m_Score;
 	[Space(10)]
 	//The Objectif
 	private string m_Difficulty;
 	private int m_Goal;
+	[Space(10)]
 	public int m_GoalEasy;
 	public int m_GoalMedium;
 	public int m_GoalHard;
@@ -94,6 +100,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 		#region Initialization
 		m_Score = 0;
 		m_QuestionNumberFromList = 0;
+		m_QuestionNumber = 0;
 		m_Papish.SetActive(false);
 		m_QuestionsBoard.SetActive(false);
 		m_ButtonPanel.SetActive(false);
@@ -169,8 +176,8 @@ public class ScriptQuizzManager : MonoBehaviour {
 
 	void StartQuiz()
 	{
-		
-		//No Random
+		#region NoRandom
+		/*
 			//We check if they are questions again
 		if (m_QuestionNumberFromList< 5)
 		{
@@ -215,6 +222,51 @@ public class ScriptQuizzManager : MonoBehaviour {
 			}
 		
 		}
+		*/
+		#endregion 
+		//We check if they are questions again
+		if (m_QuestionNumber< 5)
+		{
+			//If this is the first question, we activate what that would be
+			if (m_ButtonPanel.activeInHierarchy == false)
+			{
+				m_ButtonPanel.SetActive(true);
+			}
+			if (m_QuestionsBoard.activeInHierarchy == false)
+			{
+				m_QuestionsBoard.SetActive(true);
+			}
+			if (m_AnswerBoard.activeInHierarchy == false)
+			{
+				m_AnswerBoard.SetActive(true);
+			}
+
+			m_IndexOfTheQuestionRandom = Random.Range(0, m_QuestionRandom.Count);//Donne un nombre pour choisir une des cases restantes de m_questionRandom
+			m_QuestionNumberFromList = m_QuestionRandom[m_IndexOfTheQuestionRandom]; //Prend l'objet dans la case
+			m_QuestionRandom.RemoveAt(m_IndexOfTheQuestionRandom); //Enleve la case choisi pour qu'elle ne soit plus réutilisé.
+			
+			
+			//Go to the next question
+			m_QuestionNumber++;
+			//Write the right answer take on the array corresponding whith the question number from list
+			m_AnswerBoardAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList+1); //Besoin d'un nombre de 1 à 5 donc +1
+			m_AnswerBoardAnimator.SetTrigger("NewAnswer");
+			ScriptTextSystem.instance.Display1(m_QuestionNumberFromList+1); //Besoin d'un nombre de 1 à 5 donc +1
+		}
+		else //If not, we check if the player win or loose depend of m_Score and m_Objectif
+		{
+			if (m_Score >= m_Goal)
+			{
+				//Victoire
+				ScriptTextSystem.instance.Display1(6);
+			}
+			else
+			{
+				//Perdu
+				ScriptTextSystem.instance.Display1(7);
+			}
+		
+		}
 		
 	}
 
@@ -226,76 +278,98 @@ public class ScriptQuizzManager : MonoBehaviour {
 	public IEnumerator GoodAnswer(int AnswerNumber)
 	{
 
-		if(AnswerNumber==m_ArrayOfAnswers[m_QuestionNumberFromList-1])
+		if (AnswerNumber == m_ArrayOfAnswers[m_QuestionNumberFromList])
 		{
 			
 			m_Score++;
-			switch(m_QuestionNumberFromList)
+			switch (m_QuestionNumber)
 			{
 				case 1:
 					m_Ufo1Animator.SetTrigger("Good");
-					m_InformationImageSprite.sprite = m_Informations1;
+				
 					break;
 
 				case 2:
 					m_Ufo2Animator.SetTrigger("Good");
-					m_InformationImageSprite.sprite = m_Informations2;
+					
 					break;
 
 				case 3:
 					m_Ufo3Animator.SetTrigger("Good");
-					m_InformationImageSprite.sprite = m_Informations3;
+					
 					break;
 
 				case 4:
 					m_Ufo4Animator.SetTrigger("Good");
-					m_InformationImageSprite.sprite = m_Informations4;
+					
 					break;
 
 				case 5:
 					m_Ufo5Animator.SetTrigger("Good");
-					m_InformationImageSprite.sprite = m_Informations5;
+					
 					break;
 			}
 			SoundManagerEvent.emit(SoundManagerType.RANDOMPOSITIVE);
-			ScriptTextSystem.instance.Display1(Random.Range(8, 30));
+			ScriptTextSystem.instance.Display1(Random.Range(8, 29));
 			
 		}
 		else
 		{
-			switch (m_QuestionNumberFromList)
+			switch (m_QuestionNumber)
 			{
 				case 1:
 					m_Ufo1Animator.SetTrigger("Bad");
-					m_InformationImageSprite.sprite = m_Informations1;
+					
 					break;
 
 				case 2:
 					m_Ufo2Animator.SetTrigger("Bad");
-					m_InformationImageSprite.sprite = m_Informations2;
+					
 					break;
 
 				case 3:
 					m_Ufo3Animator.SetTrigger("Bad");
-					m_InformationImageSprite.sprite = m_Informations3;
+				
 					break;
 
 				case 4:
 					m_Ufo4Animator.SetTrigger("Bad");
-					m_InformationImageSprite.sprite = m_Informations4;
+					
 					break;
 
 				case 5:
 					m_Ufo5Animator.SetTrigger("Bad");
-					m_InformationImageSprite.sprite = m_Informations5;
+					
 					break;
 
 			}
 			SoundManagerEvent.emit(SoundManagerType.RANDOMNEGATIVE);
-			ScriptTextSystem.instance.Display1(Random.Range(29, 50));
+			ScriptTextSystem.instance.Display1(Random.Range(29, 49));
 		}
-		
-	
+
+		switch(m_QuestionNumberFromList+1)
+		{
+			case 1:
+				m_InformationImageSprite.sprite = m_Informations1;
+				break;
+
+			case 2:
+				m_InformationImageSprite.sprite = m_Informations2;
+				break;
+
+			case 3:
+				m_InformationImageSprite.sprite = m_Informations3;
+				break;
+
+			case 4:
+				m_InformationImageSprite.sprite = m_Informations4;
+				break;
+
+			case 5:
+				m_InformationImageSprite.sprite = m_Informations5;
+				break;
+		}
+
 
 		m_PanelButtonAnswer.SetActive(false);
 		//Pour les informations de fin de question
@@ -318,7 +392,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 	public void NextStep()
 	{
 		m_InformationButton.SetActive(false);
-		m_AnswerImageAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList + 1);
+		m_AnswerImageAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList+1);
 		m_AnswerImageAnimator.SetTrigger("Reset");
 
 		m_InformationAnimator.SetTrigger("Reset");
