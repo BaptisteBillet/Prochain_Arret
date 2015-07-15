@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour 
+public class ScriptShopNavigation : MonoBehaviour 
 {
 	public GameObject m_PanelSelect;
 	public GameObject m_PanelTenues;
