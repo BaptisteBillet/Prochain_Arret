@@ -22,7 +22,7 @@ public class SoundManager : MonoBehaviour {
 	// Use this for initialization
 	void Start()
 	{
-		
+		SoundManagerEvent.onEvent += Play;
 	}
 
 	void OnDestroy()
@@ -36,87 +36,87 @@ public class SoundManager : MonoBehaviour {
 		{
 			case SoundManagerType.ABSOLUMENT:
 				Source[2].Stop();
-				Source[2].clip = Sound[0];
+				Source[2].clip = Voice[0];
 				Source[2].Play();
 				break;
 			case SoundManagerType.BIENJOUE:
 				Source[2].Stop();
-				Source[2].clip = Sound[1];
+				Source[2].clip = Voice[1];
 				Source[2].Play();
 				break;
 			case SoundManagerType.BONBOULOT:
 				Source[2].Stop();
-				Source[2].clip = Sound[2];
+				Source[2].clip = Voice[2];
 				Source[2].Play();
 				break;
 			case SoundManagerType.BRAVO:
 				Source[2].Stop();
-				Source[2].clip = Sound[3];
+				Source[2].clip = Voice[3];
 				Source[2].Play();
 				break;
 			case SoundManagerType.EXCELLENT:
 				Source[2].Stop();
-				Source[2].clip = Sound[4];
+				Source[2].clip = Voice[4];
 				Source[2].Play();
 				break;
 			case SoundManagerType.SUPER:
 				Source[2].Stop();
-				Source[2].clip = Sound[5];
+				Source[2].clip = Voice[5];
 				Source[2].Play();
 				break;
 			case SoundManagerType.AIEAIEAIE1:
 				Source[2].Stop();
-				Source[2].clip = Sound[6];
+				Source[2].clip = Voice[6];
 				Source[2].Play();
 				break;
 			case SoundManagerType.AIEAIEAIE2:
 				Source[2].Stop();
-				Source[2].clip = Sound[7];
+				Source[2].clip = Voice[7];
 				Source[2].Play();
 				break;
 			case SoundManagerType.AIEAIEAIE3:
 				Source[2].Stop();
-				Source[2].clip = Sound[8];
+				Source[2].clip = Voice[8];
 				Source[2].Play();
 				break;
 			case SoundManagerType.CENESTPASCA:
 				Source[2].Stop();
-				Source[2].clip = Sound[9];
+				Source[2].clip = Voice[9];
 				Source[2].Play();
 				break;
 			case SoundManagerType.NONNONNON1:
 				Source[2].Stop();
-				Source[2].clip = Sound[10];
+				Source[2].clip = Voice[10];
 				Source[2].Play();
 				break;
 			case SoundManagerType.NONNONNON2:
 				Source[2].Stop();
-				Source[2].clip = Sound[11];
+				Source[2].clip = Voice[11];
 				Source[2].Play();
 				break;
 			case SoundManagerType.PERDU:
 				Source[2].Stop();
-				Source[2].clip = Sound[12];
+				Source[2].clip = Voice[12];
 				Source[2].Play();
 				break;
 			case SoundManagerType.PRESQUE:
 				Source[2].Stop();
-				Source[2].clip = Sound[13];
+				Source[2].clip = Voice[13];
 				Source[2].Play();
 				break;
 			case SoundManagerType.TUFERASMIEUX:
 				Source[2].Stop();
-				Source[2].clip = Sound[14];
+				Source[2].clip = Voice[14];
 				Source[2].Play();
 				break;
 			case SoundManagerType.RANDOMPOSITIVE:
 				Source[2].Stop();
-				Source[2].clip = Sound[Random.Range(0,6)];
+				Source[2].clip = Voice[Random.Range(0, 6)];
 				Source[2].Play();
 				break;
 			case SoundManagerType.RANDOMNEGATIVE:
 				Source[2].Stop();
-				Source[2].clip = Sound[Random.Range(6, 14)];
+				Source[2].clip = Voice[Random.Range(6, 14)];
 				Source[2].Play();
 				break;
 		}

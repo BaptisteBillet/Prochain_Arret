@@ -104,7 +104,6 @@ public class ScriptQuizzManager : MonoBehaviour {
 		m_InformationButton.SetActive(false);
 		m_PanelButtonAnswer.SetActive(false);
 		#endregion
-
 		StartCoroutine(WaitForDifficulty());
 	}
 
