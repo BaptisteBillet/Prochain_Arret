@@ -12,10 +12,10 @@ public class ScriptVisiteManager : MonoBehaviour {
 
 	void Start () 
 	{
-		ScriptTextSystem.instance.Display1 (0, 1f);
+		//ScriptTextSystem.instance.Display1 (0, 1f);
 		//StartCoroutine (Attente());// La coroutine n'arrete pas la progression du programme, elle se fait en parallèle. 
-
-		ScriptTextSystem.instance.Display1 (1, m_WaitBetween);
+		ScriptImageSystem.instance.ImageDisplay (1, 0);
+		/*ScriptTextSystem.instance.Display1 (1, m_WaitBetween);
 		ScriptTextSystem.instance.Display2 (0,m_WaitBetween*2);
 		ScriptTextSystem.instance.Erase2 (m_WaitBetween*3);
 		ScriptTextSystem.instance.Display1 (2, m_WaitBetween*3);
@@ -28,7 +28,7 @@ public class ScriptVisiteManager : MonoBehaviour {
 		ScriptTextSystem.instance.Display1 (7, m_WaitBetween*9);
 		ScriptTextSystem.instance.Display1 (8, m_WaitBetween*10);
 		ScriptTextSystem.instance.Display1 (9, m_WaitBetween*11);
-		ScriptTextSystem.instance.Display1 (10, m_WaitBetween*12);
+		ScriptTextSystem.instance.Display1 (10, m_WaitBetween*12);*/
 	}
 	
 
