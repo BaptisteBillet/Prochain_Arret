@@ -8,6 +8,8 @@ public class ScriptVisiteManager : MonoBehaviour {
 
 	public int m_StoryLine;
 
+
+
 	void Start () 
 	{
 		ScriptTextSystem.instance.Display1 (0, 1f);
@@ -24,6 +26,9 @@ public class ScriptVisiteManager : MonoBehaviour {
 		ScriptTextSystem.instance.Display2 (1,m_WaitBetween*8);
 		ScriptTextSystem.instance.Erase2 (m_WaitBetween*9);
 		ScriptTextSystem.instance.Display1 (7, m_WaitBetween*9);
+		ScriptTextSystem.instance.Display1 (8, m_WaitBetween*10);
+		ScriptTextSystem.instance.Display1 (9, m_WaitBetween*11);
+		ScriptTextSystem.instance.Display1 (10, m_WaitBetween*12);
 	}
 	
 
