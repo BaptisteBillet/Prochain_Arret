@@ -1,20 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScriptHoleEffect : MonoBehaviour {
-
+public class ScriptFinish : MonoBehaviour {
 	private AccelerometerInput m_AccelerometerInputScript;
 
-	void OnCollisionStay(Collision collision)
+	void OnTriggerStay(Collider collision)
 	{
-		Debug.Log("b");
-		if(collision.gameObject.tag=="Ball")
+		
+		if (collision.gameObject.tag == "Ball")
 		{
-			Debug.Log("a");
 			m_AccelerometerInputScript = collision.gameObject.GetComponent<AccelerometerInput>();
-			m_AccelerometerInputScript.Reset();
+			m_AccelerometerInputScript.Stop();
 		}
 	}
-
 
 }
