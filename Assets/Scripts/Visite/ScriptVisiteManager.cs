@@ -7,6 +7,8 @@ public class ScriptVisiteManager : MonoBehaviour {
 	public float m_WaitBetween;
 	public float m_WaitSupImage;
 
+	float m_Waiting;
+
 	int m_NumberSequence;
 	int m_WaitFactor;
 
@@ -15,31 +17,60 @@ public class ScriptVisiteManager : MonoBehaviour {
 		m_NumberSequence = 0;
 		m_WaitFactor = 1;
 		StartCoroutine (WaitImage ());
+		m_Waiting = m_WaitBetween * m_WaitFactor;
 	}
 	
 	IEnumerator WaitImage ()
 	{
 		yield return new WaitForSeconds (1f);
-
-		while (m_NumberSequence<11) 
-		{
-			ScriptTextSystem.instance.Display1 (m_NumberSequence); //Ah! Vous entendez ça?
-			SoundPlay(m_NumberSequence);
-			StartCoroutine(MishSpeak(m_NumberSequence));
-
-			if (m_NumberSequence == 1 || m_NumberSequence ==6)
-			{
-				m_WaitFactor = 2;
-
-			}
+		ScriptTextSystem.instance.Display1 (0);
+		SoundPlay(0);
 
 
-			yield return new WaitForSeconds (m_WaitBetween*m_WaitFactor);
-			ScriptTextSystem.instance.Erase2();
-			m_WaitFactor=1;
-			m_NumberSequence ++;
-		}
+		yield return new WaitForSeconds (5f);
+		ScriptTextSystem.instance.Display1 (1);
+		SoundPlay(1);
 
+
+		yield return new WaitForSeconds (13f);
+		ScriptTextSystem.instance.Display1 (2);
+		SoundPlay(2);
+
+
+		yield return new WaitForSeconds (17f);
+		ScriptTextSystem.instance.Display1 (3);
+		SoundPlay(3);
+
+
+		yield return new WaitForSeconds (9f);
+		ScriptTextSystem.instance.Display1 (4);
+		SoundPlay(4);
+
+		
+		yield return new WaitForSeconds (9f);
+		ScriptTextSystem.instance.Display1 (5);
+		SoundPlay(5);
+		
+		yield return new WaitForSeconds (9f);
+		ScriptTextSystem.instance.Display1 (6);
+		SoundPlay(6);
+		
+		yield return new WaitForSeconds (9f);
+		ScriptTextSystem.instance.Display1 (7);
+		SoundPlay(7);
+		
+		yield return new WaitForSeconds (9f);
+		ScriptTextSystem.instance.Display1 (8);
+		SoundPlay(8);
+		
+		yield return new WaitForSeconds (9f);
+		ScriptTextSystem.instance.Display1 (9);
+		SoundPlay(9);
+		
+		yield return new WaitForSeconds (9f);
+		ScriptTextSystem.instance.Display1 (10);
+		SoundPlay(10);
+		
 		ScriptTextSystem.instance.Erase1 ();
 
 
@@ -53,6 +84,7 @@ public class ScriptVisiteManager : MonoBehaviour {
 			m_WaitFactor=2;
 			ScriptTextSystem.instance.Display2 (0, m_WaitBetween); //Oooooh
 			yield return new WaitForSeconds (m_WaitBetween);
+			ScriptTextSystem.instance.Erase2();
 			break;
 
 		case 6: 
@@ -170,6 +202,31 @@ public class ScriptVisiteManager : MonoBehaviour {
 		
 		ScriptTextSystem.instance.Display1 (10, m_WaitBetween*12);//Depuis, la cloche qui porte désormais le nom de Turmel, sonne tous les jours à 21h54. Tendez l’oreille, ce sont des pardons qui montent au ciel…
 		
+	}*/
+
+	/*while (m_NumberSequence<11) 
+	{
+		yield return new WaitForSeconds (m_Waiting);
+		Debug.Log ("milieu");
+		ScriptTextSystem.instance.Display1 (m_NumberSequence); //Ah! Vous entendez ça?
+		SoundPlay(m_NumberSequence);
+		StartCoroutine(MishSpeak(m_NumberSequence));
+		
+		if (m_NumberSequence == 1 || m_NumberSequence ==6)
+		{
+			m_WaitFactor = 2;
+			
+		}
+		
+		
+		
+		
+		
+		m_WaitFactor=1;			
+		
+		m_NumberSequence ++;
+		Debug.Log (m_NumberSequence);
+		Debug.Log ("fin");
 	}*/
 
 }
