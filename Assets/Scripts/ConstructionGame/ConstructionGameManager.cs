@@ -10,7 +10,7 @@ public class ConstructionGameManager : MonoBehaviour
 	bool m_Creator = true;
 
 	// Use this for initialization
-	void Start () 
+	/*void Start () 
 	{
 
 		for (int i=0; i<m_ArrayOfBlocks.Length; i++) 
@@ -18,7 +18,7 @@ public class ConstructionGameManager : MonoBehaviour
 			Debug.Log (i);
 			RandomBlockXNumber();
 
-			m_Instance=Instantiate(m_ArrayOfBlocks[i]/*,new Vector3 (i*1.5,8,0),transform.rotation*/) as GameObject;
+			m_Instance=Instantiate(m_ArrayOfBlocks[i],new Vector3 (i*1.5,8,0),transform.rotation) as GameObject;
 		}
 	
 	}
@@ -33,7 +33,7 @@ public class ConstructionGameManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds (10f);
 		BlockXNumber = Random.Range (-7f, 8f);
-	}
+	}*/
 
 	/*void BlockCreator ()
 	{
