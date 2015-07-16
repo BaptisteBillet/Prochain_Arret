@@ -119,6 +119,74 @@ public class SoundManager : MonoBehaviour {
 				Source[2].clip = Voice[Random.Range(6, 14)];
 				Source[2].Play();
 				break;
+
+			case SoundManagerType.TURMEL00:
+				Source[2].Stop();
+				Source[2].clip = Voice[15];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.TURMEL01:
+				Source[2].Stop();
+				Source[2].clip = Voice[16];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.TURMEL02:
+				Source[2].Stop();
+				Source[2].clip = Voice[17];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.TURMEL03:
+				Source[2].Stop();
+				Source[2].clip = Voice[18];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.TURMEL04:
+				Source[2].Stop();
+				Source[2].clip = Voice[19];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.TURMEL05:
+				Source[2].Stop();
+				Source[2].clip = Voice[20];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.TURMEL06:
+				Source[2].Stop();
+				Source[2].clip = Voice[21];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.TURMEL07:
+				Source[2].Stop();
+				Source[2].clip = Voice[22];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.TURMEL08:
+				Source[2].Stop();
+				Source[2].clip = Voice[23];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.TURMEL09:
+				Source[2].Stop();
+				Source[2].clip = Voice[24];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.TURMEL10:
+				Source[2].Stop();
+				Source[2].clip = Voice[25];
+				Source[2].Play();
+				break;
+
+
 		}
 	}
 
