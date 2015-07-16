@@ -6,7 +6,6 @@ public class ConstructionGameManager : MonoBehaviour
 	public GameObject[]m_ArrayOfBlocks = new GameObject [6];
 	private GameObject m_Instance;
 	public float BlockXNumber;
-	float ;
 
 	bool m_Creator = true;
 
@@ -19,7 +18,7 @@ public class ConstructionGameManager : MonoBehaviour
 			Debug.Log (i);
 			RandomBlockXNumber();
 
-			m_Instance=Instantiate(m_ArrayOfBlocks[i],new Vector3 (i*1.5,8,0)) as GameObject;
+			m_Instance=Instantiate(m_ArrayOfBlocks[i]/*,new Vector3 (i*1.5,8,0),transform.rotation*/) as GameObject;
 		}
 	
 	}
