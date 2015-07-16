@@ -124,6 +124,7 @@ public class SoundManager : MonoBehaviour {
 				Source[2].Stop();
 				Source[2].clip = Voice[15];
 				Source[2].Play();
+			Debug.Log("Turmel 00");
 				break;
 
 			case SoundManagerType.TURMEL01:
