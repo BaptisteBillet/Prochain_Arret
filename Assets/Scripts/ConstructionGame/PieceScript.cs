@@ -35,7 +35,7 @@ public class PieceScript : MonoBehaviour {
 		m_PieceScript = other.gameObject.GetComponent<PieceScript> ();
 
 		if (m_IsFirst == false) {
-			if (other.collider.tag == "sol") {
+			if (other.collider.tag == "Sol") {
 				m_IsFirst = true;
 			}
 		} 
