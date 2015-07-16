@@ -11,47 +11,52 @@ public class AccelerometerInput : MonoBehaviour {
 	public float m_Edge;
 	public float m_Offset;
 
-	public float x;
-	public float y;
-	public float z;
-	private Vector3 gyro;
+	public float m_x;
+	public float m_y;
 
+	private Vector3 m_gyro;
+	private Rigidbody m_Rigidbody;
 	// Update is called once per frame
+	private Vector3 m_InitialPosition;
+
 	void Start()
 	{
+		m_InitialPosition = transform.position;
+		m_Rigidbody = GetComponent<Rigidbody>();
 		Input.gyro.enabled = true;
 		m_Text1.text = "";
 		m_Text2.text = "";
 		m_Text3.text = "";
 
 	}
+
 	void Update () 
 	{
 		
-		x = (int)(Input.gyro.gravity.x*100);
-		y = (int)(Input.gyro.gravity.y*100);
-		z = (int)(Input.gyro.gravity.z*100);
+		m_x = (int)(Input.gyro.gravity.x*100);
+		m_y = (int)(Input.gyro.gravity.y*100);
+
+		m_Rigidbody.velocity = new Vector3(1 * m_x, 0, 1 * m_y) - m_Rigidbody.velocity*Time.deltaTime;
+
+		m_Text1.text = "X: " + m_x;//+ x ;
+		m_Text2.text = "Y: "+ m_y;//+ y;
 
 
 
-		m_Text1.text = "X: " + Input.gyro.gravity.x*100;//+ x ;
-		m_Text2.text = "Y: "+ y;//+ y;
-		m_Text3.text = "Z: " + z;//+ z ;
-		 
-		//transform.eulerAngles += new Vector3(1, 0, 0) * Time.deltaTime;
-		gyro = new Vector3(y, 0, -x);
-		
-		transform.eulerAngles = gyro;
+	}
 
-		if(transform.eulerAngles.x>15)
-		{
-			transform.eulerAngles = new Vector3(15, transform.eulerAngles.y, transform.eulerAngles.z);
-		}
+	public void Reset()
+	{
+		m_Rigidbody.velocity = new Vector3(0, 0, 0);
+		transform.position = m_InitialPosition;
 
-		if (transform.eulerAngles.z > 15)
-		{
-			transform.eulerAngles = new Vector3(15, transform.eulerAngles.y, 15);
-		}
+	}
+
+}
+
+
+//gyro = new Vector3(y, 0, -x);
+
 
 		/*
 		if (transform.rotation.eulerAngles.x < 180)
@@ -112,6 +117,3 @@ public class AccelerometerInput : MonoBehaviour {
 		
 		*/
 
-
-	}
-}
