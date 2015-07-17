@@ -187,6 +187,17 @@ public class SoundManager : MonoBehaviour {
 				Source[2].Play();
 				break;
 
+			case SoundManagerType.MISHOOOO1:
+				Source[2].Stop();
+				Source[2].clip = Voice[26];
+				Source[2].Play();
+				break;
+
+			case SoundManagerType.MISHOOOO2:
+				Source[2].Stop();
+				Source[2].clip = Voice[27];
+				Source[2].Play();
+				break;
 
 		}
 	}

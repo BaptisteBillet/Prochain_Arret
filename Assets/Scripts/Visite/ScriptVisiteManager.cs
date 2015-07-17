@@ -23,54 +23,138 @@ public class ScriptVisiteManager : MonoBehaviour {
 	IEnumerator WaitImage ()
 	{
 		yield return new WaitForSeconds (1f);
+
 		ScriptTextSystem.instance.Display1 (0);
 		SoundPlay(0);
+		m_WaitBetween = 4f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
 
 
-		yield return new WaitForSeconds (5f);
 		ScriptTextSystem.instance.Display1 (1);
 		SoundPlay(1);
+		m_WaitBetween = 13f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
 
 
-		yield return new WaitForSeconds (13f);
+		ScriptTextSystem.instance.Display2 (0); //Oooooh
+		SoundPlay(11);
+		m_WaitBetween = 3f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
+
+
+
+		ScriptTextSystem.instance.Erase2();
 		ScriptTextSystem.instance.Display1 (2);
 		SoundPlay(2);
+		m_WaitBetween = 17f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
 
-
-		yield return new WaitForSeconds (17f);
+		ScriptImageSystem.instance.ImageDisplay (1);
 		ScriptTextSystem.instance.Display1 (3);
 		SoundPlay(3);
+		m_WaitBetween = 15f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
 
 
-		yield return new WaitForSeconds (9f);
 		ScriptTextSystem.instance.Display1 (4);
 		SoundPlay(4);
-
+		m_WaitBetween = 9f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
 		
-		yield return new WaitForSeconds (9f);
+
 		ScriptTextSystem.instance.Display1 (5);
 		SoundPlay(5);
-		
-		yield return new WaitForSeconds (9f);
+		m_WaitBetween = 9f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
+
+	
 		ScriptTextSystem.instance.Display1 (6);
 		SoundPlay(6);
-		
-		yield return new WaitForSeconds (9f);
+		m_WaitBetween = 12f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
+
+		ScriptImageSystem.instance.ImageDisplay (2);
+		ScriptTextSystem.instance.Display2 (1); //Oooooh
+		SoundPlay(12);
+		m_WaitBetween = 4f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
+
+
+		ScriptTextSystem.instance.Erase2();
 		ScriptTextSystem.instance.Display1 (7);
 		SoundPlay(7);
+		m_WaitBetween = 11f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
 		
-		yield return new WaitForSeconds (9f);
+
 		ScriptTextSystem.instance.Display1 (8);
 		SoundPlay(8);
+		m_WaitBetween = 7f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
 		
-		yield return new WaitForSeconds (9f);
+
 		ScriptTextSystem.instance.Display1 (9);
 		SoundPlay(9);
+		m_WaitBetween = 12f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
 		
-		yield return new WaitForSeconds (9f);
+		ScriptImageSystem.instance.ImageDisplay (3);
 		ScriptTextSystem.instance.Display1 (10);
 		SoundPlay(10);
-		
+		m_WaitBetween = 15f;
+		while (m_WaitBetween>0) 
+		{
+			yield return new WaitForSeconds (0.5f);
+			m_WaitBetween=m_WaitBetween-0.5f;
+		}
 		ScriptTextSystem.instance.Erase1 ();
 
 
@@ -137,10 +221,19 @@ public class ScriptVisiteManager : MonoBehaviour {
 		case 10:
 			SoundManagerEvent.emit (SoundManagerType.TURMEL10);
 			break;
+		case 11:
+			SoundManagerEvent.emit (SoundManagerType.MISHOOOO1);
+			break;
+		case 12:
+			SoundManagerEvent.emit (SoundManagerType.MISHOOOO2);
+			break;
 		}
 	}
 
-
+	public void SkipText ()
+	{
+		m_WaitBetween = 0;
+	}
 
 /*	IEnumerator WaitImage2 ()
 	{

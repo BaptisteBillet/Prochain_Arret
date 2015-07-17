@@ -55,7 +55,9 @@ public enum SoundManagerType
 	TURMEL07,
 	TURMEL08,
 	TURMEL09,
-	TURMEL10
+	TURMEL10,
+	MISHOOOO1,
+	MISHOOOO2
 
 
 }

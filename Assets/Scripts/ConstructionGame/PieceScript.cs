@@ -10,6 +10,19 @@ public class PieceScript : MonoBehaviour {
 	public bool m_IsTop;
 	public PieceScript m_PieceScript;
 
+	Renderer m_PieceRenderer;
+
+
+	Color m_ColorFirstRed = Color.red;
+	Color m_ColorTopGreen = Color.green;
+	Color m_ColorBaseWhite = Color.white;
+
+	void Start ()
+	{
+		m_PieceRenderer = GetComponent<Renderer> ();
+
+	}
+
 	void OnMouseDown ()
 	{
 		m_ScreenPoint = Camera.main.WorldToScreenPoint (this.transform.position);
@@ -32,18 +45,53 @@ public class PieceScript : MonoBehaviour {
 
 	void OnCollisionStay(Collision other)
 	{ 
-		m_PieceScript = other.gameObject.GetComponent<PieceScript> ();
-
-		if (m_IsFirst == false) {
-			if (other.collider.tag == "Sol") {
-				m_IsFirst = true;
-			}
-		} 
-		else 
+		if (other.collider.tag == "Sol") 
 		{
-			if (m_PieceScript.m_IsFirst == true || m_PieceScript.m_IsTop == true) {
+			if (m_IsFirst == false) 
+			{
+				m_IsFirst = true;
+				m_PieceRenderer.material.color=m_ColorFirstRed;
+			} 
+		
+			
+		}
+		if (other.collider.tag == "Piece")
+		{
+			m_PieceScript = other.gameObject.GetComponent<PieceScript> ();
+
+			if (m_PieceScript.m_IsFirst == true || m_PieceScript.m_IsTop == true) 
+			{
 				m_IsTop = true;
+				m_PieceRenderer.material.color=m_ColorTopGreen;
 			}
 		}
+
 	}
+
+	void OnCollisionExit (Collision other)
+	{
+		if (other.collider.tag == "Piece") 
+		{
+			m_IsTop = false;
+		}
+		if (other.collider.tag == "Sol") 
+		{
+			m_IsFirst = false;
+		}
+
+		if (m_IsFirst == false && m_IsTop == false) 
+		{
+			m_PieceRenderer.material.color = m_ColorBaseWhite;
+		}
+
+	}
+
+
+
 }
+
+
+
+
+
+
