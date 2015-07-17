@@ -9,18 +9,35 @@ public class ScriptMazeEnd: MonoBehaviour {
 	public bool m_Objective2;
 	public bool m_Objective3;
 
-	public Image m_Image1;
-	public Image m_Image2;
-	public Image m_Image3;
+	public GameObject m_Image1;
+	public GameObject m_Image2;
+	public GameObject m_Image3;
+	public GameObject m_Image11;
+	public GameObject m_Image22;
+	public GameObject m_Image33;
+
+
+	public GameObject m_PanelVictory;
+
+	private Renderer m_Renderer;
+	private Color m_Green = Color.green;
+	private Color m_Red = Color.red;
+
+	void Start()
+	{
+		m_Renderer = GetComponent<Renderer>();
+		m_Renderer.material.color = m_Red;
+	}
 
 	void OnTriggerStay(Collider collision)
 	{
-		if (collision.gameObject.tag == "Ball")
+		if (collision.gameObject.tag == "Piece")
 		{
 			if (m_Objective1 && m_Objective2 && m_Objective3)
 			{
 				m_AccelerometerInputScript = collision.gameObject.GetComponent<ScriptAccelerometerInput>();
 				m_AccelerometerInputScript.Stop();
+				m_PanelVictory.SetActive(true);
 			}
 		}
 	}
@@ -32,21 +49,31 @@ public class ScriptMazeEnd: MonoBehaviour {
 		{
 			case 1:
 				m_Objective1 = true;
-				m_Image1.enabled = false;
+				m_Image1.SetActive(true);
+				m_Image11.SetActive(true);
+				//m_Image111.SetActive(true);
 				break;
 			
 			case 2:
 				m_Objective2 = true;
-				m_Image2.enabled = false;
+				m_Image2.SetActive(true);
+				m_Image22.SetActive(true);
+				//m_Image222.SetActive(true);
 				break;
 			
 			case 3:
 				m_Objective3 = true;
-				m_Image3.enabled = false;
+				m_Image3.SetActive(true);
+				m_Image33.SetActive(true);
+				//m_Image333.SetActive(true);
 				break;
-
-
 		}
+
+		if (m_Objective1 && m_Objective2 && m_Objective3)
+		{
+			m_Renderer.material.color = m_Green;
+		}
+
 	}
 
 

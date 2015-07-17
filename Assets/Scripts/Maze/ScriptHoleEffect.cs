@@ -8,7 +8,7 @@ public class ScriptHoleEffect : MonoBehaviour {
 	void OnCollisionStay(Collision collision)
 	{
 
-		if(collision.gameObject.tag=="Ball")
+		if(collision.gameObject.tag=="Piece")
 		{
 
 			m_AccelerometerInputScript = collision.gameObject.GetComponent<ScriptAccelerometerInput>();

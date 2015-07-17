@@ -23,6 +23,7 @@ public class ScriptAccelerometerInput : MonoBehaviour
 
 	//For the score
 	public Text m_Score;
+	public Text m_Score1;
 
 	//To know when we stop
 	private bool m_stop;
@@ -78,6 +79,7 @@ public class ScriptAccelerometerInput : MonoBehaviour
 		while (m_stop == false)
 		{
 			//Each seconds
+			m_Score1.text = m_Score.text;
 			yield return new WaitForSeconds(1);
 			m_Secondes++;
 			if (m_Secondes > 59)
