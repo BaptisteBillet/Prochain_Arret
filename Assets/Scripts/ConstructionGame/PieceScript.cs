@@ -12,6 +12,8 @@ public class PieceScript : MonoBehaviour {
 
 	Renderer m_PieceRenderer;
 
+	//ConstructionGameManagerScript m_CGMS;
+
 
 	Color m_ColorFirstRed = Color.red;
 	Color m_ColorTopGreen = Color.green;
@@ -22,6 +24,20 @@ public class PieceScript : MonoBehaviour {
 		m_PieceRenderer = GetComponent<Renderer> ();
 
 	}
+
+	void Update ()
+	{
+		if (this.transform.position.x > 8.7f) 
+		{
+			this.transform.position = new Vector3 (8.7f,transform.position.y,transform.position.z);
+		}
+
+		if (this.transform.position.x < -8.7f) 
+		{
+			this.transform.position = new Vector3 (-8.7f,transform.position.y,transform.position.z);
+		}
+	}
+
 
 	void OnMouseDown ()
 	{
@@ -85,6 +101,7 @@ public class PieceScript : MonoBehaviour {
 		}
 
 	}
+
 
 
 
