@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScriptInfoFinal : MonoBehaviour {
+public class ScriptConstructionGameVictoire : MonoBehaviour {
 	
 	public GameObject m_Info1;
 	public GameObject m_Info2;

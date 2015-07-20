@@ -43,7 +43,7 @@ public class ScriptPanelAnim : MonoBehaviour {
 	public void Victoire()
 	{
 		m_Animator.SetTrigger ("Victoire");
-		//StartCoroutine (Reset (m_ResetTimeBienvenue));
+
 	}
 
 	public void ResetLaunch ()

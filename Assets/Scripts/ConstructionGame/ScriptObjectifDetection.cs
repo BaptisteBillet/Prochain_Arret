@@ -7,6 +7,8 @@ public class ScriptObjectifDetection : MonoBehaviour {
 
 	bool m_AlreadyChecked = false;
 
+	public GameObject m_PanelVictory;
+
 	PieceScript m_PieceScript;
 
 	void OnTriggerStay (Collider other) 
@@ -30,6 +32,7 @@ public class ScriptObjectifDetection : MonoBehaviour {
 							
 				case 3: 
 					Debug.Log ("OBJ3");
+					m_PanelVictory.SetActive(true);
 					break;
 				}
 				m_AlreadyChecked =true;
