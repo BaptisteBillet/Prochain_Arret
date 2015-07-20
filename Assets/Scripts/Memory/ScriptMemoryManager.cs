@@ -76,14 +76,16 @@ public class ScriptMemoryManager : MonoBehaviour
 	private ScriptPanelAnim m_PanelAnimScript;
 	// Variables pour les animations.
 	
+
 	public GameObject m_PanelDefeat;
 	private ScriptCard m_ScriptCard;
+	public GameObject m_PanelVictory;
 	// Variables fin de niveau, défaites
 	public GameObject[,] m_MemoryArray;
 	
 	public GameObject [] m_ArrayOfCard = new GameObject[8];
 	
-	
+
 	
 	// Use this for initialization
 	void Start () 
@@ -163,8 +165,8 @@ public class ScriptMemoryManager : MonoBehaviour
 		
 		if (m_Difficulty == "Easy") 
 		{
-			m_TimerMinutes = 0;
-			m_TimerSeconds = 10;
+			m_TimerMinutes = 5;
+			m_TimerSeconds = 00;
 		}
 		
 		if (m_Difficulty == "Medium") 
@@ -193,7 +195,8 @@ public class ScriptMemoryManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(1.5f);
 
-		m_PanelAnimScript.Bienvenue ();
+		//m_PanelAnimScript.Bienvenue ();
+		ScriptTextSystem.instance.Display2 (8);
 		
 	}
 	
@@ -255,13 +258,20 @@ public class ScriptMemoryManager : MonoBehaviour
 				m_Score++;
 				Debug.Log (m_Score);
 
-				m_PanelAnimScript.DisplayInformation(m_Card.GetComponent<ScriptCard>().m_CardNumber);
+				ScriptTextSystem.instance.Display2 (m_Card.GetComponent<ScriptCard>().m_CardNumber);
+
+				//m_PanelAnimScript.DisplayInformation(m_Card.GetComponent<ScriptCard>().m_CardNumber);
 				
 				if (m_Score==m_ScoreMax)
 				{
 					
 					m_PanelAnimScript.ResetLaunch();
-					m_PanelAnimScript.Victoire();
+					//m_PanelAnimScript.Victoire();
+					yield return new WaitForSeconds (5f);
+					ScriptTextSystem.instance.Erase2();
+					yield return new WaitForSeconds (1f);
+					m_PanelVictory.SetActive(true);
+
 				}
 
 				

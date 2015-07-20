@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScriptInfoFinal : MonoBehaviour {
+public class ScriptConstructionGameVictory : MonoBehaviour {
 	
 	public GameObject m_Info1;
 	public GameObject m_Info2;
@@ -55,7 +55,7 @@ public class ScriptInfoFinal : MonoBehaviour {
 	}
 	public void NextStep()
 	{
-		Application.LoadLevel ("ConstructionGame");
+		Application.LoadLevel ("Quizz");
 	}
 	
 	
