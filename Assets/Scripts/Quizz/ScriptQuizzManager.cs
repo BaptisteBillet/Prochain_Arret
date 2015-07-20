@@ -119,7 +119,11 @@ public class ScriptQuizzManager : MonoBehaviour {
 		switch (Application.platform)
 		{
 			case RuntimePlatform.Android:
-
+				while(PlayerPrefs.GetString("Difficulty")=="NULL")
+				{
+					yield return new WaitForSeconds(0.5f);
+				}
+				m_Difficulty = PlayerPrefs.GetString("Difficulty");
 				break;
 
 			case RuntimePlatform.WindowsPlayer:

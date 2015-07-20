@@ -3,12 +3,14 @@ using System.Collections;
 
 public class ScriptDifficultyChoice : MonoBehaviour {
 
+	public Animator m_Animator;
+
 	void Awake()
 	{
 		switch (Application.platform)
 		{
 			case RuntimePlatform.Android:
-
+				PlayerPrefs.SetString("Difficulty", "NULL");
 				break;
 
 			case RuntimePlatform.WindowsPlayer:
@@ -27,7 +29,7 @@ public class ScriptDifficultyChoice : MonoBehaviour {
 		switch (Application.platform)
 		{
 			case RuntimePlatform.Android:
-
+				PlayerPrefs.SetString("Difficulty", difficulty);
 				break;
 
 			case RuntimePlatform.WindowsPlayer:
@@ -39,9 +41,11 @@ public class ScriptDifficultyChoice : MonoBehaviour {
 				break;
 
 		}
-		Destroy(this.gameObject);
+		m_Animator.SetTrigger("End");
 		
 	}
+
+	
 
 	/*
 	 IEnumerator WaitForDifficulty()
