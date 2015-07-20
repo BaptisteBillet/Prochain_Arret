@@ -55,7 +55,7 @@ public class ScriptInfoFinal : MonoBehaviour {
 	}
 	public void NextStep()
 	{
-		Debug.Log("a");
+		Application.LoadLevel ("ConstructionGame");
 	}
 	
 	

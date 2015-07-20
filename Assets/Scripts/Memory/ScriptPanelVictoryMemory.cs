@@ -14,4 +14,8 @@ public class ScriptPanelVictoryMemory : MonoBehaviour
 		Debug.Log("a");
 	}
 
+	public void NextActivity ()
+	{
+		Application.LoadLevel ("Maze");
+	}
 }

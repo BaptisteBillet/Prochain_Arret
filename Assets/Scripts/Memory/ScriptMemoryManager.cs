@@ -195,7 +195,8 @@ public class ScriptMemoryManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(1.5f);
 
-		m_PanelAnimScript.Bienvenue ();
+		//m_PanelAnimScript.Bienvenue ();
+		ScriptTextSystem.instance.Display2 (8);
 		
 	}
 	
@@ -265,8 +266,10 @@ public class ScriptMemoryManager : MonoBehaviour
 				{
 					
 					m_PanelAnimScript.ResetLaunch();
-					m_PanelAnimScript.Victoire();
-					yield return new WaitForSeconds (3f);
+					//m_PanelAnimScript.Victoire();
+					yield return new WaitForSeconds (5f);
+					ScriptTextSystem.instance.Erase2();
+					yield return new WaitForSeconds (1f);
 					m_PanelVictory.SetActive(true);
 
 				}

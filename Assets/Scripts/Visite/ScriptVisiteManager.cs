@@ -157,6 +157,9 @@ public class ScriptVisiteManager : MonoBehaviour {
 		}
 		ScriptTextSystem.instance.Erase1 ();
 
+		yield return new WaitForSeconds (1f);
+
+		Application.LoadLevel ("Memory");
 
 	}
 
