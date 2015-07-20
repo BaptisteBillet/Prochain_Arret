@@ -355,16 +355,7 @@ public class ScriptMemoryManager : MonoBehaviour
 
 	}
 	
-	public void RestartLevel()
-	{
-		Application.LoadLevel ("Memory");
-	}
-	
-	public void Return()
-	{
-		Application.LoadLevel ("PostalCardsScreen");
 
-	}
 	
 
 }
