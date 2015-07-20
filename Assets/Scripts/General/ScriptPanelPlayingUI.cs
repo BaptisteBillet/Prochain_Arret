@@ -9,6 +9,7 @@ public class ScriptPanelPlayingUI : MonoBehaviour
 
 	public void Pause ()
 	{
+		this.gameObject.SetActive (false);
 		m_PanelWhirlpool.SetActive (true);
 		m_PanelPause.SetActive (true);
 	}

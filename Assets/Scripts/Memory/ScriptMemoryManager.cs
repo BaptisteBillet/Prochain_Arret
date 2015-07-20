@@ -63,7 +63,7 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 
 
-
+	public bool m_IsPlaying = true;
 	public Text m_TimerText;
 	public int m_TimerSeconds;
 	public int m_TimerMinutes;
@@ -303,38 +303,36 @@ public class ScriptMemoryManager : MonoBehaviour
 	public IEnumerator TimerCoroutine()
 	{
 
-		while (m_TimerMinutes>-1) 
+			while (m_TimerMinutes>-1) 
 		{
-			yield return new WaitForSeconds (1f);
 
-			m_TimerText.text = " " + m_TimerMinutes +":"+ m_TimerSeconds;
+				yield return new WaitForSeconds (1f);
 
-			if (m_TimerSeconds == 0) 
+			if (m_IsPlaying ==true)
 			{
-				
-				if (m_TimerMinutes ==0) 
-				{
-					GameLost();
-					yield break;
-				} 
+				m_TimerText.text = " " + m_TimerMinutes + ":" + m_TimerSeconds;
 
-				else 
-				{
-					m_TimerSeconds = 60;
-					m_TimerMinutes --;
+				if (m_TimerSeconds == 0) {
+				
+					if (m_TimerMinutes == 0) {
+						GameLost ();
+						yield break;
+					} else {
+						m_TimerSeconds = 60;
+						m_TimerMinutes --;
+					}
+
 				}
 
+				if (m_Score == m_ScoreMax) {
+					yield break;
+				}
+
+				m_TimerSeconds --;
+			}
 			}
 
-			if (m_Score==m_ScoreMax)
-			{
-				yield break;
-			}
-
-			m_TimerSeconds --;
-			
-		}
-	}
+}
 
 
 	public void GameLost ()
@@ -354,17 +352,15 @@ public class ScriptMemoryManager : MonoBehaviour
 
 
 	}
-	
-	public void RestartLevel()
-	{
-		Application.LoadLevel ("Memory");
-	}
-	
-	public void Return()
-	{
-		Application.LoadLevel ("PostalCardsScreen");
 
+	public void Pause()
+	{
+		m_IsPlaying = false;
 	}
-	
+
+	public void Unpause ()
+	{
+		m_IsPlaying = true;
+	}
 
 }
