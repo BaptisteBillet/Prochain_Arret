@@ -53,7 +53,10 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	// Variables de constitution de la grille. 
 	
-	
+
+	public GameObject m_PanelUI;
+
+	// Variables Panel 
 	
 	public List<int> m_NCardList = new List <int>();
 	
@@ -90,6 +93,8 @@ public class ScriptMemoryManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{	//Remplit la card list 
+
+		m_PanelUI.SetActive (false);
 
 		m_NCardList.Add (7);
 		m_NCardList.Add (6);	
@@ -165,19 +170,19 @@ public class ScriptMemoryManager : MonoBehaviour
 		
 		if (m_Difficulty == "Easy") 
 		{
-			m_TimerMinutes = 5;
-			m_TimerSeconds = 00;
+			m_TimerMinutes = 3;
+			m_TimerSeconds = 30;
 		}
 		
 		if (m_Difficulty == "Medium") 
 		{
-			m_TimerMinutes = 3;
+			m_TimerMinutes = 2;
 			m_TimerSeconds = 30;
 		}
 		
 		if (m_Difficulty == "Hard") 
 		{
-			m_TimerMinutes = 2;
+			m_TimerMinutes = 1;
 			m_TimerSeconds = 0;
 		}
 		
@@ -187,13 +192,18 @@ public class ScriptMemoryManager : MonoBehaviour
 		StartCoroutine (WaitForBienvenue ());
 	
 		GridBuilding ();//lance la création de la grille
+
+
 		yield return null;
 	}
 	
 	
 	IEnumerator WaitForBienvenue ()
 	{
-		yield return new WaitForSeconds(1.5f);
+		yield return new WaitForSeconds(0.5f);
+		m_PanelUI.SetActive (true);
+		yield return new WaitForSeconds(0.7f);
+
 
 		//m_PanelAnimScript.Bienvenue ();
 		ScriptTextSystem.instance.Display2 (8);
@@ -264,7 +274,7 @@ public class ScriptMemoryManager : MonoBehaviour
 				
 				if (m_Score==m_ScoreMax)
 				{
-					
+					m_PanelUI.SetActive (false);
 					m_PanelAnimScript.ResetLaunch();
 					//m_PanelAnimScript.Victoire();
 					yield return new WaitForSeconds (5f);
@@ -338,18 +348,27 @@ public class ScriptMemoryManager : MonoBehaviour
 	public void GameLost ()
 	{
 
+		StartCoroutine (C_GameLost ());
+
+
+
+	}
+	public IEnumerator C_GameLost()
+	{
 
 		for (int x=0; x<m_ArrayX; x++) 
 		{
 			for (int y=0; y<m_ArrayY; y++) 
 			{
+				m_PanelUI.SetActive (false);
+				ScriptTextSystem.instance.Erase2();
 				m_ScriptCard= m_MemoryArray[x,y].GetComponent<ScriptCard>();
 				m_ScriptCard.CardFall();
 			}
 		}
 
+		yield return new WaitForSeconds (1f);
 		m_PanelDefeat.SetActive (true);
-
 
 	}
 

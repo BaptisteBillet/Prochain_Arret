@@ -3,7 +3,32 @@ using System.Collections;
 
 public class ScriptObjectifDetection : MonoBehaviour {
 
+
+	#region Singleton
+	static private ScriptObjectifDetection s_Instance;
+	static public ScriptObjectifDetection instance
+	{
+		get
+		{
+			return s_Instance;
+		}
+	}
+	#endregion
+	
+	
+	void Awake()
+	{
+		if (s_Instance == null)
+			s_Instance = this;
+		//DontDestroyOnLoad(this);
+	}
+
+
+
+
 	public int m_ObjectifNumber;
+
+	public bool m_ThirdCheck=false;
 
 	bool m_AlreadyChecked = false;
 
@@ -32,6 +57,7 @@ public class ScriptObjectifDetection : MonoBehaviour {
 							
 				case 3: 
 					Debug.Log ("OBJ3");
+					m_ThirdCheck = true;
 					m_PanelVictory.SetActive(true);
 					break;
 				}
