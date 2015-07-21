@@ -63,7 +63,9 @@ public class ScriptMemoryManager : MonoBehaviour
 	public int m_NCardListIndex;
 	
 	//public float m_NCardListIndexMax = 15f;
-	
+
+
+	public GameObject m_PanelWhirlPool;
 
 
 	public bool m_IsPlaying = true;
@@ -188,6 +190,7 @@ public class ScriptMemoryManager : MonoBehaviour
 		
 		//Debug.Log (m_Difficulty);
 
+		m_PanelWhirlPool.SetActive (false);
 
 		StartCoroutine (WaitForBienvenue ());
 	
@@ -374,6 +377,7 @@ public class ScriptMemoryManager : MonoBehaviour
 
 	public void Pause()
 	{
+		ScriptTextSystem.instance.Erase2();
 		m_IsPlaying = false;
 	}
 

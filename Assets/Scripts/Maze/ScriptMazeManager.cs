@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class ScriptAccelerometerInput : MonoBehaviour
+public class ScriptMazeManager : MonoBehaviour
 {
 
 	//Angle du gyroscope
@@ -36,6 +36,17 @@ public class ScriptAccelerometerInput : MonoBehaviour
 
 	private int m_ObjectiveSecondes;
 	private int m_ObjectiveMinutes;
+
+	bool m_IsPlaying;
+
+	//Panels
+	public GameObject m_PanelUI;
+	public GameObject m_PanelDefeat;
+	public GameObject m_PanelVictory;
+	public GameObject m_PanelWhirlPool;
+
+
+
 
 	//For the score
 	public Text m_Score;
@@ -103,7 +114,7 @@ public class ScriptAccelerometerInput : MonoBehaviour
 			m_ObjectiveMinutes =  m_HardMinutes;
 		}
 
-
+		m_PanelWhirlPool.SetActive (false);
 
 		//Post Initialisation
 		m_stop = false;
@@ -112,6 +123,7 @@ public class ScriptAccelerometerInput : MonoBehaviour
 		Input.gyro.enabled = true;
 		StartCoroutine(ScoreCalcul());
 		m_CanMove = true;
+		m_IsPlaying = true;
 		//Post Initialisation
 
 	}
@@ -160,50 +172,60 @@ public class ScriptAccelerometerInput : MonoBehaviour
 			//Each seconds
 			m_Score1.text = m_Score.text;
 			yield return new WaitForSeconds(1);
-			m_Secondes++;
-			if (m_Secondes > 59)
+
+			if (m_IsPlaying ==true)
 			{
-				m_Secondes = 0;
-				m_Minutes++;
-			}
-
-			m_Score.text = m_Minutes + ":" + m_Secondes;
-
-			//Technique to keep a display value as 00:00
-			if (m_Minutes < 10)
-			{
-
-				if (m_Secondes < 10)
+				m_Secondes++;
+				if (m_Secondes > 59)
 				{
-					m_Score.text = "0" + m_Minutes + ":" + "0" + m_Secondes;
+					m_Secondes = 0;
+					m_Minutes++;
+				}
+
+				m_Score.text = m_Minutes + ":" + m_Secondes;
+
+				//Technique to keep a display value as 00:00
+				if (m_Minutes < 10)
+				{
+
+					if (m_Secondes < 10)
+					{
+						m_Score.text = "0" + m_Minutes + ":" + "0" + m_Secondes;
+					}
+					else
+					{
+						m_Score.text = "0" + m_Minutes + ":" + m_Secondes;
+					}	
+
 				}
 				else
 				{
-					m_Score.text = "0" + m_Minutes + ":" + m_Secondes;
+					if (m_Secondes < 10)
+					{
+						m_Score.text = "0" + m_Minutes + ":" + "0" + m_Secondes;
+					}
+					else
+					{
+						m_Score.text = "0" + m_Minutes + ":" + m_Secondes;
+					}
 				}
 
-			}
-			else
-			{
-				if (m_Secondes < 10)
+				if(m_Minutes>=m_ObjectiveMinutes)
 				{
-					m_Score.text = "0" + m_Minutes + ":" + "0" + m_Secondes;
-				}
-				else
-				{
-					m_Score.text = "0" + m_Minutes + ":" + m_Secondes;
-				}
-			}
+					if (m_Secondes >= m_ObjectiveSecondes)
+					{
+						m_stop = true;
+						m_CanMove = false;
 
-			if(m_Minutes>=m_ObjectiveMinutes)
-			{
-				if (m_Secondes >= m_ObjectiveSecondes)
-				{
-					m_stop = true;
-					m_CanMove = false;
+						m_PanelUI.SetActive (false);
+						m_PanelWhirlPool.SetActive (true);
+						m_PanelDefeat.SetActive (true);
+					//Condition de défaite
+					}
 				}
-			}
 
+
+			}
 
 
 		}
@@ -235,6 +257,17 @@ public class ScriptAccelerometerInput : MonoBehaviour
 	}
 
 	//Call when we touch the ending cube
+
+	public void Pause()
+	{
+		m_IsPlaying = false;
+	}
+	
+	public void Unpause ()
+	{
+		m_IsPlaying = true;
+	}
+
 	public void Stop()
 	{
 		m_stop = true;

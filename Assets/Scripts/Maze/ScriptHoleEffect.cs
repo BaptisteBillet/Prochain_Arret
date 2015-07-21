@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScriptHoleEffect : MonoBehaviour {
 
-	private ScriptAccelerometerInput m_AccelerometerInputScript;
+	private ScriptMazeManager m_AccelerometerInputScript;
 
 	void OnCollisionStay(Collision collision)
 	{
@@ -11,7 +11,7 @@ public class ScriptHoleEffect : MonoBehaviour {
 		if(collision.gameObject.tag=="Piece")
 		{
 
-			m_AccelerometerInputScript = collision.gameObject.GetComponent<ScriptAccelerometerInput>();
+			m_AccelerometerInputScript = collision.gameObject.GetComponent<ScriptMazeManager>();
 			m_AccelerometerInputScript.Reset();
 		}
 	}

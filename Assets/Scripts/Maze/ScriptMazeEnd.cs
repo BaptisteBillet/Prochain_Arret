@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class ScriptMazeEnd: MonoBehaviour {
-	private ScriptAccelerometerInput m_AccelerometerInputScript;
+	private ScriptMazeManager m_AccelerometerInputScript;
 
 	public bool m_Objective1;
 	public bool m_Objective2;
@@ -18,6 +18,7 @@ public class ScriptMazeEnd: MonoBehaviour {
 
 
 	public GameObject m_PanelVictory;
+	public GameObject m_PanelUI;
 
 	private Renderer m_Renderer;
 	private Color m_Green = Color.green;
@@ -35,8 +36,9 @@ public class ScriptMazeEnd: MonoBehaviour {
 		{
 			if (m_Objective1 && m_Objective2 && m_Objective3)
 			{
-				m_AccelerometerInputScript = collision.gameObject.GetComponent<ScriptAccelerometerInput>();
+				m_AccelerometerInputScript = collision.gameObject.GetComponent<ScriptMazeManager>();
 				m_AccelerometerInputScript.Stop();
+				m_PanelUI.SetActive(false);
 				m_PanelVictory.SetActive(true);
 			}
 		}
