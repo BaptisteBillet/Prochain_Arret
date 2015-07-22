@@ -351,6 +351,7 @@ public class ScriptMemoryManager : MonoBehaviour
 					PlayerPrefs.SetInt("FlagWin", m_FlagsWin);
 					#endregion
 
+					m_PanelWhirlPool.SetActive (true);
 					m_PanelVictory.SetActive(true);
 
 				}
