@@ -33,6 +33,7 @@ public class ScriptObjectifDetection : MonoBehaviour {
 	bool m_AlreadyChecked = false;
 
 	public GameObject m_PanelVictory;
+	public GameObject m_PanelWhirlPool;
 
 	PieceScript m_PieceScript;
 
@@ -126,7 +127,7 @@ public class ScriptObjectifDetection : MonoBehaviour {
 					#endregion
 
 
-
+					m_PanelWhirlPool.SetActive (true);
 					m_PanelVictory.SetActive(true);
 					break;
 				}

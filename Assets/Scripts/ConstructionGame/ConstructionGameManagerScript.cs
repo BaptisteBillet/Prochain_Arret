@@ -151,7 +151,7 @@ public class ConstructionGameManagerScript : MonoBehaviour
 
 	public IEnumerator C_GameLost()
 	{
-		
+		m_PanelTimer.SetActive (false);
 		m_PanelUI.SetActive (false);
 		yield return new WaitForSeconds (1f);
 		m_PanelDefeat.SetActive (true);
