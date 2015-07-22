@@ -16,7 +16,7 @@ public class ScriptMazeEnd: MonoBehaviour {
 	public GameObject m_Image22;
 	public GameObject m_Image33;
 
-
+	public GameObject m_PanelWhirlPool;
 	public GameObject m_PanelVictory;
 	public GameObject m_PanelUI;
 
@@ -24,9 +24,11 @@ public class ScriptMazeEnd: MonoBehaviour {
 	private Color m_Green = Color.green;
 	private Color m_Red = Color.red;
 
+	
 
 	void Start()
 	{
+		
 		m_Renderer = GetComponent<Renderer>();
 		m_Renderer.material.color = m_Red;
 	}
@@ -37,6 +39,8 @@ public class ScriptMazeEnd: MonoBehaviour {
 		{
 			if (m_Objective1 && m_Objective2 && m_Objective3)
 			{
+				m_PanelWhirlPool.SetActive(true);
+
 				m_AccelerometerInputScript = collision.gameObject.GetComponent<ScriptMazeManager>();
 				m_AccelerometerInputScript.Stop();
 				m_PanelUI.SetActive(false);
@@ -47,6 +51,12 @@ public class ScriptMazeEnd: MonoBehaviour {
 				string m_Difficulty;
 				int m_Flags;
 				int m_FlagsWin;
+				/////////////////////////////
+
+				PlayerPrefs.SetInt("MazeDifficulty", 0);
+
+
+				/////////////////////////////
 				m_LastStep=PlayerPrefs.GetInt("MazeDifficulty",0);
 				m_Difficulty=PlayerPrefs.GetString("Difficulty");
 				m_Flags = PlayerPrefs.GetInt("Flags");
