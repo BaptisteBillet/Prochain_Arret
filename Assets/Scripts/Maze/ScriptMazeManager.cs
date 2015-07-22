@@ -23,7 +23,7 @@ public class ScriptMazeManager : MonoBehaviour
 
 	//For the difficuly
 
-	private string m_Difficulty;
+	public string m_Difficulty;
 
 	public int m_EasySecondes;
 	public int m_EasyMinutes;

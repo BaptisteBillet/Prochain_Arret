@@ -263,6 +263,75 @@ public class ScriptQuizzManager : MonoBehaviour {
 			{
 				//Victoire
 				ScriptTextSystem.instance.Display1(6);
+
+				#region Save
+				//Sauvegarde
+				int m_LastStep;
+				string m_Difficulty;
+				int m_Flags;
+				int m_FlagsWin;
+				m_LastStep = PlayerPrefs.GetInt("MazeDifficulty", 0);
+				m_Difficulty = PlayerPrefs.GetString("Difficulty");
+				m_Flags = PlayerPrefs.GetInt("Flags");
+				m_FlagsWin = 0;
+				switch (m_Difficulty)
+				{
+					case "Easy":
+						if (m_LastStep == 0)
+						{
+							PlayerPrefs.SetInt("MazeDifficulty", 1);
+							//Gain de drapeau
+							PlayerPrefs.SetInt("Flags", m_Flags++);
+							m_FlagsWin++;
+						}
+						break;
+
+					case "Medium":
+						if (m_LastStep < 2)
+						{
+							if (m_LastStep == 0)
+							{
+								PlayerPrefs.SetInt("Flags", m_Flags++);
+								m_FlagsWin++;
+							}
+							m_Flags = PlayerPrefs.GetInt("Flags");
+							PlayerPrefs.SetInt("Flags", m_Flags++);
+							m_FlagsWin++;
+							PlayerPrefs.SetInt("MazeDifficulty", 2);
+							//Gain de drapeau
+						}
+						break;
+
+					case "Hard":
+						if (m_LastStep < 3)
+						{
+							if (m_LastStep < 2)
+							{
+								if (m_LastStep < 1)
+								{
+									m_Flags = PlayerPrefs.GetInt("Flags");
+									PlayerPrefs.SetInt("Flags", m_Flags++);
+									m_FlagsWin++;
+								}
+								m_Flags = PlayerPrefs.GetInt("Flags");
+								PlayerPrefs.SetInt("Flags", m_Flags++);
+								m_FlagsWin++;
+							}
+							m_Flags = PlayerPrefs.GetInt("Flags");
+							PlayerPrefs.SetInt("Flags", m_Flags++);
+							m_FlagsWin++;
+
+							PlayerPrefs.SetInt("MazeDifficulty", 3);
+
+						}
+						break;
+				}
+
+				PlayerPrefs.SetInt("FlagWin", m_FlagsWin);
+				#endregion
+
+
+
 			}
 			else
 			{
