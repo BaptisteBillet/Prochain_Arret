@@ -38,4 +38,25 @@ public class ScriptCadre : MonoBehaviour {
 		}
 
 	}
+
+	public void LoadMaze ()
+	{
+
+	}
+
+	public void LoadMemory ()
+	{
+
+	}
+
+	public void LoadConstruction ()
+	{
+	}
+
+
+
+
+
+
+
 }
