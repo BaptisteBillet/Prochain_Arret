@@ -78,7 +78,7 @@ public class ScriptMemoryManager : MonoBehaviour
 	// Variables pour le Timer
 	
 	public GameObject m_PanelAnimPapish;
-	private ScriptPanelAnim m_PanelAnimScript;
+
 	// Variables pour les animations.
 	
 
@@ -130,7 +130,7 @@ public class ScriptMemoryManager : MonoBehaviour
 		
 		
 		
-		m_PanelAnimScript = m_PanelAnimPapish.GetComponent<ScriptPanelAnim> ();
+
 		
 		
 		m_TimerText.text=""+ m_TimerMinutes + m_TimerSeconds;
@@ -278,7 +278,7 @@ public class ScriptMemoryManager : MonoBehaviour
 				if (m_Score==m_ScoreMax)
 				{
 					m_PanelUI.SetActive (false);
-					m_PanelAnimScript.ResetLaunch();
+					m_IsPlaying = false;
 					//m_PanelAnimScript.Victoire();
 					yield return new WaitForSeconds (5f);
 					ScriptTextSystem.instance.Erase2();
