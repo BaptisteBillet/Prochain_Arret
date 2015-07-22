@@ -26,49 +26,24 @@ using System.Collections;
  */
 
 
-public enum SoundManagerType
+public enum PapishManagerType
 {
-	ABSOLUMENT,
-	BIENJOUE,
-	BONBOULOT,
-	BRAVO,
-	EXCELLENT,
-	SUPER,
-	AIEAIEAIE1,
-	AIEAIEAIE2,
-	AIEAIEAIE3,
-	CENESTPASCA,
-	NONNONNON1,
-	NONNONNON2,
-	PERDU,
-	PRESQUE,
-	TUFERASMIEUX,
-	RANDOMPOSITIVE,
-	RANDOMNEGATIVE,
-	TURMEL00,
-	TURMEL01,
-	TURMEL02,
-	TURMEL03,
-	TURMEL04,
-	TURMEL05,
-	TURMEL06,
-	TURMEL07,
-	TURMEL08,
-	TURMEL09,
-	TURMEL10,
-	MISHOOOO1,
-	MISHOOOO2
+	IDLE,
+	VICTORY,
+	DEFEAT
+
 }
 
-public class SoundManagerEvent : MonoBehaviour
+public class ScriptPapishEventManager : MonoBehaviour
 {
 
-	public delegate void EventAction(SoundManagerType emt);
+	public delegate void EventAction(PapishManagerType emt);
 	public static event EventAction onEvent;
 
 	#region Singleton
-	static private SoundManagerEvent s_Instance;
-	static public SoundManagerEvent instance
+	static private ScriptPapishEventManager s_Instance;
+
+	static public ScriptPapishEventManager instance
 	{
 		get
 		{
@@ -87,11 +62,12 @@ public class SoundManagerEvent : MonoBehaviour
 
 	void Start()
 	{
-		SoundManagerEvent.onEvent += (SoundManagerType emt) => { Debug.Log(""); };
+		ScriptPapishEventManager.onEvent += (PapishManagerType emt) => { Debug.Log(""); };
 	}
 
-	public static void emit(SoundManagerType emt)	{
-		
+	public static void emit(PapishManagerType emt)
+	{
+
 		if (onEvent != null)
 		{
 			onEvent(emt);
