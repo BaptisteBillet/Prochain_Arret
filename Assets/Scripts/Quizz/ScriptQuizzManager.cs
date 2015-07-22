@@ -93,6 +93,12 @@ public class ScriptQuizzManager : MonoBehaviour {
 	public GameObject m_InformationButton;
 	[Space(10)]
 	public GameObject m_PanelButtonAnswer;
+
+
+	public GameObject m_PanelQuizz;
+	public GameObject m_PanelVictory;
+	public GameObject m_PanelDefeat;
+
 	#endregion
 
 	void Start()
@@ -157,6 +163,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 		{
 			m_Goal = m_GoalHard;
 		}
+		m_PanelQuizz.SetActive(true);
 		StartCoroutine(LaunchPapish());
 
 	}
@@ -330,13 +337,16 @@ public class ScriptQuizzManager : MonoBehaviour {
 				PlayerPrefs.SetInt("FlagWin", m_FlagsWin);
 				#endregion
 
-
+				m_PanelVictory.SetActive(true);
+				m_PanelQuizz.SetActive(false);
 
 			}
 			else
 			{
 				//Perdu
 				ScriptTextSystem.instance.Display1(7);
+				m_PanelDefeat.SetActive(true);
+				m_PanelQuizz.SetActive(false);
 			}
 		
 		}
