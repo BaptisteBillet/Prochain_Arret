@@ -440,7 +440,7 @@ public class ScriptMemoryManager : MonoBehaviour
 
 		yield return new WaitForSeconds (1f);
 		m_PanelDefeat.SetActive (true);
-
+		
 	}
 
 	public void Pause()

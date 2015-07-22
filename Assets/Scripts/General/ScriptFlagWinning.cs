@@ -18,6 +18,8 @@ public class ScriptFlagWinning : MonoBehaviour
 	private int m_DelayMemory;
 	private int m_Step;
 
+	public ScriptVictory m_ScriptVictory;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -97,7 +99,7 @@ public class ScriptFlagWinning : MonoBehaviour
 			m_TextFlagCounter.text = m_FlagCounter.ToString();
 
 		}
-
+		PlayerPrefs.SetInt("FlagWin",0);
 		yield return new WaitForSeconds(1);
 
 		m_FlagAnimator.SetTrigger("Out");
@@ -106,6 +108,8 @@ public class ScriptFlagWinning : MonoBehaviour
 		m_Step = 3;
 
 		yield return new WaitForSeconds(2);
+
+		Application.LoadLevel("HubSelectActivity");
 		//SORTIE
 
 
