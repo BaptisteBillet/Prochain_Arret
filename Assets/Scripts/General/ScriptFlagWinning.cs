@@ -109,7 +109,16 @@ public class ScriptFlagWinning : MonoBehaviour
 
 		yield return new WaitForSeconds(2);
 
-		Application.LoadLevel("HubSelectActivity");
+
+
+		if (m_ScriptVictory.m_IsGoingToHub == true)
+			{
+				Application.LoadLevel("HubSelectActivity");
+			}
+			else
+			{
+				Application.LoadLevel(m_ScriptVictory.m_Destination);
+			}
 		//SORTIE
 
 

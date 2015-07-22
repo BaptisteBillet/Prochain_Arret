@@ -61,7 +61,7 @@ public class CityButtonSelection : MonoBehaviour
 	{
 		if (number == m_ActualSelectedButton)
 		{
-			//Load new scene
+			Application.LoadLevel("HubSelectActivity");
 		}
 		else
 		{

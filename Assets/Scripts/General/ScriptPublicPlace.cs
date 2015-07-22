@@ -9,11 +9,13 @@ public class ScriptPublicPlace : MonoBehaviour
 	{
 		AudioListener.volume = 0;
 		m_PanelPublicPlace.SetActive (false);
+		Application.LoadLevel("CityScreen");
 	}
 
 	public void NotPublicPlace ()
 	{
 		m_PanelPublicPlace.SetActive (false);
+		Application.LoadLevel("CityScreen");
 	}
 
 }

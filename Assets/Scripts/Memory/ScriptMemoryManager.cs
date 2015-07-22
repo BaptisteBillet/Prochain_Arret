@@ -66,7 +66,7 @@ public class ScriptMemoryManager : MonoBehaviour
 
 
 	public GameObject m_PanelWhirlPool;
-
+	public GameObject m_PanelPapishReact;
 
 	public bool m_IsPlaying = true;
 	public Text m_TimerText;
@@ -95,7 +95,7 @@ public class ScriptMemoryManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{	//Remplit la card list 
-
+		
 		m_PanelUI.SetActive (false);
 
 		m_NCardList.Add (7);
@@ -126,13 +126,13 @@ public class ScriptMemoryManager : MonoBehaviour
 
 
 		m_ScoreMax = 8;
-		
-		
-		
-		
 
-		
-		
+
+
+
+
+
+		m_PanelPapishReact.SetActive(false);
 		m_TimerText.text=""+ m_TimerMinutes + m_TimerSeconds;
 
 		StartCoroutine (WaitForDifficulty ());
@@ -203,8 +203,10 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	IEnumerator WaitForBienvenue ()
 	{
+
 		yield return new WaitForSeconds(0.5f);
 		m_PanelUI.SetActive (true);
+		m_PanelPapishReact.SetActive(true);
 		yield return new WaitForSeconds(0.7f);
 
 
@@ -269,7 +271,6 @@ public class ScriptMemoryManager : MonoBehaviour
 			{
 				
 				m_Score++;
-				Debug.Log (m_Score);
 
 				ScriptTextSystem.instance.Display2 (m_Card.GetComponent<ScriptCard>().m_CardNumber);
 
@@ -291,19 +292,28 @@ public class ScriptMemoryManager : MonoBehaviour
 					string m_Difficulty;
 					int m_Flags;
 					int m_FlagsWin;
-					m_LastStep = PlayerPrefs.GetInt("MazeDifficulty", 0);
+
+					/////////////////////////////////////
+					//PENSER A ENLEVER
+					PlayerPrefs.SetInt("MemoryDifficulty", 0);
+					/////////////////////////////////////
+					m_LastStep = PlayerPrefs.GetInt("MemoryDifficulty", 0);
 					m_Difficulty = PlayerPrefs.GetString("Difficulty");
 					m_Flags = PlayerPrefs.GetInt("Flags");
 					m_FlagsWin = 0;
+
+					Debug.Log(m_Difficulty);
+					Debug.Log(PlayerPrefs.GetInt("MemoryDifficulty", 0));
 					switch (m_Difficulty)
 					{
 						case "Easy":
 							if (m_LastStep == 0)
 							{
-								PlayerPrefs.SetInt("MazeDifficulty", 1);
+								PlayerPrefs.SetInt("MemoryDifficulty", 1);
 								//Gain de drapeau
 								PlayerPrefs.SetInt("Flags", m_Flags++);
 								m_FlagsWin++;
+								Debug.Log("a");
 							}
 							break;
 
@@ -318,7 +328,7 @@ public class ScriptMemoryManager : MonoBehaviour
 								m_Flags = PlayerPrefs.GetInt("Flags");
 								PlayerPrefs.SetInt("Flags", m_Flags++);
 								m_FlagsWin++;
-								PlayerPrefs.SetInt("MazeDifficulty", 2);
+								PlayerPrefs.SetInt("MemoryDifficulty", 2);
 								//Gain de drapeau
 							}
 							break;
@@ -342,7 +352,7 @@ public class ScriptMemoryManager : MonoBehaviour
 								PlayerPrefs.SetInt("Flags", m_Flags++);
 								m_FlagsWin++;
 
-								PlayerPrefs.SetInt("MazeDifficulty", 3);
+								PlayerPrefs.SetInt("MemoryDifficulty", 3);
 
 							}
 							break;
@@ -351,6 +361,9 @@ public class ScriptMemoryManager : MonoBehaviour
 					PlayerPrefs.SetInt("FlagWin", m_FlagsWin);
 					#endregion
 
+					Debug.Log(m_FlagsWin);
+
+					m_PanelPapishReact.SetActive(false);
 					m_PanelWhirlPool.SetActive (true);
 					m_PanelVictory.SetActive(true);
 
@@ -446,12 +459,14 @@ public class ScriptMemoryManager : MonoBehaviour
 
 	public void Pause()
 	{
+		m_PanelPapishReact.SetActive(false);
 		ScriptTextSystem.instance.Erase2();
 		m_IsPlaying = false;
 	}
 
 	public void Unpause ()
 	{
+		m_PanelPapishReact.SetActive(true);
 		m_IsPlaying = true;
 	}
 
