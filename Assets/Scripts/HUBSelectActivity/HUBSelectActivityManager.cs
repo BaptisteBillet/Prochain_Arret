@@ -1,54 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class HUBSelectActivityManager : MonoBehaviour {
-
-	#region Singleton
-	static private HUBSelectActivityManager s_Instance;
-	static public HUBSelectActivityManager instance
-	{
-		get
-		{
-			return s_Instance;
-		}
-	}
-	#endregion
+public class HUBSelectActivityManager : MonoBehaviour
+{
+	public string m_Designationstring;
+	public string m_Destination;
 	
+	int m_Difficulty;
+	public Image m_ImageToManage;
+	public Sprite[] m_ArrayOfImages= new Sprite [4];
 	
-	void Awake()
-	{
-		if (s_Instance == null)
-			s_Instance = this;
-		//DontDestroyOnLoad(this);
-	}
-	
-
-
-
-
-	public int m_MemorySaveInt;
-	public int m_MazeSaveInt;
-	public int m_ConstructionGameSaveInt;
-	public int m_QuizzSaveInt;
-// Variable de stockage des gains de drapeaux du joueur dans une activité.
-
-
-	// Use this for initialization
 	void Start () 
 	{
-		CheckSave ();
-
+		m_Difficulty = PlayerPrefs.GetInt(m_Designationstring, 0);
+		m_ImageToManage.sprite=m_ArrayOfImages[m_Difficulty];
 	}
-
-	public void CheckSave ()
+	
+	
+	
+	public void LoadNewActivity ()
 	{
-		m_MemorySaveInt = PlayerPrefs.GetInt ("MemoryDifficulty", 0);
-		
-		m_MazeSaveInt = PlayerPrefs.GetInt ("MazeDifficulty", 0);
-		
-		m_ConstructionGameSaveInt = PlayerPrefs.GetInt ("ConstructionGameDifficulty", 0);
-		
-		m_QuizzSaveInt = PlayerPrefs.GetInt ("QuizzDifficulty", 0);
+		Application.LoadLevel (m_Destination);
 	}
 
 }
