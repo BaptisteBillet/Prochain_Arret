@@ -9,10 +9,7 @@ public class ScriptPanelVictoryMemory : MonoBehaviour
 	{
 		Debug.Log("a");
 	}
-	public void NextStep()
-	{
-		Debug.Log("a");
-	}
+
 
 	public void NextActivity ()
 	{
