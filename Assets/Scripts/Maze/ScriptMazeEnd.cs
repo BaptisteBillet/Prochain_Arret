@@ -9,12 +9,13 @@ public class ScriptMazeEnd: MonoBehaviour {
 	public bool m_Objective2;
 	public bool m_Objective3;
 
-	public GameObject m_Image1;
-	public GameObject m_Image2;
-	public GameObject m_Image3;
-	public GameObject m_Image11;
-	public GameObject m_Image22;
-	public GameObject m_Image33;
+	public Image m_Image1;
+	public Image m_Image2;
+	public Image m_Image3;
+
+	public Sprite m_SpriteObjective1;
+	public Sprite m_SpriteObjective2;
+	public Sprite m_SpriteObjective3;
 
 	public GameObject m_PanelWhirlPool;
 	public GameObject m_PanelVictory;
@@ -116,7 +117,9 @@ public class ScriptMazeEnd: MonoBehaviour {
 
 				PlayerPrefs.SetInt("FlagWin", m_FlagsWin);
 				#endregion
+
 				m_PanelVictory.SetActive(true);
+				Destroy(this.gameObject);
 			}
 		}
 	}
@@ -128,22 +131,19 @@ public class ScriptMazeEnd: MonoBehaviour {
 		{
 			case 1:
 				m_Objective1 = true;
-				m_Image1.SetActive(true);
-				m_Image11.SetActive(true);
+				m_Image1.sprite = m_SpriteObjective1;
 				//m_Image111.SetActive(true);
 				break;
 			
 			case 2:
 				m_Objective2 = true;
-				m_Image2.SetActive(true);
-				m_Image22.SetActive(true);
+				m_Image2.sprite = m_SpriteObjective2;
 				//m_Image222.SetActive(true);
 				break;
 			
 			case 3:
 				m_Objective3 = true;
-				m_Image3.SetActive(true);
-				m_Image33.SetActive(true);
+				m_Image3.sprite = m_SpriteObjective3;
 				//m_Image333.SetActive(true);
 				break;
 		}

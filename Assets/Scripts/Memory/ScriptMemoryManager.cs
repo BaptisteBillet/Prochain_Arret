@@ -38,9 +38,8 @@ public class ScriptMemoryManager : MonoBehaviour
 	public int m_Score; 
 	public int m_ScoreMax;
 	// Variables utilitaires pour le script 
-	
-	public Vector3 m_LocationFirstElement = new Vector3 (-5f,3f,0f);
-	
+
+	public Vector3 m_LocationFirstElement;
 	public float m_LocationGapX;
 	public float m_LocationGapY;
 	
@@ -116,9 +115,6 @@ public class ScriptMemoryManager : MonoBehaviour
 		m_NCardList.Add (1);
 		m_NCardList.Add (0);
 
-
-
-
 		m_CanPlay = false ; 
 		m_MemoryArray= new GameObject[m_ArrayX,m_ArrayY];
 		m_ArrayOfCardstatus = 0;
@@ -140,7 +136,7 @@ public class ScriptMemoryManager : MonoBehaviour
 
 		
 	}
-	
+	 
 	IEnumerator WaitForDifficulty()
 	{
 
@@ -217,7 +213,7 @@ public class ScriptMemoryManager : MonoBehaviour
 	
 	void GridBuilding()
 	{
-		Debug.Log("GridBuilding");
+
 		for (int x=0;x<m_ArrayX;x++)
 		{
 			for(int y=0; y<m_ArrayY; y++)
@@ -225,11 +221,15 @@ public class ScriptMemoryManager : MonoBehaviour
 
 				m_NCardListIndex = (int)(UnityEngine.Random.Range (0f,m_NCardList.Count));
 				//Debug.Log (m_NCardListIndex);
-				
+
 				m_MemoryArray[x,y]=m_ArrayOfCard[m_NCardList[m_NCardListIndex]];
+			
+				m_MemoryArray[x,y].transform.position = new Vector3 (m_LocationFirstElement.x +(x*2), m_LocationFirstElement.y - (y*2), -6);
 				
-				m_MemoryArray[x,y].transform.position = new Vector3 (m_LocationFirstElement.x +(x*2), m_LocationFirstElement.y + (y*2));
-				Instantiate(m_MemoryArray[x,y]);
+				Instantiate(m_MemoryArray[x, y]);
+
+				Debug.Log(m_MemoryArray[x, y].transform.position);
+
 				m_NCardList.RemoveAt(m_NCardListIndex);
 				//m_NCardListIndexMax--;
 
@@ -241,10 +241,11 @@ public class ScriptMemoryManager : MonoBehaviour
 				
 			}
 		}
+
 		m_CanPlay = true;
+		
 		StartCoroutine (TimerCoroutine ());
-		
-		
+				
 	}
 	
 	public void StartCompare(GameObject LastClickedCard)
