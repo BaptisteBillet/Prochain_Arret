@@ -131,6 +131,7 @@
      <Compile Include="Assets\Scripts\General\ScriptDestroyGO.cs" />
      <Compile Include="Assets\Scripts\General\ScriptDifficultyChoice.cs" />
      <Compile Include="Assets\Scripts\General\ScriptEnableDisable.cs" />
+     <Compile Include="Assets\Scripts\General\ScriptFlagMeter.cs" />
      <Compile Include="Assets\Scripts\General\ScriptFlagWinning.cs" />
      <Compile Include="Assets\Scripts\General\ScriptGoToScene.cs" />
      <Compile Include="Assets\Scripts\General\ScriptImageSystem.cs" />
@@ -159,7 +160,7 @@
      <Compile Include="Assets\Scripts\Quizz\ScriptQuizzManager.cs" />
      <Compile Include="Assets\Scripts\ScriptShopNavigation.cs" />
      <Compile Include="Assets\Scripts\ScriptTitleTransition.cs" />
-     <Compile Include="Assets\Scripts\Shop\ScriptShop.cs" />
+     <Compile Include="Assets\Scripts\Shop\ScriptShopManager.cs" />
      <Compile Include="Assets\Scripts\Test3d\LaunchVictory.cs" />
      <Compile Include="Assets\Scripts\Visite\ScriptVisiteManager.cs" />
      <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture With Color Tint.shader" />

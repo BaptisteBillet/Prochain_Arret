@@ -1,10 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\General\ScriptFlagWinning.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Shop\ScriptShopManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\General\ScriptFlagWinning.cs" Line="85" Column="20" />
-      <File FileName="Assets\Scripts\General\ScriptVictory.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ConstructionGame\ScriptObjectifDetection.cs" Line="66" Column="26" />
+      <File FileName="Assets\Scripts\Shop\ScriptShopManager.cs" Line="3" Column="1" />
+      <File FileName="Assets\Scripts\ConstructionGame\PieceScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Memory\ScriptMemoryManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Visite\ScriptVisiteManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\General\ScriptFlagMeter.cs" Line="7" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
