@@ -31,7 +31,6 @@ public class ScriptVictory : MonoBehaviour {
 		if(m_FlagWin>0)
 		{
 			m_PanelFlag.SetActive(true);
-			Debug.Log("a");
 			this.gameObject.SetActive(false);
 		}
 		else

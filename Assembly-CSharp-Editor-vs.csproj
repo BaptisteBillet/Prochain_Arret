@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{F1F810E1-4673-AFEB-7388-701FB856C147}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_1_1;UNITY_5_1;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_LICENSE;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_EDITOR_METRICS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_MONO;DEVELOPMENT_BUILD;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_DUCK_TYPING</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Particle Playground\Examples\Example Project\Scripts\Editor\FxCycleInspector.cs" />
+     <Compile Include="Assets\Particle Playground\Scripts\Editor\PlaygroundBrushPresetInspectorC.cs" />
+     <Compile Include="Assets\Particle Playground\Scripts\Editor\PlaygroundCreateBrushWindowC.cs" />
+     <Compile Include="Assets\Particle Playground\Scripts\Editor\PlaygroundCreatePresetWindowC.cs" />
+     <Compile Include="Assets\Particle Playground\Scripts\Editor\PlaygroundInspectorC.cs" />
+     <Compile Include="Assets\Particle Playground\Scripts\Editor\PlaygroundInstallLanguageWindowC.cs" />
+     <Compile Include="Assets\Particle Playground\Scripts\Editor\PlaygroundLanguageC.cs" />
+     <Compile Include="Assets\Particle Playground\Scripts\Editor\PlaygroundParticleSystemInspectorC.cs" />
+     <Compile Include="Assets\Particle Playground\Scripts\Editor\PlaygroundParticleWindowC.cs" />
+     <Compile Include="Assets\Particle Playground\Scripts\Editor\PlaygroundSettingsC.cs" />
+     <Compile Include="Assets\Particle Playground\Scripts\Playground Splines\Editor\PlaygroundSplineInspector.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Actions\DeleteNoDrawFaces.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Actions\ExportObj.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Actions\MakeAsset.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Actions\ProBuilderizeGameObject.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Actions\StripProBuilderScripts.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Geometry\Bridge.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Geometry\ConnectEdges.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Geometry\DetachDeleteFace.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Geometry\ExtrudeFace.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Geometry\FlipFaces.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Geometry\PivotTool.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Geometry\VertexMergeWeld.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Repair\CleanUpLeakedMeshes.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Repair\ComponentCheck.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Repair\DegenerateTris.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Repair\FixGameObjectFlags.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Repair\FixShaderWantsNormals.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Repair\ForceMeshRefresh.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Repair\RebuildSharedIndices.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Repair\SetProjectionAxis.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Selection\EdgeSelection.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Selection\ExpandSelection.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Selection\InvertSelection.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Selection\MaterialSelection.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Tools\AutoNodraw.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Tools\ProjectNodrawUtil.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\MenuItems\Tools\SelectFacesWithMaterial.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\ProBuilderMenuItems.cs" />
+     <Compile Include="Assets\ProCore\ProBuilder\Editor\pb_Preferences.cs" />
+     <Compile Include="Assets\ProCore\ProGrids\Editor\pg_Constant.cs" />
+     <Compile Include="Assets\ProCore\ProGrids\Editor\pg_Editor.cs" />
+     <Compile Include="Assets\ProCore\ProGrids\Editor\pg_GridRenderer.cs" />
+     <Compile Include="Assets\ProCore\ProGrids\Editor\pg_Preferences.cs" />
+     <Compile Include="Assets\ProCore\Shared\About\Editor\pc_AboutWindow.cs" />
+     <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture With Color Tint.shader" />
+     <None Include="Assets\ProCore\ProGrids\Shader\PerspectiveGrid.shader" />
+     <None Include="Assets\Shaders\GlassOutlineV2.shader" />
+     <None Include="Assets\Shaders\MishBody.shader" />
+     <None Include="Assets\ProCore\ProBuilder\About\changelog.txt" />
+     <None Include="Assets\ProCore\ProBuilder\Shader\VertexBillboard.shader" />
+     <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseVertexColor.shader" />
+     <None Include="Assets\Particle Playground\Graphics\Shaders\VertexLit Color.shader" />
+     <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture.shader" />
+     <None Include="Assets\Shaders\MishGlass.shader" />
+     <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseVertexColorTransparency.shader" />
+     <None Include="Assets\Shaders\Transparent.shader" />
+     <None Include="Assets\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
+     <None Include="Assets\ProCore\ProGrids\About\pc_AboutEntry_ProGrids.txt" />
+     <None Include="Assets\Shaders\BA_PBR_Glass.shader" />
+     <None Include="Assets\ProCore\Shared\About\README.txt" />
+     <None Include="Assets\Shaders\MishSkin.shader" />
+     <None Include="Assets\ProCore\ProBuilder\Shader\UnlitColor.shader" />
+     <None Include="Assets\Shaders\LitBasic.shader" />
+     <None Include="Assets\ProCore\ProBuilder\API Examples\Instantiation\README.txt" />
+     <None Include="Assets\Particle Playground\Examples\Example Project\-Readme.txt" />
+     <None Include="Assets\Shaders\simple.shader" />
+     <None Include="Assets\Shaders\Outline.shader" />
+     <None Include="Assets\ProCore\ProGrids\About\changelog.txt" />
+     <None Include="Assets\Shaders\GlassOutlineV4.shader" />
+     <None Include="Assets\Particle Playground\Graphics\Shaders\VertexLit Texture.shader" />
+     <None Include="Assets\ProCore\ProBuilder\Shader\UnlitColor-Overlay.shader" />
+     <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseVertexColorEmission.shader" />
+     <None Include="Assets\Shaders\GlassOutlineV3.shader" />
+     <None Include="Assets\Particle Playground\Graphics\Shaders\Vertex Color.shader" />
+     <None Include="Assets\ProCore\ProBuilder\About\Credits.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="ProBuilderCore">
+ <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+ </Reference>
+ <Reference Include="ProBuilderMeshOps">
+ <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps.dll</HintPath>
+ </Reference>
+ <Reference Include="ProBuilderEditor">
+ <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="ProCore 1">
+ <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/ProCore 1.dll</HintPath>
+ </Reference>
+ <Reference Include="ProCore">
+ <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
+ </Reference>
+ <Reference Include="SixBySeven 1">
+ <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/SixBySeven 1.dll</HintPath>
+ </Reference>
+ <Reference Include="SixBySeven">
+ <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/SixBySeven.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/androidplayer/UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WP8.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/wp8support/UnityEditor.WP8.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Metro.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/metrosupport/UnityEditor.Metro.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.BB10.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/blackberryplayer/UnityEditor.BB10.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.SamsungTV.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/stvplayer/STVPlayer/UnityEditor.SamsungTV.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/webglsupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.LinuxStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/linuxstandalonesupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.OSXStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{08373B97-DF80-6BAD-28F7-4A55E84256E8}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

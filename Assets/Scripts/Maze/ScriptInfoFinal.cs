@@ -10,7 +10,7 @@ public class ScriptInfoFinal : MonoBehaviour {
 	
 	public void Button1()
 	{
-		Debug.Log("a");
+
 		if(m_Info1.activeInHierarchy==false)
 		{
 			m_Info1.SetActive(true);

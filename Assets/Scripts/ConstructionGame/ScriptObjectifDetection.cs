@@ -34,6 +34,8 @@ public class ScriptObjectifDetection : MonoBehaviour {
 
 	public GameObject m_PanelVictory;
 	public GameObject m_PanelWhirlPool;
+	public GameObject m_PanelUI;
+
 
 	PieceScript m_PieceScript;
 
@@ -66,7 +68,12 @@ public class ScriptObjectifDetection : MonoBehaviour {
 					string m_Difficulty;
 					int m_Flags;
 					int m_FlagsWin;
-					m_LastStep = PlayerPrefs.GetInt("MazeDifficulty", 0);
+
+						/////////////////
+						PlayerPrefs.SetInt("ConstructionGameDifficulty", 0);
+
+						////////////////
+					m_LastStep = PlayerPrefs.GetInt("ConstructionGameDifficulty", 0);
 					m_Difficulty = PlayerPrefs.GetString("Difficulty");
 					m_Flags = PlayerPrefs.GetInt("Flags");
 					m_FlagsWin = 0;
@@ -75,7 +82,7 @@ public class ScriptObjectifDetection : MonoBehaviour {
 						case "Easy":
 							if (m_LastStep == 0)
 							{
-								PlayerPrefs.SetInt("MazeDifficulty", 1);
+								PlayerPrefs.SetInt("ConstructionGameDifficulty", 1);
 								//Gain de drapeau
 								PlayerPrefs.SetInt("Flags", m_Flags++);
 								m_FlagsWin++;
@@ -93,7 +100,7 @@ public class ScriptObjectifDetection : MonoBehaviour {
 								m_Flags = PlayerPrefs.GetInt("Flags");
 								PlayerPrefs.SetInt("Flags", m_Flags++);
 								m_FlagsWin++;
-								PlayerPrefs.SetInt("MazeDifficulty", 2);
+								PlayerPrefs.SetInt("ConstructionGameDifficulty", 2);
 								//Gain de drapeau
 							}
 							break;
@@ -117,7 +124,7 @@ public class ScriptObjectifDetection : MonoBehaviour {
 								PlayerPrefs.SetInt("Flags", m_Flags++);
 								m_FlagsWin++;
 
-								PlayerPrefs.SetInt("MazeDifficulty", 3);
+								PlayerPrefs.SetInt("ConstructionGameDifficulty", 3);
 
 							}
 							break;
@@ -126,7 +133,7 @@ public class ScriptObjectifDetection : MonoBehaviour {
 					PlayerPrefs.SetInt("FlagWin", m_FlagsWin);
 					#endregion
 
-
+						m_PanelUI.SetActive (false);
 					m_PanelWhirlPool.SetActive (true);
 					m_PanelVictory.SetActive(true);
 					break;
