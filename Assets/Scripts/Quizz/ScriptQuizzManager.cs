@@ -277,6 +277,11 @@ public class ScriptQuizzManager : MonoBehaviour {
 				string m_Difficulty;
 				int m_Flags;
 				int m_FlagsWin;
+
+				/////////////////////
+				PlayerPrefs.SetInt("QuizzDifficulty", 0);
+				////////////////////
+
 				m_LastStep = PlayerPrefs.GetInt("QuizzDifficulty", 0);
 				m_Difficulty = PlayerPrefs.GetString("Difficulty");
 				m_Flags = PlayerPrefs.GetInt("Flags");
