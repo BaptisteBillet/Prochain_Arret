@@ -207,7 +207,7 @@ public class ScriptMemoryManager : MonoBehaviour
 
 
 		//m_PanelAnimScript.Bienvenue ();
-		ScriptTextSystem.instance.Display2 (8);
+		ScriptTextSystem.instance.Display2(8);
 		
 	}
 	
