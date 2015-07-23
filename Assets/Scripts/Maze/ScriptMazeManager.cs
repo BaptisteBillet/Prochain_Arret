@@ -50,7 +50,6 @@ public class ScriptMazeManager : MonoBehaviour
 
 	//For the score
 	public Text m_Score;
-	public Text m_Score1;
 
 	//To know when we stop
 	private bool m_stop;
@@ -114,7 +113,7 @@ public class ScriptMazeManager : MonoBehaviour
 			m_ObjectiveMinutes =  m_HardMinutes;
 		}
 
-		m_PanelWhirlPool.SetActive (false);
+		m_PanelWhirlPool.SetActive(false);
 
 		//Post Initialisation
 		m_stop = false;
@@ -124,6 +123,7 @@ public class ScriptMazeManager : MonoBehaviour
 		StartCoroutine(ScoreCalcul());
 		m_CanMove = true;
 		m_IsPlaying = true;
+		m_PanelUI.SetActive(true);
 		//Post Initialisation
 
 	}
@@ -153,7 +153,7 @@ public class ScriptMazeManager : MonoBehaviour
 			//Apply the gyro value to the velocity;
 			if (m_stop == false)
 			{
-				m_Rigidbody.velocity = new Vector3(1 * m_x, 0, 1 * m_y) - m_Rigidbody.velocity * Time.deltaTime;
+				m_Rigidbody.velocity = new Vector3(1 * m_x, 1 * m_y,0 ) - m_Rigidbody.velocity * Time.deltaTime;
 			}
 
 		}
@@ -170,7 +170,6 @@ public class ScriptMazeManager : MonoBehaviour
 		while (m_stop == false)
 		{
 			//Each seconds
-			m_Score1.text = m_Score.text;
 			yield return new WaitForSeconds(1);
 
 			if (m_IsPlaying ==true)

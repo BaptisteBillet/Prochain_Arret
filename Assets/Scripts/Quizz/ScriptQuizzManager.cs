@@ -277,7 +277,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 				string m_Difficulty;
 				int m_Flags;
 				int m_FlagsWin;
-				m_LastStep = PlayerPrefs.GetInt("MazeDifficulty", 0);
+				m_LastStep = PlayerPrefs.GetInt("QuizzDifficulty", 0);
 				m_Difficulty = PlayerPrefs.GetString("Difficulty");
 				m_Flags = PlayerPrefs.GetInt("Flags");
 				m_FlagsWin = 0;
@@ -286,7 +286,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 					case "Easy":
 						if (m_LastStep == 0)
 						{
-							PlayerPrefs.SetInt("MazeDifficulty", 1);
+							PlayerPrefs.SetInt("QuizzDifficulty", 1);
 							//Gain de drapeau
 							PlayerPrefs.SetInt("Flags", m_Flags++);
 							m_FlagsWin++;
@@ -304,7 +304,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 							m_Flags = PlayerPrefs.GetInt("Flags");
 							PlayerPrefs.SetInt("Flags", m_Flags++);
 							m_FlagsWin++;
-							PlayerPrefs.SetInt("MazeDifficulty", 2);
+							PlayerPrefs.SetInt("QuizzDifficulty", 2);
 							//Gain de drapeau
 						}
 						break;
@@ -328,7 +328,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 							PlayerPrefs.SetInt("Flags", m_Flags++);
 							m_FlagsWin++;
 
-							PlayerPrefs.SetInt("MazeDifficulty", 3);
+							PlayerPrefs.SetInt("QuizzDifficulty", 3);
 
 						}
 						break;
@@ -337,6 +337,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 				PlayerPrefs.SetInt("FlagWin", m_FlagsWin);
 				#endregion
 
+				Destroy(m_Papish);
 				m_PanelVictory.SetActive(true);
 				m_PanelQuizz.SetActive(false);
 

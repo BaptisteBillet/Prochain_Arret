@@ -51,15 +51,15 @@ public class ScriptObjectifDetection : MonoBehaviour {
 				switch (m_ObjectifNumber)
 				{
 				case 1: 
-					Debug.Log ("OBJ1");
+
 					break;
 			
 				case 2: 
-					Debug.Log ("OBJ2");
+
 					break;
 							
 				case 3: 
-					Debug.Log ("OBJ3");
+
 					m_ThirdCheck = true;
 
 					#region Save
