@@ -117,6 +117,7 @@ public class ScriptFlagWinning : MonoBehaviour
 			}
 			else
 			{
+				Debug.Log(m_ScriptVictory.m_Destination);
 				Application.LoadLevel(m_ScriptVictory.m_Destination);
 			}
 		//SORTIE
