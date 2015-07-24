@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -21,12 +21,15 @@ public class ScriptShopManager : MonoBehaviour
 
 	Renderer m_ModelRenderer;
 	MeshFilter m_ModelMesh;
+	Image m_FlagMeter;
+	Image m_BackButton;
 
 	void Start ()
 	{
 		m_ModelRenderer = m_Model.GetComponent<Renderer>(); 
 		m_ModelMesh = m_Model.GetComponent<MeshFilter>(); 
 		m_Model.SetActive (false);
+		m_Price = 0;
 	}
 
 
@@ -85,11 +88,15 @@ public class ScriptShopManager : MonoBehaviour
 		m_PanelUI.SetActive (false);
 		m_Model.SetActive (false);
 		m_PanelSelect.SetActive (true);
+		m_Price = 0;
 
 	}
 
-
-
+	public void ChangeTheme (Image[] newappearance)
+	{
+		m_FlagMeter = newappearance [0];
+		m_BackButton = newappearance [1];
+	}
 
 
 
