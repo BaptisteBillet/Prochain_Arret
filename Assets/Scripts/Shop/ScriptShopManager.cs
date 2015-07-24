@@ -9,6 +9,12 @@ public class ScriptShopManager : MonoBehaviour
 
 	public Text m_Description;
 
+	public GameObject m_PanelSelect;
+	public GameObject m_PanelTenues;
+	public GameObject m_PanelMusique;
+	public GameObject m_PanelInterface;
+	public GameObject m_PanelUI;
+
 
 
 	Renderer m_ModelRenderer;
@@ -16,60 +22,34 @@ public class ScriptShopManager : MonoBehaviour
 	void Start ()
 	{
 		m_ModelRenderer = m_Model.GetComponent<Renderer>(); 
+		m_Model.SetActive (false);
 	}
 
-	public void ChangeModelAspect(int designation)
+
+
+	public void LoadShopSection (GameObject destination)
 	{
-		switch (designation) 
+		m_PanelSelect.SetActive (false);
+		destination.SetActive (true);
+		m_PanelUI.SetActive (true);
+
+		if (destination == m_PanelTenues) 
 		{
-		case 0: 
-			m_ModelRenderer.material.color = Color.green;
-			m_Description.text = "Une magnifique couleur vert emeraude, parfait pour paraitre en soiree."; 
-			break;
-
-		case 1: 
-			m_ModelRenderer.material.color = Color.red;
-			m_Description.text = "Une magnifique couleur vert emeraude, parfait pour paraitre en soiree."; 
-			break;
-
-		case 2: 
-			m_ModelRenderer.material.color = Color.blue;
-			m_Description.text = "Une magnifique couleur vert emeraude, parfait pour paraitre en soiree."; 
-			break;
-
-		case 3: 
-			m_ModelRenderer.material.color = Color.black;
-			m_Description.text = "Une magnifique couleur vert emeraude, parfait pour paraitre en soiree."; 
-			break;
-
-		case 4: 
-			m_ModelRenderer.material.color = Color.yellow;
-			m_Description.text = "Une magnifique couleur vert emeraude, parfait pour paraitre en soiree."; 
-			break;
-
-		case 5: 
-			m_ModelRenderer.material.color = Color.cyan;
-			m_Description.text = "Une magnifique couleur vert emeraude, parfait pour paraitre en soiree."; 
-			break;
-
-		case 6: 
-			m_ModelRenderer.material.color = Color.magenta;
-			m_Description.text = "Une magnifique couleur vert emeraude, parfait pour paraitre en soiree."; 
-			break;
-
-		case 7: 
-			m_ModelRenderer.material.color = Color.white;
-			m_Description.text = "Une magnifique couleur vert emeraude, parfait pour paraitre en soiree."; 
-			break;
+			m_Model.SetActive (true);
 		}
+
 	}
 
+	public void ChangeModelAspect (Material newaspect)
+	{
+		m_ModelRenderer.material = newaspect;
+	
+	}
 
-
-
-
-
-
+	public void ModelAspectDescription (string description)
+	{
+		m_Description.text = description;
+	}
 
 
 
