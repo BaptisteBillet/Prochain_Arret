@@ -10,7 +10,12 @@ public class PieceScript : MonoBehaviour {
 	public bool m_IsTop;
 	public PieceScript m_PieceScript;
 
+	Vector3 point;
+
 	Renderer m_PieceRenderer;
+
+	Collider m_Collider;
+	Rigidbody m_RigidBody;
 
 	//ConstructionGameManagerScript m_CGMS;
 
@@ -22,9 +27,26 @@ public class PieceScript : MonoBehaviour {
 	void Start ()
 	{
 		m_PieceRenderer = GetComponent<Renderer> ();
+		m_Collider = GetComponent<BoxCollider>();
+		m_RigidBody = GetComponent<Rigidbody>();
+	}
+
+
+	void OnMouseDrag ()
+	{
+		point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+	
+		transform.position = new Vector3 (point.x,point.y,1);
+		m_Collider.enabled = false;
+		m_RigidBody.useGravity = false;
 
 	}
 
+	void OnMouseUp ()
+	{
+		m_Collider.enabled = true;
+		m_RigidBody.useGravity = true;
+	}
 	void Update ()
 	{
 		if (this.transform.position.x > 8.7f) 
@@ -38,26 +60,6 @@ public class PieceScript : MonoBehaviour {
 		}
 	}
 
-
-	void OnMouseDown ()
-	{
-		m_ScreenPoint = Camera.main.WorldToScreenPoint (this.transform.position);
-		m_Offset = this.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, m_ScreenPoint.z));
-
-	}
-
-
-	void OnMouseDrag ()
-	{
-		//keep track of the mouse position
-		var curScreenSpace = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, m_ScreenPoint.z);
-	
-		//convert the screen mouse position to world point and adjust with offset
-		var curPosition = Camera.main.ScreenToWorldPoint (curScreenSpace);
-	
-		//update the position of the object in the world
-		this.transform.position = curPosition;
-	}
 
 	void OnCollisionStay(Collision other)
 	{ 
@@ -111,4 +113,24 @@ public class PieceScript : MonoBehaviour {
 
 
 
+/*void OnMouseDown ()
+{
+	m_ScreenPoint = Camera.main.WorldToScreenPoint (this.transform.position);
+	m_Offset = this.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, m_ScreenPoint.z));
+
+}
+
+
+void OnMouseDrag ()
+{
+	//keep track of the mouse position
+	var curScreenSpace = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, m_ScreenPoint.z);
+	
+	//convert the screen mouse position to world point and adjust with offset
+	var curPosition = Camera.main.ScreenToWorldPoint (curScreenSpace);
+	
+	//update the position of the object in the world
+	this.transform.position = curPosition;
+}
+*/
 
