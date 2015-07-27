@@ -1,0 +1,136 @@
+-debug
+-target:library
+-nowarn:0169
+-out:Temp/Assembly-CSharp-Editor.dll
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll"
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll"
+-r:Library/ScriptAssemblies/Assembly-CSharp.dll
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll"
+-r:Assets/ProCore/ProBuilder/Classes/ProBuilderCore.dll
+-r:Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps.dll
+-r:Assets/ProCore/ProBuilder/Editor/ProBuilderEditor.dll
+-r:"Assets/ProCore/Shared/Code/ProCore 1.dll"
+-r:Assets/ProCore/Shared/Code/ProCore.dll
+-r:"Assets/ProCore/Shared/Code/SixBySeven 1.dll"
+-r:Assets/ProCore/Shared/Code/SixBySeven.dll
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\androidplayer/UnityEditor.Android.Extensions.dll"
+-r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\wp8support/UnityEditor.WP8.Extensions.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\metrosupport/UnityEditor.Metro.Extensions.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\blackberryplayer/UnityEditor.BB10.Extensions.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\stvplayer\STVPlayer/UnityEditor.SamsungTV.Extensions.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\webglsupport/UnityEditor.WebGL.Extensions.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\linuxstandalonesupport/UnityEditor.LinuxStandalone.Extensions.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll"
+-r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll"
+-define:UNITY_5_1_1
+-define:UNITY_5_1
+-define:UNITY_5
+-define:ENABLE_NEW_BUGREPORTER
+-define:ENABLE_2D_PHYSICS
+-define:ENABLE_4_6_FEATURES
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_FRAME_DEBUGGER
+-define:ENABLE_GENERICS
+-define:ENABLE_HOME_SCREEN
+-define:ENABLE_IMAGEEFFECTS
+-define:ENABLE_LIGHT_PROBES_LEGACY
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_PHYSICS_PHYSX3
+-define:ENABLE_PLUGIN_INSPECTOR
+-define:ENABLE_SHADOWS
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:ENABLE_SPRITES
+-define:ENABLE_TERRAIN
+-define:ENABLE_UNET
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_VR
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_AUDIOMIXER_SUSPEND
+-define:ENABLE_EDITOR_METRICS
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:INCLUDE_IL2CPP
+-define:INCLUDE_DIRECTX12
+-define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_LOCALIZATION
+-define:UNITY_ANDROID
+-define:UNITY_ANDROID_API
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_EGL
+-define:ENABLE_NETWORK
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_MONO
+-define:ENABLE_PROFILER
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_WIN
+-define:ENABLE_DUCK_TYPING
+"Assets/Particle Playground/Examples/Example Project/Scripts/Editor/FxCycleInspector.cs"
+"Assets/Particle Playground/Scripts/Editor/PlaygroundBrushPresetInspectorC.cs"
+"Assets/Particle Playground/Scripts/Editor/PlaygroundCreateBrushWindowC.cs"
+"Assets/Particle Playground/Scripts/Editor/PlaygroundCreatePresetWindowC.cs"
+"Assets/Particle Playground/Scripts/Editor/PlaygroundInspectorC.cs"
+"Assets/Particle Playground/Scripts/Editor/PlaygroundInstallLanguageWindowC.cs"
+"Assets/Particle Playground/Scripts/Editor/PlaygroundLanguageC.cs"
+"Assets/Particle Playground/Scripts/Editor/PlaygroundParticleSystemInspectorC.cs"
+"Assets/Particle Playground/Scripts/Editor/PlaygroundParticleWindowC.cs"
+"Assets/Particle Playground/Scripts/Editor/PlaygroundSettingsC.cs"
+"Assets/Particle Playground/Scripts/Playground Splines/Editor/PlaygroundSplineInspector.cs"
+Assets/ProCore/ProBuilder/Editor/MenuItems/Actions/DeleteNoDrawFaces.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Actions/ExportObj.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Actions/MakeAsset.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Actions/ProBuilderizeGameObject.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Actions/StripProBuilderScripts.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Geometry/Bridge.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Geometry/ConnectEdges.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Geometry/DetachDeleteFace.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Geometry/ExtrudeFace.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Geometry/FlipFaces.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Geometry/PivotTool.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Geometry/VertexMergeWeld.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Repair/CleanUpLeakedMeshes.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Repair/ComponentCheck.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Repair/DegenerateTris.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Repair/FixGameObjectFlags.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Repair/FixShaderWantsNormals.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Repair/ForceMeshRefresh.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Repair/RebuildSharedIndices.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Repair/SetProjectionAxis.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Selection/EdgeSelection.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Selection/ExpandSelection.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Selection/InvertSelection.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Selection/MaterialSelection.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Tools/AutoNodraw.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Tools/ProjectNodrawUtil.cs
+Assets/ProCore/ProBuilder/Editor/MenuItems/Tools/SelectFacesWithMaterial.cs
+Assets/ProCore/ProBuilder/Editor/ProBuilderMenuItems.cs
+Assets/ProCore/ProBuilder/Editor/pb_Preferences.cs
+Assets/ProCore/ProGrids/Editor/pg_Constant.cs
+Assets/ProCore/ProGrids/Editor/pg_Editor.cs
+Assets/ProCore/ProGrids/Editor/pg_GridRenderer.cs
+Assets/ProCore/ProGrids/Editor/pg_Preferences.cs
+Assets/ProCore/Shared/About/Editor/pc_AboutWindow.cs
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.Runtime.Serialization.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.Xml.Linq.dll"
