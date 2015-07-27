@@ -172,6 +172,7 @@
      <None Include="Assets\ProCore\ProBuilder\About\changelog.txt" />
      <None Include="Assets\ProCore\ProBuilder\Shader\VertexBillboard.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseVertexColor.shader" />
+     <None Include="Assets\Shaders\Papish\PapishMetalShaderDef.shader" />
      <None Include="Assets\Particle Playground\Graphics\Shaders\VertexLit Color.shader" />
      <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture.shader" />
      <None Include="Assets\Shaders\MishGlass.shader" />
@@ -180,6 +181,7 @@
      <None Include="Assets\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
      <None Include="Assets\ProCore\ProGrids\About\pc_AboutEntry_ProGrids.txt" />
      <None Include="Assets\Shaders\BA_PBR_Glass.shader" />
+     <None Include="Assets\Shaders\Papish\PapishObjectShaderDef.shader" />
      <None Include="Assets\ProCore\Shared\About\README.txt" />
      <None Include="Assets\Shaders\MishSkin.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\UnlitColor.shader" />
@@ -192,7 +194,9 @@
      <None Include="Assets\Shaders\GlassOutlineV4.shader" />
      <None Include="Assets\Particle Playground\Graphics\Shaders\VertexLit Texture.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\UnlitColor-Overlay.shader" />
+     <None Include="Assets\Shaders\Papish\PapishSkinShaderDef.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseVertexColorEmission.shader" />
+     <None Include="Assets\Shaders\Papish\PapishLightShaderDef.shader" />
      <None Include="Assets\Shaders\GlassOutlineV3.shader" />
      <None Include="Assets\Particle Playground\Graphics\Shaders\Vertex Color.shader" />
      <None Include="Assets\ProCore\ProBuilder\About\Credits.txt" />
@@ -206,22 +210,22 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
- <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+ <HintPath>C:/Users/graph/Documents/GitHub/Prochain_Arret/Assets/ProCore/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps">
- <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps.dll</HintPath>
+ <HintPath>C:/Users/graph/Documents/GitHub/Prochain_Arret/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps.dll</HintPath>
  </Reference>
  <Reference Include="ProCore 1">
- <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/ProCore 1.dll</HintPath>
+ <HintPath>C:/Users/graph/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/ProCore 1.dll</HintPath>
  </Reference>
  <Reference Include="ProCore">
- <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
+ <HintPath>C:/Users/graph/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven 1">
- <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/SixBySeven 1.dll</HintPath>
+ <HintPath>C:/Users/graph/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/SixBySeven 1.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
- <HintPath>C:/Users/graph117/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/SixBySeven.dll</HintPath>
+ <HintPath>C:/Users/graph/Documents/GitHub/Prochain_Arret/Assets/ProCore/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

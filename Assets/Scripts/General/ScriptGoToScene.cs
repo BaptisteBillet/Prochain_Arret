@@ -5,6 +5,10 @@ public class ScriptGoToScene : MonoBehaviour {
 
 	public void GoToScene(int number)
 	{
+		Application.LoadLevel("Test3D");
+
+
+		/*
 		if(number>-1)
 		{
 			Application.LoadLevel(number);
@@ -14,5 +18,6 @@ public class ScriptGoToScene : MonoBehaviour {
 		{
 			Application.Quit();
 		}
+		 * */
 	}
 }
