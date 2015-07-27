@@ -223,10 +223,14 @@ public class ScriptMemoryManager : MonoBehaviour
 				//Debug.Log (m_NCardListIndex);
 
 				m_MemoryArray[x,y]=m_ArrayOfCard[m_NCardList[m_NCardListIndex]];
-			
+
+				m_MemoryArray[x, y].transform.position = new Vector3(m_LocationFirstElement.x + (x * 2), m_LocationFirstElement.y - (y * 2), -6);
+
+				Instantiate(m_MemoryArray[x, y]);
+
 				m_MemoryArray[x,y].transform.position = new Vector3 (m_LocationFirstElement.x +(x*2), m_LocationFirstElement.y - (y*2), -6);
 				
-				Instantiate(m_MemoryArray[x, y]);
+			
 
 				Debug.Log(m_MemoryArray[x, y].transform.position);
 
