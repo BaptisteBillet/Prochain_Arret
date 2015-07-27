@@ -6,6 +6,12 @@ public class ScriptHubManager : MonoBehaviour
 {
 	public GameObject m_PanelSelectActivity;
 	public GameObject m_PanelHubGeneral;
+	public GameObject m_Papish;
+
+	void Start () 
+	{
+		ScriptTextSystem.instance.Display1 (0, 1f);
+	}
 
 	/*public void LauchSelectActivity()
 	{
@@ -13,6 +19,8 @@ public class ScriptHubManager : MonoBehaviour
 		m_PanelSelectActivity.SetActive (true);
 
 	}*/
+
+		
 
 	public void LoadNewActivity (string destination)
 	{
@@ -23,10 +31,13 @@ public class ScriptHubManager : MonoBehaviour
 	{
 		m_PanelSelectActivity.SetActive (false);
 		m_PanelHubGeneral.SetActive (true);
+		ScriptTextSystem.instance.Display1 (0, 1f);
+		m_Papish.GetComponent<ScriptPapishHUB>().ReturntoHub();
 	}
 
-	public void Test()
+	public void LaunchVisite()
 	{
-		Debug.Log ("OK");
+		Application.LoadLevel ("Visite");
 	}
+	
 }
