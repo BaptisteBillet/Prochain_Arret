@@ -147,6 +147,8 @@
      <Compile Include="Assets\Scripts\General\SoundManager.cs" />
      <Compile Include="Assets\Scripts\General\SoundManagerEvent.cs" />
      <Compile Include="Assets\Scripts\HUBSelectActivity\HUBSelectActivityManager.cs" />
+     <Compile Include="Assets\Scripts\HUBSelectActivity\ScriptHubManager.cs" />
+     <Compile Include="Assets\Scripts\HUBSelectActivity\ScriptPapishHUB.cs" />
      <Compile Include="Assets\Scripts\Maze\ScriptHoleEffect.cs" />
      <Compile Include="Assets\Scripts\Maze\ScriptInfoFinal.cs" />
      <Compile Include="Assets\Scripts\Maze\ScriptMazeEnd.cs" />

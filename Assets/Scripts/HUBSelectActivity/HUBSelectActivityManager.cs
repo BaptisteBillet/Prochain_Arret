@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class HUBSelectActivityManager : MonoBehaviour
 {
 	public string m_Designationstring;
-	public string m_Destination;
 	
 	int m_Difficulty;
 	public Image m_ImageToManage;
@@ -16,12 +15,6 @@ public class HUBSelectActivityManager : MonoBehaviour
 		m_Difficulty = PlayerPrefs.GetInt(m_Designationstring, 0);
 		m_ImageToManage.sprite=m_ArrayOfImages[m_Difficulty];
 	}
-	
-	
-	
-	public void LoadNewActivity ()
-	{
-		Application.LoadLevel (m_Destination);
-	}
+
 
 }
