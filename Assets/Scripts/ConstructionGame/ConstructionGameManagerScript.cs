@@ -27,6 +27,7 @@ public class ConstructionGameManagerScript : MonoBehaviour
 	public void Start ()
 	{
 		m_PanelUI.SetActive (false);
+		m_PanelTimer.SetActive (false);
 		StartCoroutine (WaitForDifficulty ());
 	
 	}
@@ -83,6 +84,8 @@ public class ConstructionGameManagerScript : MonoBehaviour
 		m_PanelWhirlPool.SetActive (false);
 
 		m_PanelUI.SetActive (true);
+
+		m_PanelTimer.SetActive (true);
 
 		StartCoroutine (TimerCoroutine ());
 		
