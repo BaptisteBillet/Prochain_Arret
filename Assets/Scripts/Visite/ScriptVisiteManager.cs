@@ -18,6 +18,7 @@ public class ScriptVisiteManager : MonoBehaviour {
 		m_WaitFactor = 1;
 		StartCoroutine (WaitImage ());
 		m_Waiting = m_WaitBetween * m_WaitFactor;
+		ScriptTextSystem.instance.Erase2 ();
 	}
 	
 	IEnumerator WaitImage ()
