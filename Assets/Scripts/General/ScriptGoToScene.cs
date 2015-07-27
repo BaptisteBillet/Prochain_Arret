@@ -5,7 +5,7 @@ public class ScriptGoToScene : MonoBehaviour {
 
 	public void GoToScene(int number)
 	{
-		Application.LoadLevel("Test3D");
+		Application.LoadLevel(1);
 
 
 		/*
