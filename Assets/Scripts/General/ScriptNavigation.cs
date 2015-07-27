@@ -4,35 +4,39 @@ using System.Collections;
 public class ScriptNavigation : MonoBehaviour {
 
 
-	public GameObject paneloption;
+	public GameObject m_Paneloption;
 
-	public GameObject paneltitre; 
+	public GameObject m_paneltitre; 
 
-	public GameObject panelpostcards;
+	public GameObject m_panelpostcards;
 
-	public GameObject PanelPublicPlaces;
-
+	public GameObject m_PanelPublicPlaces;
 
 
 
 	public void Startgame() 
 	{
-			paneltitre.SetActive (false);
-			PanelPublicPlaces.SetActive (true);
+			m_paneltitre.SetActive (false);
+			m_PanelPublicPlaces.SetActive (true);
 
 	}
 
 	public void Pausegame()
 	{
-		paneltitre.SetActive (false);
-		paneloption.SetActive (true);
+		m_paneltitre.SetActive (false);
+		m_Paneloption.SetActive(true);
 
 	}
 
 	public void UnpauseGame()
 	{
-		paneloption.SetActive (false);
-		paneltitre.SetActive (true);
+		m_Paneloption.SetActive(false);
+		m_paneltitre.SetActive (true);
+	}
+
+	public void QuitGame()
+	{
+		Application.Quit();
 	}
 
 	public void Metzgame()
