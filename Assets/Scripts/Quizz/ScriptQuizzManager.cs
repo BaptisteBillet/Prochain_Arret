@@ -176,6 +176,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 		m_Papish.SetActive(true);
 		//On attend la fin du mouvement de papish
 		yield return new WaitForSeconds(1f);
+		
 		//On le fait parler
 		ScriptTextSystem.instance.Display1(0);
 		yield return new WaitForSeconds(2f);
