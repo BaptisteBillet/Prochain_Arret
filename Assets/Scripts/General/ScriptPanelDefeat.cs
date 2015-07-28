@@ -18,7 +18,6 @@ public class ScriptPanelDefeat : MonoBehaviour {
 	
 	public void Return()
 	{
-		Application.LoadLevel ("PostalCardsScreen");
-		
+		Application.LoadLevel ("HubSelectActivity");
 	}
 }
