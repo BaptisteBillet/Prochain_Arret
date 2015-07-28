@@ -175,7 +175,7 @@ public class ScriptMemoryManager : MonoBehaviour
 		if (m_Difficulty == "Medium") 
 		{
 			m_TimerMinutes = 2;
-			m_TimerSeconds = 30;
+			m_TimerSeconds = 0;
 		}
 		
 		if (m_Difficulty == "Hard") 
@@ -411,6 +411,11 @@ public class ScriptMemoryManager : MonoBehaviour
 			if (m_IsPlaying ==true)
 			{
 				m_TimerText.text = " " + m_TimerMinutes + ":" + m_TimerSeconds;
+
+				if (m_TimerSeconds<10)
+				{
+					m_TimerText.text = " " + m_TimerMinutes + ":" +"0"+ m_TimerSeconds;
+				}
 
 				if (m_TimerSeconds == 0) {
 				

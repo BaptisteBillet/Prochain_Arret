@@ -107,6 +107,11 @@ public class ConstructionGameManagerScript : MonoBehaviour
 			if (m_IsPlaying ==true)
 			{
 				m_TimerText.text = " " + m_TimerMinutes + ":" + m_TimerSeconds;
+
+				if (m_TimerSeconds<10)
+				{
+					m_TimerText.text = " " + m_TimerMinutes + ":" +"0"+ m_TimerSeconds;
+				}
 				
 				if (m_TimerSeconds == 0) {
 					

@@ -164,6 +164,7 @@
      <Compile Include="Assets\Scripts\ScriptTitleTransition.cs" />
      <Compile Include="Assets\Scripts\Shop\ScriptShopManager.cs" />
      <Compile Include="Assets\Scripts\Test3d\LaunchVictory.cs" />
+     <Compile Include="Assets\Scripts\TitleScreen\ScriptTitleScreenManager.cs" />
      <Compile Include="Assets\Scripts\Visite\ScriptVisiteManager.cs" />
      <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture With Color Tint.shader" />
      <None Include="Assets\ProCore\ProGrids\Shader\PerspectiveGrid.shader" />
