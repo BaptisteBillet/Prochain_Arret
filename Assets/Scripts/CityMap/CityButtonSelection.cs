@@ -32,6 +32,7 @@ public class CityButtonSelection : MonoBehaviour
 
 	public void UpCityButtonSelection()
 	{
+
 		if(m_ActualSelectedButton>0)
 		{
 			m_ButtonDown.SetActive(true);
@@ -44,11 +45,13 @@ public class CityButtonSelection : MonoBehaviour
 			}
 			m_CityConteneur.UpSelection(m_ActualSelectedButton);
 			//transform.position = new Vector3(transform.position.x, transform.position.y-76f, transform.position.z);
+
+			if (m_ActualSelectedButton <= 0)
+			{
+				m_ButtonUp.SetActive(false);
+			}
 		}
-		else
-		{
-			m_ButtonUp.SetActive(false);
-		}
+		
 
 	}
 	public void DownCityButtonSelection()
@@ -65,11 +68,15 @@ public class CityButtonSelection : MonoBehaviour
 			}
 			m_CityConteneur.DownSelection(m_ActualSelectedButton);
 			//transform.position = new Vector3(transform.position.x, transform.position.y+76f, transform.position.z);
+
+
+			if (m_ActualSelectedButton >= m_ButtonList.Count - 1)
+			{
+				m_ButtonDown.SetActive(false);
+			}
+
 		}
-		else
-		{
-			m_ButtonDown.SetActive(false);
-		}
+		
 
 	}
 
