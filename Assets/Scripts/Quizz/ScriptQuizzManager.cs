@@ -480,6 +480,7 @@ public class ScriptQuizzManager : MonoBehaviour {
 	
 	public void NextStep()
 	{
+		Debug.Log("a");
 		m_InformationButton.SetActive(false);
 		m_AnswerImageAnimator.SetInteger("AnswerNumber", m_QuestionNumberFromList+1);
 		m_AnswerImageAnimator.SetTrigger("Reset");
