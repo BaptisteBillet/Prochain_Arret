@@ -34,23 +34,6 @@ public class CityContener : MonoBehaviour {
 		ChangePositionOnTheMap(position);
 	}
 
-	IEnumerator SmoothMovementUp()
-	{
-		while(transform.position!=m_Destination)
-		{
-			yield return new WaitForSeconds(m_Delay);
-			transform.position = new Vector3(transform.position.x, transform.position.y - m_Distance, transform.position.z);
-		}
-	}
-	IEnumerator SmoothMovementDown()
-	{
-		while (transform.position != m_Destination)
-		{
-			yield return new WaitForSeconds(m_Delay);
-			transform.position = new Vector3(transform.position.x, transform.position.y + m_Distance, transform.position.z);
-		}
-	}
-
 	void ChangePositionOnTheMap(int position)
 	{
 		Debug.Log(position);

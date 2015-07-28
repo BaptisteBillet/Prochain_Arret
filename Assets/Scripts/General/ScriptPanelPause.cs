@@ -29,7 +29,7 @@ public class ScriptPanelPause : MonoBehaviour
 
 	public void Exit ()
 	{
-		Debug.Log ("Exit");
+		Application.LoadLevel("TitleScreen");
 	}
 
 	public void Options ()
